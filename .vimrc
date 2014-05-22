@@ -101,9 +101,18 @@ nmap <silent> ,/ :nohlsearch<CR>
 au FileType python setl shiftwidth=4 tabstop=4
 
 let g:jedi#popup_on_dot = 0
-
 let g:jedi#completions_command = "<C-n>"
-nmap ,F :GitGrep 
-nmap ,f :LGitGrep 
-let gitroot=system("git rev-parse --show-toplevel")
+
+map <leader>g :Unite vcs_grep/git<CR>i
+
+"CWD to the dir of the file we are opening
+cd %:p:h
+
+"CWD to the root of repo when opening file inside repo
+let g:gitroot=system("git rev-parse --show-toplevel")
 silent! cd `=gitroot`
+
+"search git repo instead of directory if inside a repo
+if gitroot != ""
+  map <leader>t :Unite repo_files<CR>i
+endif

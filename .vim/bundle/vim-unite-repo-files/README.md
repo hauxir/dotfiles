@@ -1,0 +1,84 @@
+# unite-source-repo_files
+
+file source in the SCM repository for unite.vim
+
+Version: 0.0.2  
+Author : pekepeke <pekepekesamurai+vim@gmail.com>  
+License: MIT <http://opensource.org/licenses/MIT>{{{  
+	Permission is hereby granted, free of charge, to any person obtaining a  
+	copy of this software and associated documentation files (the "Software"),  
+	to deal in the Software without restriction, including without limitation  
+	the rights to use, copy, modify, merge, publish, distribute, sublicense,  
+	and/or sell copies of the Software, and to permit persons to whom the  
+	Software is furnished to do so, subject to the following conditions:  
+	  
+	The above copyright notice and this permission notice shall be included  
+	in all copies or substantial portions of the Software.  
+	  
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,  
+	EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES  
+	OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND  
+	NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE  
+	LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF  
+	CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH  
+	THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+}}}
+
+## INTRODUCTION
+
+|unite-source-repo_files| is a Vim plugin to provide unite.vim source
+to select file in the SCM repository.
+
+Requirement:
+	- |unite.vim| (Recommend latest version at https://github.com/Shougo/unite.vim)
+
+Optionals:
+	- git
+	- hg
+	- svn
+	- bzr
+	- ag
+	- ack-grep
+	- vimproc
+
+Latest version:
+	https://github.com/pekepeke/vim-unite-repo_files
+
+### USAGE
+
+To select file, execute |:Unite| with argument of repo_files
+
+```
+:Unite repo_files
+```
+
+
+## CUSTOMIZE
+### Variables
+
+#### g:unite_source_repo_files_rule
+
+define ruleset of gathering files
+
+example.)
+
+
+```
+let g:unite_source_repo_files_rule = {
+	\   'git' : {
+	\   'located' : '.git',
+	\   'command' : 'git',
+	\   'exec' : '%c ls-files --cached --others --exclude-standard',
+	\ } }
+```
+
+#### g:unite_source_repo_files_max_candidates
+
+Set the max number of |unite-source-repo_files| candidates.
+
+The default value is 100.
+
+#### g:unite_repo_files_ignore_pattern
+
+Specify the regexp pattern to ignore candidates of the file.
+
