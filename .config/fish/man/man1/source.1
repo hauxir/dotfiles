@@ -1,0 +1,17 @@
+.TH "source" 1 "Sat Oct 19 2013" "Version 2.0.0" "fish" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+source \- source - evaluate contents of file\&. 
+.SH "source - evaluate contents of file\&."
+.PP
+.SS "Synopsis"
+\fCsource FILENAME [ARGUMENTS\&.\&.\&.]\fP
+.SS "Description"
+\fCsource\fP evaluates the commands of the specified file in the current shell\&. This is different from starting a new process to perform the commands (i\&.e\&. \fCfish < FILENAME\fP) since the commands will be evaluated by the current shell, which means that changes in environment variables affect the current shell\&. If additional arguments are specified after the file name, they will be inserted into the $argv variable\&.
+.PP
+If no file is specified, or if the file name '-' is used, stdin will be read\&.
+.PP
+The return status of \fCsource\fP is the return status of the last job to execute\&. If something goes wrong while opening or reading the file, \fCsource\fP exits with a non-zero status\&.
+.SS "Example"
+\fCsource ~/\&.config/fish/config\&.fish\fP causes fish to re-read its initialization file\&. 

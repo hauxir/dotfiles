@@ -1,0 +1,27 @@
+.TH "for" 1 "Sat Oct 19 2013" "Version 2.0.0" "fish" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+for \- for - perform a set of commands multiple times\&. 
+.SH "for - perform a set of commands multiple times\&."
+.PP
+.SS "Synopsis"
+\fCfor VARNAME in [VALUES\&.\&.\&.]; COMMANDS\&.\&.\&.; end\fP
+.SS "Description"
+\fCfor\fP is a loop construct\&. It will perform the commands specified by \fCCOMMANDS\fP multiple times\&. On each iteration, the environment variable specified by \fCVARNAME\fP is assigned a new value from \fCVALUES\fP\&. If \fCVALUES\fP is empty, \fCCOMMANDS\fP will not be executed at all\&.
+.SS "Example"
+The command
+.PP
+\fCfor i in foo bar baz; echo $i; end\fP
+.PP
+would output:
+.PP
+.PP
+.nf
+
+foo
+bar
+baz
+.fi
+.PP
+ 

@@ -1,0 +1,27 @@
+.TH "nextd" 1 "Sat Oct 19 2013" "Version 2.0.0" "fish" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+nextd \- nextd - move forward through directory history 
+.SH "nextd - move forward through directory history"
+.PP
+.SS "Synopsis"
+\fCnextd [-l | --list] [POS]\fP
+.SS "Description"
+\fCnextd\fP moves forwards \fCPOS\fP positions in the history of visited directories; if the end of the history has been hit, a warning is printed\&.
+.PP
+If the \fC-l>\fP or \fC--list\fP flag is specified, the current directory history is also displayed\&.
+.SS "Example"
+.PP
+.nf
+cd /usr/src
+# Working directory is now /usr/src
+cd /usr/src/fish-shell
+# Working directory is now /usr/src/fish-shell
+prevd
+# Working directory is now /usr/src
+nextd
+# Working directory is now /usr/src/fish-shell</pre>
+.fi
+.PP
+ 

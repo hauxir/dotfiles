@@ -1,0 +1,19 @@
+.TH "builtin" 1 "Sat Oct 19 2013" "Version 2.0.0" "fish" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+builtin \- builtin - run a builtin command 
+.SH "builtin - run a builtin command"
+.PP
+.SS "Synopsis"
+\fCbuiltin BUILTINNAME [OPTIONS\&.\&.\&.]\fP
+.SS "Description"
+\fCbuiltin\fP forces the shell to use a builtin command, rather than a function or program\&.
+.PP
+The following parameters are available:
+.PP
+.IP "\(bu" 2
+\fC-n\fP or \fC--names\fP List the names of all defined builtins
+.PP
+.SS "Example"
+\fCbuiltin jobs\fP executes the jobs builtin, even if a function named jobs exists\&. 

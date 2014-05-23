@@ -1,0 +1,43 @@
+.TH "history" 1 "Sat Oct 19 2013" "Version 2.0.0" "fish" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+history \- history - Show and manipulate command history 
+.SH "history - Show and manipulate command history"
+.PP
+.SS "Synopsis"
+.PP
+.nf
+
+history (--save | --clear)
+history (--search | --delete ) (--prefix 'prefix string' | --contains 'search string')
+.fi
+.PP
+.SS "Description"
+\fChistory\fP is used to list, search and delete the history of commands used\&.
+.PP
+The following options are available:
+.PP
+.IP "\(bu" 2
+\fC--save\fP saves all changes in the history file\&. The shell automatically saves the history file; this option is provided for internal use\&.
+.IP "\(bu" 2
+\fC--clear\fP clears the history file\&. A prompt is displayed before the history is erased\&.
+.IP "\(bu" 2
+\fC--search\fP returns history items in keeping with the \fC--prefix\fP or \fC--contains\fP options\&.
+.IP "\(bu" 2
+\fC--delete\fP deletes history items\&.
+.IP "\(bu" 2
+\fC--prefix\fP searches or deletes items in the history that begin with the specified text string\&.
+.IP "\(bu" 2
+\fC--contains\fP searches or deletes items in the history that contain the specified text string\&.
+.PP
+.PP
+If \fC--search\fP is specified without \fC--contains\fP or \fC--prefix\fP, \fC--contains\fP will be assumed\&.
+.PP
+If \fC--delete\fP is specified without \fC--contains\fP or \fC--prefix\fP, only a history item which exactly matches the parameter will be erased\&. No prompt will be given\&. If \fC--delete\fP is specified with either of these parameters, an interactive prompt will be displayed before any items are deleted\&.
+.SS "Example"
+\fChistory --clear\fP deletes all history items
+.PP
+\fChistory --search --contains 'foo'\fP outputs a list of all previous commands containing the string 'foo'\&.
+.PP
+\fChistory --delete --prefix 'foo'\fP interactively deletes the record of previous commands which start with 'foo'\&. 

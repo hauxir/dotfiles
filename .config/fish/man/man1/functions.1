@@ -1,0 +1,54 @@
+.TH "functions" 1 "Sat Oct 19 2013" "Version 2.0.0" "fish" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+functions \- functions - print or erase functions 
+.SH "functions - print or erase functions"
+.PP
+.SS "Synopsis"
+.PP
+.nf
+functions [-n]
+functions -c OLDNAME NEWNAME
+functions -d DESCRIPTION FUNCTION
+functions [-eq] FUNCTIONS\&.\&.\&.
+.fi
+.PP
+.SS "Description"
+\fCfunctions\fP prints or erases functions\&.
+.PP
+The following options are available:
+.PP
+.IP "\(bu" 2
+\fC-a\fP or \fC--all\fP lists all functions, even those whose name start with an underscore\&.
+.IP "\(bu" 2
+\fC-c OLDNAME NEWNAME\fP or \fC--copy OLDNAME NEWNAME\fP creates a new function named NEWNAME, using the definition of the OLDNAME function\&.
+.IP "\(bu" 2
+\fC-d DESCRIPTION\fP or \fC--description=DESCRIPTION\fP changes the description of this function\&.
+.IP "\(bu" 2
+\fC-e\fP or \fC--erase\fP causes the specified functions to be erased\&.
+.IP "\(bu" 2
+\fC-h\fP or \fC--help\fP displays a help message and exits\&.
+.IP "\(bu" 2
+\fC-n\fP or \fC--names\fP lists the names of all defined functions\&.
+.IP "\(bu" 2
+\fC-q\fP or \fC--query\fP tests if the specified functions exist\&.
+.PP
+.PP
+The default behavior of \fCfunctions\fP, when called with no arguments, is to print the names of all defined functions\&. Unless the \fC-a\fP option is given, no functions starting with underscores are not included in the output\&.
+.PP
+If any non-option parameters are given, the definition of the specified functions are printed\&.
+.PP
+Automatically loaded functions cannot be removed using \fCfunctions -e\fP\&. Either remove the definition file or change the $fish_function_path variable to remove autoloaded functions\&.
+.PP
+Copying a function using \fC-c\fP copies only the body of the function, and does not attach any event notifications from the original function\&.
+.PP
+Only one function's description can be changed in a single invocation of \fCfunctions -d\fP\&.
+.PP
+The exit status of \fCfunctions\fP is the number of functions specified in the argument list that do not exist, which can be used in concert with the \fC-q\fP option\&.
+.SS "Examples"
+\fCfunctions -n\fP displays a list of currently-defined functions\&.
+.PP
+\fCfunctions -c foo bar\fP copies the \fCfoo\fP function to a new function called \fCbar\fP\&.
+.PP
+\fCfunctions -e bar\fP erases the function \fCbar\fP\&. 

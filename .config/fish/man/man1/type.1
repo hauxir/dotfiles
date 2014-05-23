@@ -1,0 +1,31 @@
+.TH "type" 1 "Sat Oct 19 2013" "Version 2.0.0" "fish" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+type \- type - indicate how a command would be interpreted 
+.SH "type - indicate how a command would be interpreted"
+.PP
+.SS "Synopsis"
+\fCtype [OPTIONS] NAME [NAME \&.\&.\&.]\fP
+.SS "Description"
+With no options, \fCtype\fP indicates how each \fCNAME\fP would be interpreted if used as a command name\&.
+.PP
+The following options are available:
+.PP
+.IP "\(bu" 2
+\fC-h\fP or \fC--help\fP prints help and then exits\&.
+.IP "\(bu" 2
+\fC-a\fP or \fC--all\fP prints all of possible definitions of the specified names\&.
+.IP "\(bu" 2
+\fC-f\fP or \fC--no-functions\fP suppresses function and builtin lookup\&.
+.IP "\(bu" 2
+\fC-t\fP or \fC--type\fP prints \fCkeyword\fP, \fCfunction\fP, \fCbuiltin\fP, or \fCfile\fP if \fCNAME\fP is a shell reserved word, function, builtin, or disk file, respectively\&.
+.IP "\(bu" 2
+\fC-p\fP or \fC--path\fP returns the name of the disk file that would be executed, or nothing if 'type -t name' would not return 'file'\&.
+.IP "\(bu" 2
+\fC-P\fP or \fC--force-path\fP returns the name of the disk file that would be executed, or nothing no file with the specified name could be found in the \fC$PATH\fP\&.
+.PP
+.PP
+\fCtype\fP sets the exit status to 0 if the specified command was found, and 1 if it could not be found\&.
+.SS "Example"
+\fCtype fg\fP outputs the string 'fg is a shell builtin'\&. 

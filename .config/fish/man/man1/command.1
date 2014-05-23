@@ -1,0 +1,13 @@
+.TH "command" 1 "Sat Oct 19 2013" "Version 2.0.0" "fish" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+command \- command - run a program 
+.SH "command - run a program"
+.PP
+.SS "Synopsis"
+\fCcommand COMMANDNAME [OPTIONS\&.\&.\&.]\fP
+.SS "Description"
+\fCcommand\fP forces the shell to execute the program \fCCOMMANDNAME\fP and ignore any functions or builtins with the same name\&.
+.SS "Example"
+\fCcommand ls\fP causes fish to execute the \fCls\fP program, even if an 'ls' function exists\&. 

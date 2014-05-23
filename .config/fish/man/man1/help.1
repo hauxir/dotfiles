@@ -1,0 +1,19 @@
+.TH "help" 1 "Sat Oct 19 2013" "Version 2.0.0" "fish" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+help \- help - display fish documentation 
+.SH "help - display fish documentation"
+.PP
+.SS "Synopsis"
+\fChelp [SECTION]\fP
+.SS "Description"
+\fChelp\fP displays the fish help documentation\&.
+.PP
+If a \fCSECTION\fP is specified, the help for that command is shown\&.
+.PP
+If the BROWSER environment variable is set, it will be used to display the documentation\&. Otherwise, fish will search for a suitable browser\&.
+.PP
+Note that most builtin commands display their help in the terminal when given the \fC--help\fP option\&.
+.SS "Example"
+\fChelp fg\fP shows the documentation for the \fCfg\fP builtin\&. 

@@ -1,0 +1,24 @@
+.TH "not" 1 "Sat Oct 19 2013" "Version 2.0.0" "fish" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+not \- not - negate the exit status of a job 
+.SH "not - negate the exit status of a job"
+.PP
+.SS "Synopsis"
+\fCnot COMMAND [OPTIONS\&.\&.\&.]\fP
+.SS "Description"
+\fCnot\fP negates the exit status of another command\&. If the exit status is zero, \fCnot\fP returns 1\&. Otherwise, \fCnot\fP returns 0\&.
+.SS "Example"
+The following code reports an error and exits if no file named spoon can be found\&.
+.PP
+.PP
+.nf
+
+if not test -f spoon
+        echo There is no spoon
+        exit 1
+end
+.fi
+.PP
+ 

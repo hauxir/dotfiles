@@ -1,0 +1,17 @@
+.TH "while" 1 "Sat Oct 19 2013" "Version 2.0.0" "fish" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+while \- while - perform a command multiple times 
+.SH "while - perform a command multiple times"
+.PP
+.SS "Synopsis"
+\fCwhile CONDITION; COMMANDS\&.\&.\&.; end\fP
+.SS "Description"
+\fCwhile\fP repeatedly executes \fCCONDITION\fP, and if the exit status is 0, then executes \fCCOMMANDS\fP\&.
+.PP
+If the exit status of \fCCONDITION\fP is non-zero on the first iteration, \fCCOMMANDS\fP will not be executed at all\&.
+.PP
+Use \fC\fCbegin; \&.\&.\&.; end\fP\fP for complex conditions; more complex control can be achieved with \fCwhile true\fP containing a \fCbreak\fP\&.
+.SS "Example"
+\fCwhile test -f foo\&.txt; echo file exists; sleep 10; end\fP outputs 'file exists' at 10 second intervals as long as the file foo\&.txt exists\&. 

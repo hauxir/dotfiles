@@ -1,0 +1,95 @@
+.TH "bind" 1 "Sat Oct 19 2013" "Version 2.0.0" "fish" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+bind \- bind - handle fish key bindings 
+.SH "bind - handle fish key bindings"
+.PP
+.SS "Synopsis"
+\fCbind [OPTIONS] SEQUENCE COMMAND\fP
+.SS "Description"
+\fCbind\fP adds a binding for the specified key sequence to the specified command\&.
+.PP
+SEQUENCE is the character sequence to bind to\&. These should be written as \fCfish escape sequences\fP\&. For example, because pressing the Alt key and another character sends that character prefixed with an escape character, Alt-based key bindings can be written using the \fC\\e\fP escape\&. For example, Alt-w can be written as \fC\\ew\fP\&. The control character can be written in much the same way using the \fC\\c\fP escape, for example Control-x (^X) can be written as \fC\\cx\fP\&. Note that Alt-based key bindings are case sensitive and Control-based key bindings are not\&. This is a constraint of text-based terminals, not \fCfish\fP\&.
+.PP
+The default key binding can be set by specifying a SEQUENCE of the empty string (that is, \fC''\fP)\&. It will be used whenever no other binding matches\&. For most key bindings, it makes sense to use the \fCself-insert\fP function (i\&.e\&. \fCbind '' self-insert\fP as the default keybinding\&. This will insert any keystrokes not specifically bound to into the editor\&. Non-printable characters are ignored by the editor, so this will not result in control sequences being printable\&.
+.PP
+If the -k switch is used, the name of the key (such as down, up or backspace) is used instead of a sequence\&. The names used are the same as the corresponding curses variables, but without the 'key_' prefix\&. (See \fCterminfo(5)\fP for more information, or use \fCbind --key-names\fP for a list of all available named keys\&.)
+.PP
+COMMAND can be any fish command, but it can also be one of a set of special input functions\&. These include functions for moving the cursor, operating on the kill-ring, performing tab completion, etc\&. Use 'bind --function-names' for a complete list of these input functions\&.
+.PP
+When COMMAND is a shellscript command, it is a good practice to put the actual code into a \fCfunction\fP and simply bind to the function name\&. This way it becomes significantly easier to test the function while editing, and the result is usually more readable as well\&.
+.PP
+If such a script produces output, the script needs to finish by calling 'commandline -f repaint' in order to tell fish that a repaint is in order\&.
+.PP
+Key bindings are not saved between sessions by default\&. To save custom keybindings, edit the \fCfish_user_key_bindings\fP function and insert the appropriate \fCbind\fP statements\&.
+.PP
+The following parameters are available:
+.PP
+.IP "\(bu" 2
+\fC-k\fP or \fC--key\fP Specify a key name, such as 'left' or 'backspace' instead of a character sequence
+.IP "\(bu" 2
+\fC-K\fP or \fC--key-names\fP Display a list of available key names
+.IP "\(bu" 2
+\fC-f\fP or \fC--function-names\fP Display a list of available input functions
+.PP
+.PP
+The following special input functions are available:
+.PP
+.IP "\(bu" 2
+\fCbackward-char\fP, moves one character to the left
+.IP "\(bu" 2
+\fCbackward-delete-char\fP, deletes one character of input to the left of the cursor
+.IP "\(bu" 2
+\fCbackward-kill-line\fP, move everything from the beginning of the line to the cursor to the killring
+.IP "\(bu" 2
+\fCbackward-kill-word\fP, move the word to the left of the cursor to the killring
+.IP "\(bu" 2
+\fCbackward-word\fP, move one word to the left
+.IP "\(bu" 2
+\fCbeginning-of-history\fP, move to the beginning of the history
+.IP "\(bu" 2
+\fCbeginning-of-line\fP, move to the beginning of the line
+.IP "\(bu" 2
+\fCcapitalize-word\fP, make the current word begin with a capital letter
+.IP "\(bu" 2
+\fCcomplete\fP, guess the remainder of the current token
+.IP "\(bu" 2
+\fCdelete-char\fP, delete one character to the right of the cursor
+.IP "\(bu" 2
+\fCdelete-line\fP, delete the entire line
+.IP "\(bu" 2
+\fCdowncase-word\fP, make the current word lowercase
+.IP "\(bu" 2
+\fCdump-functions\fP, print a list of all key-bindings
+.IP "\(bu" 2
+\fCend-of-history\fP, move to the end of the history
+.IP "\(bu" 2
+\fCend-of-line\fP, move to the end of the line
+.IP "\(bu" 2
+\fCexplain\fP, print a description of possible problems with the current command
+.IP "\(bu" 2
+\fCforward-char\fP, move one character to the right
+.IP "\(bu" 2
+\fCforward-word\fP, move one word to the right
+.IP "\(bu" 2
+\fChistory-search-backward\fP, search the history for the previous match
+.IP "\(bu" 2
+\fChistory-search-forward\fP, search the history for the next match
+.IP "\(bu" 2
+\fCkill-line\fP, move everything from the cursor to the end of the line to the killring
+.IP "\(bu" 2
+\fCkill-whole-line\fP, move the line to the killring
+.IP "\(bu" 2
+\fCkill-word\fP, move the next word to the killring
+.IP "\(bu" 2
+\fCupcase-word\fP, make the current word uppercase
+.IP "\(bu" 2
+\fCyank\fP, insert the latest entry of the killring into the buffer
+.IP "\(bu" 2
+\fCyank-pop\fP, rotate to the previous entry of the killring
+.PP
+.SS "Examples"
+\fCbind \\cd 'exit'\fP causes \fCfish\fP to exit when Control-d is pressed\&.
+.PP
+\fCbind -k ppage history-search-backward\fP performs a history search when the Page Up key is pressed\&. 
