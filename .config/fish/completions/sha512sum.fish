@@ -1,1 +1,0 @@
-__fish_complete_xsum sha512sum

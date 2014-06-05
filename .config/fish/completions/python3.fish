@@ -1,2 +1,0 @@
-__fish_complete_python python3
-
