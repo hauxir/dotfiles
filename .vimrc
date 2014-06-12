@@ -23,11 +23,10 @@ set incsearch
 set list					"enable listchars
 set listchars=tab:>.,trail:.,extends:#,nbsp:.	"show whitespace and tabs
 set nobackup					"use git, swp files are for losers 
-"set nobeep					"STOP BEEPING!
 set noswapfile					"the '90s want their swap files back
 set number
 set shiftround					"use multiples of shiftwidth when shifting with < and >
-set shiftwidth=2
+set shiftwidth=4
 set showmatch
 set smartcase					"ignore case if search pattern is all lowercase, case-sensitive otherwise
 set softtabstop=4
@@ -57,10 +56,10 @@ let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
  
 
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=256
 
 set background=dark
-colorscheme solarized
+colorscheme base16-tomorrow
 set shell=bash
 
 " remap : to ; in normal mode
@@ -116,3 +115,4 @@ silent! cd `=gitroot`
 if gitroot != ""
   map <leader>t :Unite repo_files<CR>i
 endif
+set t_Co=256

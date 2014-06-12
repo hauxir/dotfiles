@@ -27,7 +27,7 @@
 
 " Variables  "{{{
 call unite#util#set_default('g:unite_source_grep_command', 'grep')
-call unite#util#set_default('g:unite_source_grep_default_opts', '-iHn')
+call unite#util#set_default('g:unite_source_grep_default_opts', '-riHn')
 call unite#util#set_default('g:unite_source_grep_recursive_opt', '-r')
 call unite#util#set_default('g:unite_source_grep_max_candidates', 100)
 call unite#util#set_default('g:unite_source_grep_search_word_highlight', 'Search')
