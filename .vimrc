@@ -59,6 +59,7 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 "let g:solarized_termcolors=256
 
 set background=dark
+let base16colorspace=256  " Access colors present in 256 colorspace
 colorscheme base16-tomorrow
 set shell=bash
 
