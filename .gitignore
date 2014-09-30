@@ -1,0 +1,4 @@
+.config/fish/fish_history
+.config/fish/fishd.*
+.config/configstore/
+.config/gtk-2.0/

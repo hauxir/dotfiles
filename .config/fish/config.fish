@@ -15,3 +15,4 @@ set fish_plugins django gi ndenv emoji-clock node pyenv extract percol python tm
 . $fish_path/oh-my-fish.fish
 
 if test -f ~/.autojump/etc/profile.d/autojump.fish; . ~/.autojump/etc/profile.d/autojump.fish; end
+eval sh $HOME/.config/base16-shell/base16-tomorrow.dark.sh
