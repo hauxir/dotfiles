@@ -1,3 +1,9 @@
 [user]
 email = hauxir@gmail.com
 name = Haukur Rosinkranz
+[push]
+default = matching
+
+[filter "gzip"]
+smudge = gzip
+clean = gzip -d
