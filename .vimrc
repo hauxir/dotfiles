@@ -10,6 +10,7 @@ set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 filetype plugin indent on
 
 syntax on
+set completeopt-=preview
 set autoindent
 set backspace=indent,eol,start     "allow backspacing over everything in insert mode
 set copyindent                     "copy indentation on auto-indenting
@@ -99,3 +100,6 @@ endif
 
 "Run neomake when writing files
 autocmd! BufWritePost * Neomake
+""
+"Let Eclim play nice with YCM
+let g:EclimCompletionMethod = 'omnifunc'
