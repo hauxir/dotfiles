@@ -47,6 +47,7 @@ nmap <leader>N :NERDTreeClose<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd FileType nerdtre setlocal nolist 	"hide list chars in nerdtree
 
+
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=1
@@ -117,3 +118,5 @@ if gitroot != ""
   map <leader>t :Unite repo_files<CR>i
 endif
 set t_Co=256
+
+autocmd! BufWritePost * Neomake
