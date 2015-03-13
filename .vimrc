@@ -7,50 +7,51 @@ call pathogen#helptags()
 let mapleader=","
 
 set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
-filetype plugin indent on
 
-syntax on
-set completeopt-=preview
-set autoindent
-set backspace=indent,eol,start     "allow backspacing over everything in insert mode
-set copyindent                     "copy indentation on auto-indenting
-set cursorline
-set expandtab
-set hidden                         "hide buffers instead of forcing to save and close
-set history=1000
-set hlsearch
-set ignorecase
-set incsearch
-set list                           "enable listchars
-set listchars=tab:>.,trail:.,extends:#,nbsp:.    "show whitespace and tabs
-set nobackup                       "use git, swp files are for losers 
-set noswapfile                     "the '90s want their swap files back
-set number
-set shiftround                     "use multiples of shiftwidth when shifting with < and >
-set shiftwidth=4
-set showmatch
-set smartcase                      "ignore case if search pattern is all lowercase, case-sensitive otherwise
-set softtabstop=4
-set title
-set undolevels=1000                "love me dem undos
-set visualbell
-set wildignore=*.swp,*.bak,*pyc,*class,*.o,*.obj,*.git
-set wrap
-
-" colorscheme settings
-set background=dark
-let base16colorspace=256  " Access colors present in 256 colorspace
-colorscheme base16-tomorrow
-set t_Co=256
-
+syntax on                          " syntax highlighting
+set title                          " set title of screen to name of file
+set visualbell                     " no bell noises
+set wrap                           " break lines when too long
+set number                         " show linenumbers
+set cursorline                     " highlight current line
 set shell=bash
 
-" remap : to ; in normal mode
-nnoremap ; :
-" use Q to format text
-vmap Q gq
-nmap Q gpap
+set completeopt-=preview           " disable preview buffer when using autocompletion
+set hidden                         " hide buffers instead of forcing to save and close
 
+filetype plugin indent on          " filetype based indentation
+set autoindent                     " when creating a new line indent it the same as the previous one
+set copyindent                     " copy indentation on auto-indenting
+
+set backspace=indent,eol,start     " allow backspacing over everything in insert mode
+
+set hlsearch                       " highlight results when searching
+set ignorecase                     " case insensitive search
+set incsearch                      " incremental search
+set smartcase                      " ignore case if search pattern is all lowercase, case-sensitive otherwise
+
+set list                           " enable listchars
+set listchars=tab:>.,trail:.,extends:#,nbsp:.    " show whitespace and tabs
+
+set shiftround                     " use multiples of shiftwidth when shifting with < and >
+set shiftwidth=4                   " 4 spaces per shift
+set expandtab                      " use spaces instead of tabs
+set softtabstop=4                  " 4 spaces per tab
+
+set nobackup                       " git takes care of my backups
+set noswapfile                     " no swap files, use git
+set wildignore=*.swp,*.bak,*pyc,*class,*.o,*.obj,*.git " ignore these in file-open suggestions
+
+set undolevels=1000                " love me dem undos
+set history=1000                   " and dat history
+
+" colorscheme settings
+let base16colorspace=256  " access colors present in 256 colorspace
+colorscheme base16-tomorrow
+set background=dark
+set t_Co=256 " force vim to use 256 colors
+
+" do you even hjkl bro
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
@@ -64,42 +65,36 @@ nnoremap k gk
 nnoremap <silent> <Space> za
 vnoremap <silent> <Space> zf
 
-" unite 
-nnoremap <leader>t :Unite file_rec/async<cr>
-nnoremap <leader>g :Unite grep:.<cr>
-nnoremap <leader>y :Unite history/yanks<cr>
-nnoremap <leader>b :Unite -quick-match buffer<cr>
-
 " 'easy' split navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" 'turn off' search
-nmap <silent> ,/ :nohlsearch<CR>
-
+" python indentation
 au FileType python setl shiftwidth=4 tabstop=4
 
-let g:jedi#popup_on_dot = 0
-let g:jedi#completions_command = "<C-Space>"
-
-"CWD to the dir of the file we are opening
+" CWD to the dir of the file we are opening
 cd %:p:h
 
-"CWD to the root of repo when opening file inside repo
+" CWD to the root of repo when opening file inside repo
 let g:gitroot=system("git rev-parse --show-toplevel")
 silent! cd `=gitroot`
 
+" unite
+" fuzzy search and open files from dir and subdirs using ,t
+nnoremap <leader>t :Unite file_rec/async<cr>
+" grep dir and subdirs recursively using ,g
+nnoremap <leader>g :Unite grep:.<cr>
 if v:shell_error == 0
-  "search git repo instead of directory if inside a repo
+  " use git repo for fuzzy search if inside git repo
   map <leader>t :Unite repo_files<CR>i
-  "git grep when pressing ,g in a repo
+  " use git grep instead instead of grep if inside a repo
   map <leader>g :Unite vcs_grep/git<CR>i
 endif
 
-"Run neomake when writing files
+" run neomake when writing files
 autocmd! BufWritePost * Neomake
-""
-"Let Eclim play nice with YCM
+
+" let Eclim play nice with YCM
 let g:EclimCompletionMethod = 'omnifunc'
