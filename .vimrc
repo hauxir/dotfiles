@@ -14,7 +14,10 @@ set visualbell                     " no bell noises
 set wrap                           " break lines when too long
 set number                         " show linenumbers
 set cursorline                     " highlight current line
-set shell=bash
+set background=dark                " dark bg
+set t_Co=256                       " force vim to use 256 colors
+
+set shell=bash                     " use bash
 
 set completeopt-=preview           " disable preview buffer when using autocompletion
 set hidden                         " hide buffers instead of forcing to save and close
@@ -45,11 +48,6 @@ set wildignore=*.swp,*.bak,*pyc,*class,*.o,*.obj,*.git " ignore these in file-op
 set undolevels=1000                " love me dem undos
 set history=1000                   " and dat history
 
-" colorscheme settings
-let base16colorspace=256  " access colors present in 256 colorspace
-colorscheme base16-tomorrow
-set background=dark
-set t_Co=256 " force vim to use 256 colors
 
 " do you even hjkl bro
 map <up> <nop>
@@ -77,16 +75,23 @@ au FileType python setl shiftwidth=4 tabstop=4
 " CWD to the dir of the file we are opening
 cd %:p:h
 
-" CWD to the root of repo when opening file inside repo
+" CWD to the root of git repo when opening file inside repo
 let g:gitroot=system("git rev-parse --show-toplevel")
+let g:is_gitrepo = v:shell_error == 0
 silent! cd `=gitroot`
+
+" ----- PLUGIN SETTINGS START-----
+
+" base16 tomorrow theme
+let base16colorspace=256  " access colors present in 256 colorspace
+colorscheme base16-tomorrow
 
 " unite
 " fuzzy search and open files from dir and subdirs using ,t
 nnoremap <leader>t :Unite file_rec/async<cr>
 " grep dir and subdirs recursively using ,g
 nnoremap <leader>g :Unite grep:.<cr>
-if v:shell_error == 0
+if is_gitrepo
   " use git repo for fuzzy search if inside git repo
   map <leader>t :Unite repo_files<CR>i
   " use git grep instead instead of grep if inside a repo
