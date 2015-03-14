@@ -1,9 +1,5 @@
 set nocompatible
 
-" Pathogen
-call pathogen#infect()
-call pathogen#helptags()
-
 let mapleader=","
 
 set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
@@ -81,6 +77,10 @@ let g:is_gitrepo = v:shell_error == 0
 silent! cd `=gitroot`
 
 " ----- PLUGIN SETTINGS START-----
+
+" pathogen
+call pathogen#infect()
+call pathogen#helptags()
 
 " base16 tomorrow theme
 let base16colorspace=256  " access colors present in 256 colorspace
