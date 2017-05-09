@@ -1,45 +1,38 @@
-// Copyright (C) 2011, 2012  Google Inc.
+// Copyright (C) 2011, 2012 Google Inc.
 //
-// This file is part of YouCompleteMe.
+// This file is part of ycmd.
 //
-// YouCompleteMe is free software: you can redistribute it and/or modify
+// ycmd is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// YouCompleteMe is distributed in the hope that it will be useful,
+// ycmd is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with YouCompleteMe.  If not, see <http://www.gnu.org/licenses/>.
+// along with ycmd.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "standard.h"
 #include "Candidate.h"
 #include "Result.h"
-#include <cctype>
+
 #include <boost/algorithm/string.hpp>
+#include <cctype>
+#include <locale>
 
 using boost::algorithm::all;
 using boost::algorithm::is_lower;
+using boost::algorithm::is_print;
 
 namespace YouCompleteMe {
 
-namespace {
-
-LetterNode *FirstUppercaseNode( const std::list< LetterNode *> &list ) {
-  LetterNode *node = NULL;
-  foreach( LetterNode * current_node, list ) {
-    if ( current_node->LetterIsUppercase() ) {
-      node = current_node;
-      break;
-    }
-  }
-  return node;
+bool IsPrintable( const std::string &text ) {
+  return all( text, is_print( std::locale::classic() ) );
 }
 
-} // unnamed namespace
 
 std::string GetWordBoundaryChars( const std::string &text ) {
   std::string result;
@@ -66,8 +59,12 @@ std::string GetWordBoundaryChars( const std::string &text ) {
 
 Bitset LetterBitsetFromString( const std::string &text ) {
   Bitset letter_bitset;
+
   foreach ( char letter, text ) {
-    letter_bitset.set( IndexForChar( letter ) );
+    int letter_index = IndexForLetter( letter );
+
+    if ( IsInAsciiRange( letter_index ) )
+      letter_bitset.set( letter_index );
   }
 
   return letter_bitset;
@@ -90,25 +87,27 @@ Result Candidate::QueryMatchResult( const std::string &query,
   int index_sum = 0;
 
   foreach ( char letter, query ) {
-    const std::list< LetterNode *> *list = node->NodeListForLetter( letter );
+    const NearestLetterNodeIndices *nearest =
+      node->NearestLetterNodesForLetter( letter );
 
-    if ( !list )
+    if ( !nearest )
       return Result( false );
 
-    if ( case_sensitive ) {
-      // When the query letter is uppercase, then we force an uppercase match
-      // but when the query letter is lowercase, then it can match both an
-      // uppercase and a lowercase letter. This is by design and it's much
-      // better than forcing lowercase letter matches.
-      node = IsUppercase( letter ) ?
-             FirstUppercaseNode( *list ) :
-             list->front();
-
-      if ( !node )
-        return Result( false );
+    // When the query letter is uppercase, then we force an uppercase match
+    // but when the query letter is lowercase, then it can match both an
+    // uppercase and a lowercase letter. This is by design and it's much
+    // better than forcing lowercase letter matches.
+    node = NULL;
+    if ( case_sensitive && IsUppercase( letter ) ) {
+      if ( nearest->indexOfFirstUppercaseOccurrence >= 0 )
+        node = ( *root_node_ )[ nearest->indexOfFirstUppercaseOccurrence ];
     } else {
-      node = list->front();
+      if ( nearest->indexOfFirstOccurrence >= 0 )
+        node = ( *root_node_ )[ nearest->indexOfFirstOccurrence ];
     }
+
+    if ( !node )
+      return Result( false );
 
     index_sum += node->Index();
   }

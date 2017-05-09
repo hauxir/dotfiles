@@ -1,19 +1,19 @@
-// Copyright (C) 2011, 2012  Google Inc.
+// Copyright (C) 2011, 2012 Google Inc.
 //
-// This file is part of YouCompleteMe.
+// This file is part of ycmd.
 //
-// YouCompleteMe is free software: you can redistribute it and/or modify
+// ycmd is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// YouCompleteMe is distributed in the hope that it will be useful,
+// ycmd is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with YouCompleteMe.  If not, see <http://www.gnu.org/licenses/>.
+// along with ycmd.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "LetterNodeListMap.h"
 #include "standard.h"
@@ -26,7 +26,12 @@ bool IsUppercase( char letter ) {
 }
 
 
-int IndexForChar( char letter ) {
+bool IsInAsciiRange( int index ) {
+  return 0 <= index && index < NUM_LETTERS;
+}
+
+
+int IndexForLetter( char letter ) {
   if ( IsUppercase( letter ) )
     return letter + ( 'a' - 'A' );
 
@@ -35,45 +40,30 @@ int IndexForChar( char letter ) {
 
 
 LetterNodeListMap::LetterNodeListMap() {
-  std::fill( letters_.begin(),
-             letters_.end(),
-             static_cast< std::list< LetterNode * >* >( NULL ) );
 }
 
 
-LetterNodeListMap::~LetterNodeListMap() {
-  for ( uint i = 0; i < letters_.size(); ++i ) {
-    delete letters_[ i ];
-  }
+LetterNodeListMap::LetterNodeListMap( const LetterNodeListMap &other ) {
+  if ( other.letters_ )
+    letters_.reset( new NearestLetterNodeArray( *other.letters_ ) );
 }
 
 
-bool LetterNodeListMap::HasLetter( char letter ) {
-  int letter_index = IndexForChar( letter );
-  std::list< LetterNode * > *list = letters_[ letter_index ];
-  return list;
+NearestLetterNodeIndices &LetterNodeListMap::operator[] ( char letter ) {
+  if ( !letters_ )
+    letters_.reset( new NearestLetterNodeArray() );
+
+  int letter_index = IndexForLetter( letter );
+
+  return letters_->at( letter_index );
 }
 
 
-std::list< LetterNode * > &LetterNodeListMap::operator[] ( char letter ) {
-  int letter_index = IndexForChar( letter );
-  std::list< LetterNode * > *list = letters_[ letter_index ];
+NearestLetterNodeIndices *LetterNodeListMap::ListPointerAt( char letter ) {
+  if ( !letters_ )
+    return NULL;
 
-  if ( list )
-    return *list;
-
-  letters_[ letter_index ] = new std::list< LetterNode * >();
-  return *letters_[ letter_index ];
-}
-
-
-std::list< LetterNode * > *LetterNodeListMap::ListPointerAt( char letter ) {
-  return letters_[ IndexForChar( letter ) ];
-}
-
-
-bool LetterNodeListMap::HasLetter( char letter ) const {
-  return letters_[ IndexForChar( letter ) ] != NULL;
+  return &letters_->at( IndexForLetter( letter ) );
 }
 
 } // namespace YouCompleteMe

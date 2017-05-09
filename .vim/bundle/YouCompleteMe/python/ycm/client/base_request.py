@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-#
 # Copyright (C) 2013  Google Inc.
 #
 # This file is part of YouCompleteMe.
@@ -17,15 +15,25 @@
 # You should have received a copy of the GNU General Public License
 # along with YouCompleteMe.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import unicode_literals
+from __future__ import print_function
+from __future__ import division
+from __future__ import absolute_import
+from future import standard_library
+standard_library.install_aliases()
+from builtins import *  # noqa
+
 import requests
-import urlparse
+import urllib.parse
+import json
+from future.utils import native
 from base64 import b64decode, b64encode
 from retries import retries
 from requests_futures.sessions import FuturesSession
 from ycm.unsafe_thread_pool_executor import UnsafeThreadPoolExecutor
 from ycm import vimsupport
-from ycmd import utils
-from ycmd.utils import ToUtf8Json
+from ycmd.utils import ToBytes
+from ycmd.hmac_utils import CreateRequestHmac, CreateHmac, SecureBytesEqual
 from ycmd.responses import ServerError, UnknownExtraConf
 
 _HEADERS = {'content-type': 'application/json'}
@@ -34,7 +42,9 @@ _EXECUTOR = UnsafeThreadPoolExecutor( max_workers = 30 )
 _DEFAULT_TIMEOUT_SEC = 30
 _HMAC_HEADER = 'x-ycm-hmac'
 
+
 class BaseRequest( object ):
+
   def __init__( self ):
     pass
 
@@ -89,29 +99,37 @@ class BaseRequest( object ):
                            method,
                            timeout = _DEFAULT_TIMEOUT_SEC ):
     def SendRequest( data, handler, method, timeout ):
+      request_uri = _BuildUri( handler )
       if method == 'POST':
-        sent_data = ToUtf8Json( data )
+        sent_data = _ToUtf8Json( data )
         return BaseRequest.session.post(
-            _BuildUri( handler ),
+            request_uri,
             data = sent_data,
-            headers = BaseRequest._ExtraHeaders( sent_data ),
+            headers = BaseRequest._ExtraHeaders( method,
+                                                 request_uri,
+                                                 sent_data ),
             timeout = timeout )
       if method == 'GET':
         return BaseRequest.session.get(
-            _BuildUri( handler ),
-            headers = BaseRequest._ExtraHeaders(),
+            request_uri,
+            headers = BaseRequest._ExtraHeaders( method, request_uri ),
             timeout = timeout )
 
     @retries( 5, delay = 0.5, backoff = 1.5 )
     def DelayedSendRequest( data, handler, method ):
+      request_uri = _BuildUri( handler )
       if method == 'POST':
-        sent_data = ToUtf8Json( data )
-        return requests.post( _BuildUri( handler ),
-                              data = sent_data,
-                              headers = BaseRequest._ExtraHeaders( sent_data ) )
+        sent_data = _ToUtf8Json( data )
+        return requests.post(
+            request_uri,
+            data = sent_data,
+            headers = BaseRequest._ExtraHeaders( method,
+                                                 request_uri,
+                                                 sent_data ) )
       if method == 'GET':
-        return requests.get( _BuildUri( handler ),
-                             headers = BaseRequest._ExtraHeaders() )
+        return requests.get(
+            request_uri,
+            headers = BaseRequest._ExtraHeaders( method, request_uri ) )
 
     if not _CheckServerIsHealthyWithCache():
       return _EXECUTOR.submit( DelayedSendRequest, data, handler, method )
@@ -120,12 +138,15 @@ class BaseRequest( object ):
 
 
   @staticmethod
-  def _ExtraHeaders( request_body = None ):
+  def _ExtraHeaders( method, request_uri, request_body = None ):
     if not request_body:
-      request_body = ''
+      request_body = bytes( b'' )
     headers = dict( _HEADERS )
     headers[ _HMAC_HEADER ] = b64encode(
-        utils.CreateHexHmac( request_body, BaseRequest.hmac_secret ) )
+        CreateRequestHmac( ToBytes( method ),
+                           ToBytes( urllib.parse.urlparse( request_uri ).path ),
+                           request_body,
+                           BaseRequest.hmac_secret ) )
     return headers
 
   session = FuturesSession( executor = _EXECUTOR )
@@ -152,7 +173,7 @@ def JsonFromFuture( future ):
   response = future.result()
   _ValidateResponseObject( response )
   if response.status_code == requests.codes.server_error:
-    _RaiseExceptionForData( response.json() )
+    raise MakeServerException( response.json() )
 
   # We let Requests handle the other status types, we only handle the 500
   # error code.
@@ -163,36 +184,44 @@ def JsonFromFuture( future ):
   return None
 
 
-def HandleServerException( exception ):
+def HandleServerException( exception, truncate = False ):
   serialized_exception = str( exception )
 
   # We ignore the exception about the file already being parsed since it comes
   # up often and isn't something that's actionable by the user.
   if 'already being parsed' in serialized_exception:
     return
-  vimsupport.PostVimMessage( serialized_exception )
+  vimsupport.PostVimMessage( serialized_exception, truncate = truncate )
+
+
+def _ToUtf8Json( data ):
+  return ToBytes( json.dumps( data ) if data else None )
 
 
 def _ValidateResponseObject( response ):
-  if not utils.ContentHexHmacValid(
-      response.content,
-      b64decode( response.headers[ _HMAC_HEADER ] ),
-      BaseRequest.hmac_secret ):
+  our_hmac = CreateHmac( response.content, BaseRequest.hmac_secret )
+  their_hmac = ToBytes( b64decode( response.headers[ _HMAC_HEADER ] ) )
+  if not SecureBytesEqual( our_hmac, their_hmac ):
     raise RuntimeError( 'Received invalid HMAC for response!' )
   return True
 
+
 def _BuildUri( handler ):
-  return urlparse.urljoin( BaseRequest.server_location, handler )
+  return native( ToBytes( urllib.parse.urljoin( BaseRequest.server_location,
+                                                handler ) ) )
 
 
 SERVER_HEALTHY = False
+
 
 def _CheckServerIsHealthyWithCache():
   global SERVER_HEALTHY
 
   def _ServerIsHealthy():
-    response = requests.get( _BuildUri( 'healthy' ),
-                             headers = BaseRequest._ExtraHeaders() )
+    request_uri = _BuildUri( 'healthy' )
+    response = requests.get( request_uri,
+                             headers = BaseRequest._ExtraHeaders(
+                                 'GET', request_uri, bytes( b'' ) ) )
     _ValidateResponseObject( response )
     response.raise_for_status()
     return response.json()
@@ -207,9 +236,9 @@ def _CheckServerIsHealthyWithCache():
     return False
 
 
-def _RaiseExceptionForData( data ):
+def MakeServerException( data ):
   if data[ 'exception' ][ 'TYPE' ] == UnknownExtraConf.__name__:
-    raise UnknownExtraConf( data[ 'exception' ][ 'extra_conf_file' ] )
+    return UnknownExtraConf( data[ 'exception' ][ 'extra_conf_file' ] )
 
-  raise ServerError( '{0}: {1}'.format( data[ 'exception' ][ 'TYPE' ],
-                                        data[ 'message' ] ) )
+  return ServerError( '{0}: {1}'.format( data[ 'exception' ][ 'TYPE' ],
+                                         data[ 'message' ] ) )

@@ -1,21 +1,29 @@
-#!/usr/bin/env python
+# encoding: utf-8
 #
-# Copyright (C) 2014  Google Inc.
+# Copyright (C) 2014 Google Inc.
 #
-# This file is part of YouCompleteMe.
+# This file is part of ycmd.
 #
-# YouCompleteMe is free software: you can redistribute it and/or modify
+# ycmd is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# YouCompleteMe is distributed in the hope that it will be useful,
+# ycmd is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with YouCompleteMe.  If not, see <http://www.gnu.org/licenses/>.
+# along with ycmd.  If not, see <http://www.gnu.org/licenses/>.
+
+from __future__ import unicode_literals
+from __future__ import print_function
+from __future__ import division
+from __future__ import absolute_import
+from future import standard_library
+standard_library.install_aliases()
+from builtins import *  # noqa
 
 import re
 
@@ -44,7 +52,17 @@ COMMENT_AND_STRING_REGEX = re.compile(
   #  3. the escaped double quote inside the string
   r'(?<!\\)"(?:\\\\|\\"|.)*?"', re.MULTILINE )
 
-DEFAULT_IDENTIFIER_REGEX = re.compile( r"[_a-zA-Z]\w*", re.UNICODE )
+# At least c++ and javascript support unicode identifiers, and identifiers may
+# start with unicode character, e.g. ålpha. So we need to accept any identifier
+# starting with an 'alpha' character or underscore. i.e. not starting with a
+# 'digit'. The following regex will match:
+#   - A character which is alpha or _. That is a character which is NOT:
+#     - a digit (\d)
+#     - non-alphanumeric
+#     - not an underscore
+#       (The latter two come from \W which is the negation of \w)
+#   - Followed by any alphanumeric or _ characters
+DEFAULT_IDENTIFIER_REGEX = re.compile( r"[^\W\d]\w*", re.UNICODE )
 
 FILETYPE_TO_IDENTIFIER_REGEX = {
     # Spec: http://www.w3.org/TR/CSS2/syndata.html#characters
@@ -54,7 +72,8 @@ FILETYPE_TO_IDENTIFIER_REGEX = {
     # Spec: http://www.w3.org/TR/html5/syntax.html#tag-name-state
     # But not quite since not everything we want to pull out is a tag name. We
     # also want attribute names (and probably unquoted attribute values).
-    'html': re.compile( r"[a-zA-Z][^\s/>='\"]*", re.UNICODE ),
+    # And we also want to ignore common template chars like `}` and `{`.
+    'html': re.compile( r"[a-zA-Z][^\s/>='\"}{\.]*", re.UNICODE ),
 
     # Spec: http://cran.r-project.org/doc/manuals/r-release/R-lang.pdf
     # Section 10.3.2.
@@ -72,12 +91,23 @@ FILETYPE_TO_IDENTIFIER_REGEX = {
 
     # Spec: http://www.haskell.org/onlinereport/lexemes.html
     # Section 2.4
-    'haskell': re.compile( r"[_a-zA-Z][\w']*", re.UNICODE ),
+    'haskell': re.compile( r"[_a-zA-Z][\w']+", re.UNICODE ),
+
+    # Spec: ?
+    # Labels like \label{fig:foobar} are very common
+    'tex': re.compile( r"[_a-zA-Z:-]+", re.UNICODE ),
+
+    # Spec: http://doc.perl6.org/language/syntax
+    'perl6': re.compile( r"[_a-zA-Z](?:\w|[-'](?=[_a-zA-Z]))*", re.UNICODE ),
 }
 
 FILETYPE_TO_IDENTIFIER_REGEX[ 'scss' ] = FILETYPE_TO_IDENTIFIER_REGEX[ 'css' ]
 FILETYPE_TO_IDENTIFIER_REGEX[ 'sass' ] = FILETYPE_TO_IDENTIFIER_REGEX[ 'css' ]
 FILETYPE_TO_IDENTIFIER_REGEX[ 'less' ] = FILETYPE_TO_IDENTIFIER_REGEX[ 'css' ]
+FILETYPE_TO_IDENTIFIER_REGEX[ 'elisp' ] = (
+  FILETYPE_TO_IDENTIFIER_REGEX[ 'clojure' ] )
+FILETYPE_TO_IDENTIFIER_REGEX[ 'lisp' ] = (
+  FILETYPE_TO_IDENTIFIER_REGEX[ 'clojure' ] )
 
 
 def IdentifierRegexForFiletype( filetype ):
@@ -107,7 +137,7 @@ def StartOfLongestIdentifierEndingAtIndex( text, index, filetype = None ):
   if not text or index < 1 or index > len( text ):
     return index
 
-  for i in xrange( index ):
+  for i in range( index ):
     if IsIdentifier( text[ i : index ], filetype ):
       return i
   return index
@@ -123,4 +153,3 @@ def IdentifierAtIndex( text, index, filetype = None ):
     if match.end() > index:
       return match.group()
   return ''
-

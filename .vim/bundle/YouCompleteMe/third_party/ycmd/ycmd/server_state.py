@@ -1,35 +1,44 @@
-#!/usr/bin/env python
+# Copyright (C) 2013 Google Inc.
 #
-# Copyright (C) 2013  Google Inc.
+# This file is part of ycmd.
 #
-# This file is part of YouCompleteMe.
-#
-# YouCompleteMe is free software: you can redistribute it and/or modify
+# ycmd is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# YouCompleteMe is distributed in the hope that it will be useful,
+# ycmd is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with YouCompleteMe.  If not, see <http://www.gnu.org/licenses/>.
+# along with ycmd.  If not, see <http://www.gnu.org/licenses/>.
 
-import imp
+from __future__ import unicode_literals
+from __future__ import print_function
+from __future__ import division
+from __future__ import absolute_import
+from future import standard_library
+standard_library.install_aliases()
+from builtins import *  # noqa
+
 import os
 import threading
-from ycmd.utils import ForceSemanticCompletion
+import logging
+from future.utils import listvalues
+from ycmd.utils import ForceSemanticCompletion, LoadPythonSource
 from ycmd.completers.general.general_completer_store import (
     GeneralCompleterStore )
 from ycmd.completers.completer_utils import PathToFiletypeCompleterPluginLoader
+
+_logger = logging.getLogger( __name__ )
 
 
 class ServerState( object ):
   def __init__( self, user_options ):
     self._user_options = user_options
-    self._filetype_completers = {}
+    self._filetype_completers = dict()
     self._filetype_completers_lock = threading.Lock()
     self._gencomp = GeneralCompleterStore( self._user_options )
 
@@ -41,7 +50,7 @@ class ServerState( object ):
 
   def Shutdown( self ):
     with self._filetype_completers_lock:
-      for completer in self._filetype_completers.itervalues():
+      for completer in self._filetype_completers.values():
         if completer:
           completer.Shutdown()
 
@@ -57,12 +66,12 @@ class ServerState( object ):
 
       module_path = PathToFiletypeCompleterPluginLoader( filetype )
       completer = None
-      supported_filetypes = [ filetype ]
+      supported_filetypes = set( [ filetype ] )
       if os.path.exists( module_path ):
-        module = imp.load_source( filetype, module_path )
+        module = LoadPythonSource( filetype, module_path )
         completer = module.GetCompleter( self._user_options )
         if completer:
-          supported_filetypes.extend( completer.SupportedFiletypes() )
+          supported_filetypes.update( completer.SupportedFiletypes() )
 
       for supported_filetype in supported_filetypes:
         self._filetype_completers[ supported_filetype ] = completer
@@ -81,11 +90,17 @@ class ServerState( object ):
         current_filetypes ) )
 
 
+  def GetLoadedFiletypeCompleters( self ):
+    with self._filetype_completers_lock:
+      return set( listvalues( self._filetype_completers ) )
+
+
   def FiletypeCompletionAvailable( self, filetypes ):
     try:
       self.GetFiletypeCompleter( filetypes )
       return True
-    except:
+    except Exception as e:
+      _logger.exception( e )
       return False
 
 
@@ -94,17 +109,32 @@ class ServerState( object ):
              self.FiletypeCompletionAvailable( filetypes ) )
 
 
-  def ShouldUseGeneralCompleter( self, request_data ):
-    return self._gencomp.ShouldUseNow( request_data )
-
-
   def ShouldUseFiletypeCompleter( self, request_data ):
+    """
+    Determines whether or not the semantic completer should be called, and
+    returns an indication of the reason why. Specifically, returns a tuple:
+    ( should_use_completer_now, was_semantic_completion_forced ), where:
+     - should_use_completer_now: if True, the semantic engine should be used
+     - was_semantic_completion_forced: if True, the user requested "forced"
+                                       semantic completion
+    was_semantic_completion_forced is always False if should_use_completer_now
+    is False
+    """
     filetypes = request_data[ 'filetypes' ]
     if self.FiletypeCompletionUsable( filetypes ):
-      return ( ForceSemanticCompletion( request_data ) or
-               self.GetFiletypeCompleter( filetypes ).ShouldUseNow(
-                 request_data ) )
-    return False
+      if ForceSemanticCompletion( request_data ):
+        # use semantic, and it was forced
+        return ( True, True )
+      else:
+        # was not forced. check the conditions for triggering
+        return (
+          self.GetFiletypeCompleter( filetypes ).ShouldUseNow( request_data ),
+          False
+        )
+
+    # don't use semantic, ignore whether or not the user requested forced
+    # completion
+    return ( False, False )
 
 
   def GetGeneralCompleter( self ):
@@ -118,4 +148,3 @@ class ServerState( object ):
       return False
     else:
       return not all([ x in filetype_to_disable for x in current_filetypes ])
-

@@ -1,19 +1,19 @@
-// Copyright (C) 2011, 2012  Google Inc.
+// Copyright (C) 2011, 2012 Google Inc.
 //
-// This file is part of YouCompleteMe.
+// This file is part of ycmd.
 //
-// YouCompleteMe is free software: you can redistribute it and/or modify
+// ycmd is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// YouCompleteMe is distributed in the hope that it will be useful,
+// ycmd is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with YouCompleteMe.  If not, see <http://www.gnu.org/licenses/>.
+// along with ycmd.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
@@ -22,6 +22,7 @@
 #include "TestUtils.h"
 
 using ::testing::ElementsAre;
+using ::testing::IsEmpty;
 using ::testing::WhenSorted;
 
 namespace YouCompleteMe {
@@ -33,7 +34,7 @@ TEST( IdentifierCompleterTest, EmptyQueryNoResults ) {
   EXPECT_THAT( IdentifierCompleter(
                  StringVector(
                    "foobar" ) ).CandidatesForQuery( "" ),
-               ElementsAre() );
+               IsEmpty() );
 }
 
 TEST( IdentifierCompleterTest, NoDuplicatesReturned ) {
@@ -228,7 +229,7 @@ TEST( IdentifierCompleterTest, PreferLowercaseCandidate ) {
                  StringVector(
                    "chatContentExtension",
                    "ChatContentExtension" ) ).CandidatesForQuery(
-                       "chatContent" ),
+                 "chatContent" ),
                ElementsAre( "chatContentExtension",
                             "ChatContentExtension" ) );
 
@@ -265,6 +266,22 @@ TEST( IdentifierCompleterTest, NonAlnumStartChar ) {
                  StringVector(
                    "-zoo-foo" ) ).CandidatesForQuery( "-z" ),
                ElementsAre( "-zoo-foo" ) );
+}
+
+
+TEST( IdentifierCompleterTest, EmptyCandidatesForUnicode ) {
+  EXPECT_THAT( IdentifierCompleter(
+                 StringVector(
+                   "uni¢𐍈d€" ) ).CandidatesForQuery( "¢" ),
+               IsEmpty() );
+}
+
+
+TEST( IdentifierCompleterTest, EmptyCandidatesForNonPrintable ) {
+  EXPECT_THAT( IdentifierCompleter(
+                 StringVector(
+                   "\x01\x1f\x7f" ) ).CandidatesForQuery( "\x1f" ),
+               IsEmpty() );
 }
 
 

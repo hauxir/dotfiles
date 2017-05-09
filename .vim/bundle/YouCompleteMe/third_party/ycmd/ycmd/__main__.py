@@ -1,38 +1,51 @@
-#!/usr/bin/env python
+# Copyright (C) 2013 Google Inc.
 #
-# Copyright (C) 2013  Google Inc.
+# This file is part of ycmd.
 #
-# This file is part of YouCompleteMe.
-#
-# YouCompleteMe is free software: you can redistribute it and/or modify
+# ycmd is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# YouCompleteMe is distributed in the hope that it will be useful,
+# ycmd is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with YouCompleteMe.  If not, see <http://www.gnu.org/licenses/>.
+# along with ycmd.  If not, see <http://www.gnu.org/licenses/>.
 
-from server_utils import SetUpPythonPath
+from __future__ import absolute_import
+from __future__ import unicode_literals
+from __future__ import print_function
+from __future__ import division
+# Other imports from `future` must be placed after SetUpPythonPath.
+
+import sys
+import os
+
+sys.path.insert( 0, os.path.dirname( os.path.abspath( __file__ ) ) )
+from server_utils import SetUpPythonPath, CompatibleWithCurrentCore
 SetUpPythonPath()
 
+from future import standard_library
+standard_library.install_aliases()
+from builtins import *  # noqa
+
+import atexit
 import sys
 import logging
 import json
 import argparse
-import waitress
 import signal
 import os
 import base64
-from ycmd import user_options_store
-from ycmd import extra_conf_store
-from ycmd import utils
-from ycmd.watchdog_plugin import WatchdogPlugin
+
+from ycmd import extra_conf_store, user_options_store, utils
 from ycmd.hmac_plugin import HmacPlugin
+from ycmd.utils import ToBytes, ReadFile, OpenForStdHandle
+from ycmd.wsgi_server import StoppableWSGIServer
+
 
 def YcmCoreSanityCheck():
   if 'ycm_core' in sys.modules:
@@ -41,29 +54,31 @@ def YcmCoreSanityCheck():
 
 # We manually call sys.exit() on SIGTERM and SIGINT so that atexit handlers are
 # properly executed.
-def SetUpSignalHandler( stdout, stderr, keep_logfiles ):
+def SetUpSignalHandler():
   def SignalHandler( signum, frame ):
-    # We reset stderr & stdout, just in case something tries to use them
-    if stderr:
-      tmp = sys.stderr
-      sys.stderr = sys.__stderr__
-      tmp.close()
-    if stdout:
-      tmp = sys.stdout
-      sys.stdout = sys.__stdout__
-      tmp.close()
-
-    if not keep_logfiles:
-      if stderr:
-        utils.RemoveIfExists( stderr )
-      if stdout:
-        utils.RemoveIfExists( stdout )
-
     sys.exit()
 
   for sig in [ signal.SIGTERM,
                signal.SIGINT ]:
     signal.signal( sig, SignalHandler )
+
+
+def CleanUpLogfiles( stdout, stderr, keep_logfiles ):
+  # We reset stderr & stdout, just in case something tries to use them
+  if stderr:
+    tmp = sys.stderr
+    sys.stderr = sys.__stderr__
+    tmp.close()
+  if stdout:
+    tmp = sys.stdout
+    sys.stdout = sys.__stdout__
+    tmp.close()
+
+  if not keep_logfiles:
+    if stderr:
+      utils.RemoveIfExists( stderr )
+    if stdout:
+      utils.RemoveIfExists( stdout )
 
 
 def PossiblyDetachFromTerminal():
@@ -90,7 +105,10 @@ def ParseArguments():
                               '[debug|info|warning|error|critical]' )
   parser.add_argument( '--idle_suicide_seconds', type = int, default = 0,
                        help = 'num idle seconds before server shuts down')
-  parser.add_argument( '--options_file', type = str, default = '',
+  parser.add_argument( '--check_interval_seconds', type = int, default = 600,
+                       help = 'interval in seconds to check server '
+                              'inactivity and keep subservers alive' )
+  parser.add_argument( '--options_file', type = str, required = True,
                        help = 'file with user options, in JSON format' )
   parser.add_argument( '--stdout', type = str, default = None,
                        help = 'optional file to use for stdout' )
@@ -110,53 +128,70 @@ def SetupLogging( log_level ):
   logging.basicConfig( format = '%(asctime)s - %(levelname)s - %(message)s',
                        level = numeric_level )
 
+
 def SetupOptions( options_file ):
-  options = ( json.load( open( options_file, 'r' ) )
-              if options_file
-              else user_options_store.DefaultOptions() )
+  options = user_options_store.DefaultOptions()
+  user_options = json.loads( ReadFile( options_file ) )
+  options.update( user_options )
   utils.RemoveIfExists( options_file )
-  options[ 'hmac_secret' ] = base64.b64decode( options[ 'hmac_secret' ] )
+  hmac_secret = ToBytes( base64.b64decode( options[ 'hmac_secret' ] ) )
+  del options[ 'hmac_secret' ]
   user_options_store.SetAll( options )
-  return options
+  return options, hmac_secret
 
 
 def CloseStdin():
   sys.stdin.close()
-  os.close(0)
+  os.close( 0 )
 
 
 def Main():
   args = ParseArguments()
 
   if args.stdout is not None:
-    sys.stdout = open( args.stdout, 'w' )
+    sys.stdout = OpenForStdHandle( args.stdout )
   if args.stderr is not None:
-    sys.stderr = open( args.stderr, 'w' )
+    sys.stderr = OpenForStdHandle( args.stderr )
 
   SetupLogging( args.log )
-  options = SetupOptions( args.options_file )
+  options, hmac_secret = SetupOptions( args.options_file )
 
   # This ensures that ycm_core is not loaded before extra conf
   # preload was run.
   YcmCoreSanityCheck()
   extra_conf_store.CallGlobalExtraConfYcmCorePreloadIfExists()
+
+  code = CompatibleWithCurrentCore()
+  if code:
+    sys.exit( code )
+
   PossiblyDetachFromTerminal()
 
-  # This can't be a top-level import because it transitively imports
+  # These can't be top-level imports because they transitively import
   # ycm_core which we want to be imported ONLY after extra conf
   # preload has executed.
   from ycmd import handlers
+  from ycmd.watchdog_plugin import WatchdogPlugin
   handlers.UpdateUserOptions( options )
-  SetUpSignalHandler(args.stdout, args.stderr, args.keep_logfiles)
-  handlers.app.install( WatchdogPlugin( args.idle_suicide_seconds ) )
-  handlers.app.install( HmacPlugin( options[ 'hmac_secret' ] ) )
+  handlers.SetHmacSecret( hmac_secret )
+  handlers.KeepSubserversAlive( args.check_interval_seconds )
+  SetUpSignalHandler()
+  # Functions registered by the atexit module are called at program termination
+  # in last in, first out order.
+  atexit.register( CleanUpLogfiles, args.stdout,
+                                    args.stderr,
+                                    args.keep_logfiles )
+  atexit.register( handlers.ServerCleanup )
+  handlers.app.install( WatchdogPlugin( args.idle_suicide_seconds,
+                                        args.check_interval_seconds ) )
+  handlers.app.install( HmacPlugin( hmac_secret ) )
   CloseStdin()
-  waitress.serve( handlers.app,
-                  host = args.host,
-                  port = args.port,
-                  threads = 30 )
+  handlers.wsgi_server = StoppableWSGIServer( handlers.app,
+                                              host = args.host,
+                                              port = args.port,
+                                              threads = 30 )
+  handlers.wsgi_server.Run()
 
 
 if __name__ == "__main__":
   Main()
-

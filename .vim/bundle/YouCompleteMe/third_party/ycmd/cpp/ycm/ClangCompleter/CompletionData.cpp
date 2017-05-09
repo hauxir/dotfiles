@@ -1,24 +1,25 @@
-// Copyright (C) 2011, 2012  Google Inc.
+// Copyright (C) 2011, 2012 Google Inc.
 //
-// This file is part of YouCompleteMe.
+// This file is part of ycmd.
 //
-// YouCompleteMe is free software: you can redistribute it and/or modify
+// ycmd is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// YouCompleteMe is distributed in the hope that it will be useful,
+// ycmd is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with YouCompleteMe.  If not, see <http://www.gnu.org/licenses/>.
+// along with ycmd.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "CompletionData.h"
 #include "ClangUtils.h"
 
 #include <boost/algorithm/string/erase.hpp>
+#include <boost/algorithm/string/predicate.hpp>
 #include <boost/move/move.hpp>
 
 namespace YouCompleteMe {
@@ -32,6 +33,8 @@ CompletionKind CursorKindToCompletionKind( CXCursorKind kind ) {
 
     case CXCursor_ClassDecl:
     case CXCursor_ClassTemplate:
+    case CXCursor_ObjCInterfaceDecl:
+    case CXCursor_ObjCImplementationDecl:
       return CLASS;
 
     case CXCursor_EnumDecl:
@@ -43,6 +46,9 @@ CompletionKind CursorKindToCompletionKind( CXCursorKind kind ) {
       return TYPE;
 
     case CXCursor_FieldDecl:
+    case CXCursor_ObjCIvarDecl:
+    case CXCursor_ObjCPropertyDecl:
+    case CXCursor_EnumConstantDecl:
       return MEMBER;
 
     case CXCursor_FunctionDecl:
@@ -51,6 +57,8 @@ CompletionKind CursorKindToCompletionKind( CXCursorKind kind ) {
     case CXCursor_ConversionFunction:
     case CXCursor_Constructor:
     case CXCursor_Destructor:
+    case CXCursor_ObjCClassMethodDecl:
+    case CXCursor_ObjCInstanceMethodDecl:
       return FUNCTION;
 
     case CXCursor_VarDecl:
@@ -90,7 +98,8 @@ bool IsMainCompletionTextInfo( CXCompletionChunkKind kind ) {
     kind == CXCompletionChunk_SemiColon    ||
     kind == CXCompletionChunk_Equal        ||
     kind == CXCompletionChunk_Informative  ||
-    kind == CXCompletionChunk_HorizontalSpace;
+    kind == CXCompletionChunk_HorizontalSpace ||
+    kind == CXCompletionChunk_Text;
 
 }
 
@@ -139,13 +148,15 @@ std::string OptionalChunkToString( CXCompletionString completion_string,
 }
 
 
-// NOTE: this function accepts the text param by value on purpose; it internally
-// needs a copy before processing the text so the copy might as well be made on
-// the parameter BUT if this code is compiled in C++11 mode a move constructor
-// can be called on the passed-in value. This is not possible if we accept the
-// param by const ref.
-std::string RemoveTwoConsecutiveUnderscores( std::string text ) {
-  boost::erase_all( text, "__" );
+// foo( -> foo
+// foo() -> foo
+std::string RemoveTrailingParens( std::string text ) {
+  if ( boost::ends_with( text, "(" ) ) {
+    boost::erase_tail( text, 1 );
+  } else if ( boost::ends_with( text, "()" ) ) {
+    boost::erase_tail( text, 2 );
+  }
+
   return text;
 }
 
@@ -161,25 +172,18 @@ CompletionData::CompletionData( const CXCompletionResult &completion_result ) {
   uint num_chunks = clang_getNumCompletionChunks( completion_string );
   bool saw_left_paren = false;
   bool saw_function_params = false;
+  bool saw_placeholder = false;
 
   for ( uint j = 0; j < num_chunks; ++j ) {
     ExtractDataFromChunk( completion_string,
                           j,
                           saw_left_paren,
-                          saw_function_params );
+                          saw_function_params,
+                          saw_placeholder );
   }
 
+  original_string_ = RemoveTrailingParens( boost::move( original_string_ ) );
   kind_ = CursorKindToCompletionKind( completion_result.CursorKind );
-
-  // We remove any two consecutive underscores from the function definition
-  // since identifiers with them are ugly, compiler-reserved names. Functions
-  // from the standard library use parameter names like "__pos" and we want to
-  // show them as just "pos". This will never interfere with client code since
-  // ANY C++ identifier with two consecutive underscores in it is
-  // compiler-reserved.
-  everything_except_return_type_ =
-    RemoveTwoConsecutiveUnderscores(
-      boost::move( everything_except_return_type_ ) );
 
   detailed_info_.append( return_type_ )
   .append( " " )
@@ -194,7 +198,8 @@ CompletionData::CompletionData( const CXCompletionResult &completion_result ) {
 void CompletionData::ExtractDataFromChunk( CXCompletionString completion_string,
                                            uint chunk_num,
                                            bool &saw_left_paren,
-                                           bool &saw_function_params ) {
+                                           bool &saw_function_params,
+                                           bool &saw_placeholder ) {
   CXCompletionChunkKind kind = clang_getCompletionChunkKind(
                                  completion_string, chunk_num );
 
@@ -226,11 +231,32 @@ void CompletionData::ExtractDataFromChunk( CXCompletionString completion_string,
     }
   }
 
-  if ( kind == CXCompletionChunk_ResultType )
-    return_type_ = ChunkToString( completion_string, chunk_num );
+  switch ( kind ) {
+    case CXCompletionChunk_ResultType:
+      return_type_ = ChunkToString( completion_string, chunk_num );
+      break;
 
-  if ( kind == CXCompletionChunk_TypedText )
-    original_string_ = ChunkToString( completion_string, chunk_num );
+    case CXCompletionChunk_Placeholder:
+      saw_placeholder = true;
+      break;
+
+    case CXCompletionChunk_TypedText:
+    case CXCompletionChunk_Text:
+
+      // need to add paren to insert string
+      // when implementing inherited methods or declared methods in objc.
+    case CXCompletionChunk_LeftParen:
+    case CXCompletionChunk_RightParen:
+    case CXCompletionChunk_HorizontalSpace:
+      if ( !saw_placeholder ) {
+        original_string_ += ChunkToString( completion_string, chunk_num );
+      }
+
+      break;
+
+    default:
+      break;
+  }
 }
 
 } // namespace YouCompleteMe

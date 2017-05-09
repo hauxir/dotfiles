@@ -1,19 +1,19 @@
-// Copyright (C) 2013  Google Inc.
+// Copyright (C) 2013 Google Inc.
 //
-// This file is part of YouCompleteMe.
+// This file is part of ycmd.
 //
-// YouCompleteMe is free software: you can redistribute it and/or modify
+// ycmd is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// YouCompleteMe is distributed in the hope that it will be useful,
+// ycmd is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with YouCompleteMe.  If not, see <http://www.gnu.org/licenses/>.
+// along with ycmd.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "standard.h"
 #include "ClangHelpers.h"
@@ -22,46 +22,15 @@
 #include "UnsavedFile.h"
 #include "Location.h"
 #include "Range.h"
+#include "PythonSupport.h"
 
 #include <boost/unordered_map.hpp>
+#include <iostream>
 
 using boost::unordered_map;
 
 namespace YouCompleteMe {
 namespace {
-
-// NOTE: The passed in pointer should never be NULL!
-std::string FullDiagnosticText( CXDiagnostic cxdiagnostic ) {
-  std::string full_text = CXStringToString(
-                            clang_formatDiagnostic(
-                              cxdiagnostic,
-                              clang_defaultDiagnosticDisplayOptions() ) );
-
-  // Note: clang docs say that a CXDiagnosticSet retrieved with
-  // clang_getChildDiagnostics do NOT need to be released with
-  // clang_diposeDiagnosticSet
-  CXDiagnosticSet diag_set = clang_getChildDiagnostics( cxdiagnostic );
-
-  if ( !diag_set )
-    return full_text;
-
-  uint num_child_diagnostics = clang_getNumDiagnosticsInSet( diag_set );
-
-  if ( !num_child_diagnostics )
-    return full_text;
-
-  for ( uint i = 0; i < num_child_diagnostics; ++i ) {
-    CXDiagnostic diagnostic = clang_getDiagnosticInSet( diag_set, i );
-
-    if ( !diagnostic )
-      continue;
-
-    full_text.append( FullDiagnosticText( diagnostic ) );
-  }
-
-  return full_text;
-}
-
 
 DiagnosticKind DiagnosticSeverityToType( CXDiagnosticSeverity severity ) {
   switch ( severity ) {
@@ -79,6 +48,83 @@ DiagnosticKind DiagnosticSeverityToType( CXDiagnosticSeverity severity ) {
   }
 }
 
+FixIt BuildFixIt( const std::string& text,
+                  CXDiagnostic diagnostic ) {
+  FixIt fixit;
+
+  uint num_chunks = clang_getDiagnosticNumFixIts( diagnostic );
+  if ( !num_chunks )
+    return fixit;
+
+  fixit.chunks.reserve( num_chunks );
+  fixit.location = Location( clang_getDiagnosticLocation( diagnostic ) );
+  fixit.text = text;
+
+  for ( uint idx = 0; idx < num_chunks; ++idx ) {
+    FixItChunk chunk;
+    CXSourceRange sourceRange;
+    chunk.replacement_text = CXStringToString(
+                               clang_getDiagnosticFixIt( diagnostic,
+                                                         idx,
+                                                         &sourceRange ) );
+
+    chunk.range = sourceRange;
+    fixit.chunks.push_back( chunk );
+  }
+
+  return fixit;
+}
+
+/// This method generates a FixIt object for the supplied diagnostic, and any
+/// child diagnostics (recursively), should a FixIt be available and appends
+/// them to fixits.
+/// Similarly it populates full_diagnostic_text with a concatenation of the
+/// diagnostic text for the supplied diagnostic and each child diagnostic
+/// (recursively).
+/// Warning: This method is re-entrant (recursive).
+void BuildFullDiagnosticDataFromChildren(
+  std::string& full_diagnostic_text,
+  std::vector< FixIt >& fixits,
+  CXDiagnostic diagnostic ) {
+
+  std::string diag_text = CXStringToString( clang_formatDiagnostic(
+                              diagnostic,
+                              clang_defaultDiagnosticDisplayOptions() ) );
+
+  full_diagnostic_text.append( diag_text );
+
+  // Populate any fixit attached to this diagnostic.
+  FixIt fixit = BuildFixIt( diag_text, diagnostic );
+  if ( fixit.chunks.size() > 0 )
+    fixits.push_back( fixit );
+
+  // Note: clang docs say that a CXDiagnosticSet retrieved with
+  // clang_getChildDiagnostics do NOT need to be released with
+  // clang_diposeDiagnosticSet
+  CXDiagnosticSet diag_set = clang_getChildDiagnostics( diagnostic );
+
+  if ( !diag_set )
+    return;
+
+  uint num_child_diagnostics = clang_getNumDiagnosticsInSet( diag_set );
+
+  if ( !num_child_diagnostics )
+    return;
+
+  for ( uint i = 0; i < num_child_diagnostics; ++i ) {
+    CXDiagnostic child_diag = clang_getDiagnosticInSet( diag_set, i );
+
+    if( !child_diag )
+      continue;
+
+    full_diagnostic_text.append( "\n" );
+
+    // recurse
+    BuildFullDiagnosticDataFromChildren( full_diagnostic_text,
+                                         fixits,
+                                         child_diag );
+  }
+}
 
 // Returns true when the provided completion string is available to the user;
 // unavailable completion strings refer to entities that are private/protected,
@@ -99,7 +145,7 @@ std::vector< Range > GetRanges( const DiagnosticWrap &diagnostic_wrap ) {
 
   for ( uint i = 0; i < num_ranges; ++i ) {
     ranges.push_back(
-        Range( clang_getDiagnosticRange( diagnostic_wrap.get(), i ) ) );
+      Range( clang_getDiagnosticRange( diagnostic_wrap.get(), i ) ) );
   }
 
   return ranges;
@@ -116,19 +162,21 @@ Range GetLocationExtent( CXSourceLocation source_location,
   // situations.
 
   CXSourceRange range = clang_getCursorExtent(
-      clang_getCursor( translation_unit, source_location ) );
+                          clang_getCursor( translation_unit, source_location ) );
   CXToken *tokens;
   uint num_tokens;
   clang_tokenize( translation_unit, range, &tokens, &num_tokens );
 
   Location location( source_location );
   Range final_range;
+
   for ( uint i = 0; i < num_tokens; ++i ) {
     Location token_location( clang_getTokenLocation( translation_unit,
                                                      tokens[ i ] ) );
+
     if ( token_location == location ) {
       std::string name = CXStringToString(
-          clang_getTokenSpelling( translation_unit, tokens[ i ] ) );
+                           clang_getTokenSpelling( translation_unit, tokens[ i ] ) );
       Location end_location = location;
       end_location.column_number_ += name.length();
       final_range = Range( location, end_location );
@@ -214,14 +262,17 @@ Diagnostic BuildDiagnostic( DiagnosticWrap diagnostic_wrap,
     return diagnostic;
 
   CXSourceLocation source_location =
-      clang_getDiagnosticLocation( diagnostic_wrap.get() );
+    clang_getDiagnosticLocation( diagnostic_wrap.get() );
   diagnostic.location_ = Location( source_location );
   diagnostic.location_extent_ = GetLocationExtent( source_location,
                                                    translation_unit );
   diagnostic.ranges_ = GetRanges( diagnostic_wrap );
   diagnostic.text_ = CXStringToString(
                        clang_getDiagnosticSpelling( diagnostic_wrap.get() ) );
-  diagnostic.long_formatted_text_ = FullDiagnosticText( diagnostic_wrap.get() );
+
+  BuildFullDiagnosticDataFromChildren( diagnostic.long_formatted_text_,
+                                       diagnostic.fixits_,
+                                       diagnostic_wrap.get() );
 
   return diagnostic;
 }

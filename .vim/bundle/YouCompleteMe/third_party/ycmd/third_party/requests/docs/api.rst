@@ -81,12 +81,20 @@ Status Code Lookup
     >>> requests.codes['\o/']
     200
 
+.. _api-cookies:
+
 Cookies
 ~~~~~~~
 
 .. autofunction:: requests.utils.dict_from_cookiejar
 .. autofunction:: requests.utils.cookiejar_from_dict
 .. autofunction:: requests.utils.add_dict_to_cookiejar
+
+.. autoclass:: requests.cookies.RequestsCookieJar
+   :inherited-members:
+
+.. autoclass:: requests.cookies.CookieConflictError
+   :inherited-members:
 
 
 Encodings

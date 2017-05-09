@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-#
 # Copyright (C) 2013  Google Inc.
 #
 # This file is part of YouCompleteMe.
@@ -17,10 +15,22 @@
 # You should have received a copy of the GNU General Public License
 # along with YouCompleteMe.  If not, see <http://www.gnu.org/licenses/>.
 
-import vim
-from ycm.client.base_request import BaseRequest, BuildRequestData, ServerError
+from __future__ import unicode_literals
+from __future__ import print_function
+from __future__ import division
+from __future__ import absolute_import
+from future import standard_library
+standard_library.install_aliases()
+from builtins import *  # noqa
+
+from requests.exceptions import ReadTimeout
+
+from ycmd.responses import ServerError
+from ycm.client.base_request import ( BaseRequest, BuildRequestData,
+                                      HandleServerException )
 from ycm import vimsupport
-from ycmd.utils import ToUtf8IfNeeded
+from ycmd.utils import ToUnicode
+
 
 def _EnsureBackwardsCompatibility( arguments ):
   if arguments and arguments[ 0 ] == 'GoToDefinitionElseDeclaration':
@@ -34,8 +44,6 @@ class CommandRequest( BaseRequest ):
     self._arguments = _EnsureBackwardsCompatibility( arguments )
     self._completer_target = ( completer_target if completer_target
                                else 'filetype_default' )
-    self._is_goto_command = (
-        self._arguments and self._arguments[ 0 ].startswith( 'GoTo' ) )
     self._response = None
 
 
@@ -47,9 +55,9 @@ class CommandRequest( BaseRequest ):
     } )
     try:
       self._response = self.PostDataToHandler( request_data,
-                                              'run_completer_command' )
-    except ServerError as e:
-      vimsupport.PostVimMessage( e )
+                                               'run_completer_command' )
+    except ( ServerError, ReadTimeout ) as e:
+      HandleServerException( e )
 
 
   def Response( self ):
@@ -57,19 +65,74 @@ class CommandRequest( BaseRequest ):
 
 
   def RunPostCommandActionsIfNeeded( self ):
-    if not self._is_goto_command or not self.Done() or not self._response:
+    if not self.Done() or self._response is None:
       return
 
+    # If not a dictionary or a list, the response is necessarily a
+    # scalar: boolean, number, string, etc. In this case, we print
+    # it to the user.
+    if not isinstance( self._response, ( dict, list ) ):
+      return self._HandleBasicResponse()
+
+    if 'fixits' in self._response:
+      return self._HandleFixitResponse()
+
+    if 'message' in self._response:
+      return self._HandleMessageResponse()
+
+    if 'detailed_info' in self._response:
+      return self._HandleDetailedInfoResponse()
+
+    # The only other type of response we understand is GoTo, and that is the
+    # only one that we can't detect just by inspecting the response (it should
+    # either be a single location or a list)
+    return self._HandleGotoResponse()
+
+
+  def _HandleGotoResponse( self ):
     if isinstance( self._response, list ):
-      defs = [ _BuildQfListItem( x ) for x in self._response ]
-      vim.eval( 'setqflist( %s )' % repr( defs ) )
-      vim.eval( 'youcompleteme#OpenGoToList()' )
+      vimsupport.SetQuickFixList(
+        [ _BuildQfListItem( x ) for x in self._response ],
+        focus = True,
+        autoclose = True )
     else:
       vimsupport.JumpToLocation( self._response[ 'filepath' ],
                                  self._response[ 'line_num' ],
                                  self._response[ 'column_num' ] )
 
 
+  def _HandleFixitResponse( self ):
+    if not len( self._response[ 'fixits' ] ):
+      vimsupport.PostVimMessage( 'No fixits found for current line',
+                                 warning = False )
+    else:
+      try:
+        fixit_index = 0
+
+        # When there are multiple fixit suggestions, present them as a list to
+        # the user hand have her choose which one to apply.
+        if len( self._response[ 'fixits' ] ) > 1:
+          fixit_index = vimsupport.SelectFromList(
+            "Multiple FixIt suggestions are available at this location. "
+            "Which one would you like to apply?",
+            [ fixit[ 'text' ] for fixit in self._response[ 'fixits' ] ] )
+
+        vimsupport.ReplaceChunks(
+          self._response[ 'fixits' ][ fixit_index ][ 'chunks' ] )
+      except RuntimeError as e:
+        vimsupport.PostVimMessage( str( e ) )
+
+
+  def _HandleBasicResponse( self ):
+    vimsupport.PostVimMessage( self._response, warning = False )
+
+
+  def _HandleMessageResponse( self ):
+    vimsupport.PostVimMessage( self._response[ 'message' ], warning = False )
+
+
+  def _HandleDetailedInfoResponse( self ):
+    vimsupport.WriteToPreviewWindow( self._response[ 'detailed_info' ] )
 
 
 def SendCommandRequest( arguments, completer ):
@@ -83,11 +146,19 @@ def SendCommandRequest( arguments, completer ):
 def _BuildQfListItem( goto_data_item ):
   qf_item = {}
   if 'filepath' in goto_data_item:
-    qf_item[ 'filename' ] = ToUtf8IfNeeded( goto_data_item[ 'filepath' ] )
+    qf_item[ 'filename' ] = ToUnicode( goto_data_item[ 'filepath' ] )
   if 'description' in goto_data_item:
-    qf_item[ 'text' ] = ToUtf8IfNeeded( goto_data_item[ 'description' ] )
+    qf_item[ 'text' ] = ToUnicode( goto_data_item[ 'description' ] )
   if 'line_num' in goto_data_item:
     qf_item[ 'lnum' ] = goto_data_item[ 'line_num' ]
   if 'column_num' in goto_data_item:
-    qf_item[ 'col' ] = goto_data_item[ 'column_num' ] - 1
+    # ycmd returns columns 1-based, and QuickFix lists require "byte offsets".
+    # See :help getqflist and equivalent comment in
+    # vimsupport.ConvertDiagnosticsToQfList.
+    #
+    # When the Vim help says "byte index", it really means "1-based column
+    # number" (which is somewhat confusing). :help getqflist states "first
+    # column is 1".
+    qf_item[ 'col' ] = goto_data_item[ 'column_num' ]
+
   return qf_item

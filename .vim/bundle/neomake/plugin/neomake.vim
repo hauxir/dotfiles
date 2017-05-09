@@ -1,49 +1,24 @@
-" vim: ts=4 sw=4 et
+command! -nargs=* -bang -bar -complete=customlist,neomake#CompleteMakers
+      \ Neomake call neomake#Make(<bang>1, [<f-args>])
 
-function! s:NeomakeCommand(file_mode, enabled_makers)
-    if a:file_mode
-        call neomake#Make({
-            \ 'enabled_makers': len(a:enabled_makers) ?
-                \ a:enabled_makers :
-                \ neomake#GetEnabledMakers(&ft),
-            \ 'ft': &ft,
-            \ 'file_mode': 1,
-            \ })
-    else
-        call neomake#Make({
-            \ 'enabled_makers': len(a:enabled_makers) ?
-                \ a:enabled_makers :
-                \ neomake#GetEnabledMakers()
-            \ })
-    endif
-endfunction
-
-command! -nargs=* -bang Neomake call s:NeomakeCommand('<bang>' !=# '!', [<f-args>])
 " These commands are available for clarity
-command! -nargs=* NeomakeProject Neomake! <args>
-command! -nargs=* NeomakeFile Neomake <args>
+command! -nargs=* -bar -complete=customlist,neomake#CompleteMakers
+      \ NeomakeProject Neomake! <args>
+command! -nargs=* -bar -complete=customlist,neomake#CompleteMakers
+      \ NeomakeFile Neomake <args>
 
+command! -nargs=+ -complete=shellcmd NeomakeSh call neomake#Sh(<q-args>)
 command! NeomakeListJobs call neomake#ListJobs()
+command! -nargs=1 NeomakeCancelJob call neomake#CancelJob(<args>)
+
+command! -bar NeomakeInfo call neomake#DisplayInfo()
 
 augroup neomake
-    autocmd!
-    if has('nvim')
-        autocmd JobActivity neomake* call neomake#MakeHandler()
-    endif
-
-    autocmd BufEnter,CursorHold * call neomake#ProcessCurrentBuffer()
+  au!
+  au WinEnter,CursorHold * call neomake#ProcessCurrentWindow()
+  au CursorMoved * call neomake#CursorMoved()
+  au ColorScheme * call neomake#signs#DefineHighlights()
 augroup END
+call neomake#signs#DefineHighlights()
 
-function! NeomakeEchoCurrentErrorEnable()
-    call NeomakeEchoCurrentErrorDisable()
-    autocmd neomake CursorMoved * call neomake#CursorMoved()
-endfunction
-
-function! NeomakeEchoCurrentErrorDisable()
-    autocmd! neomake CursorMoved
-endfunction
-
-if get(g:, 'neomake_echo_current_error', 1)
-    " Call after creating the neomake augroup
-    call NeomakeEchoCurrentErrorEnable()
-endif
+" vim: sw=2 et

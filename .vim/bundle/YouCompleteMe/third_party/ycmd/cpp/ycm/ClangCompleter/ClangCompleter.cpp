@@ -1,19 +1,19 @@
 // Copyright (C) 2011-2013  Google Inc.
 //
-// This file is part of YouCompleteMe.
+// This file is part of ycmd.
 //
-// YouCompleteMe is free software: you can redistribute it and/or modify
+// ycmd is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// YouCompleteMe is distributed in the hope that it will be useful,
+// ycmd is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with YouCompleteMe.  If not, see <http://www.gnu.org/licenses/>.
+// along with ycmd.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "ClangCompleter.h"
 #include "exceptions.h"
@@ -89,12 +89,7 @@ std::vector< Diagnostic > ClangCompleter::UpdateTranslationUnit(
     return std::vector< Diagnostic >();
 
   try {
-    // There's no point in reparsing a TU that was just created, it was just
-    // parsed in the TU constructor
-    if ( !translation_unit_created )
-      return unit->Reparse( unsaved_files );
-
-    return unit->LatestDiagnostics();
+    return unit->Reparse( unsaved_files );
   }
 
   catch ( ClangParseError & ) {
@@ -200,10 +195,59 @@ std::string ClangCompleter::GetEnclosingFunctionAtLocation(
     return "no unit";
   }
 
-  return unit->GetEnclosingFunctionAtLocation( line, 
-                                               column, 
-                                               unsaved_files, 
+  return unit->GetEnclosingFunctionAtLocation( line,
+                                               column,
+                                               unsaved_files,
                                                reparse );
+}
+
+std::vector< FixIt >
+ClangCompleter::GetFixItsForLocationInFile(
+  const std::string &filename,
+  int line,
+  int column,
+  const std::vector< UnsavedFile > &unsaved_files,
+  const std::vector< std::string > &flags,
+  bool reparse ) {
+
+  ReleaseGil unlock;
+
+  shared_ptr< TranslationUnit > unit =
+    translation_unit_store_.GetOrCreate( filename, unsaved_files, flags );
+
+  if ( !unit ) {
+    return std::vector< FixIt >();
+  }
+
+  return unit->GetFixItsForLocationInFile( line,
+                                           column,
+                                           unsaved_files,
+                                           reparse );
+
+}
+
+DocumentationData ClangCompleter::GetDocsForLocationInFile(
+  const std::string &filename,
+  int line,
+  int column,
+  const std::vector< UnsavedFile > &unsaved_files,
+  const std::vector< std::string > &flags,
+  bool reparse ) {
+
+  ReleaseGil unlock;
+
+  shared_ptr< TranslationUnit > unit =
+    translation_unit_store_.GetOrCreate( filename, unsaved_files, flags );
+
+  if ( !unit ) {
+    return DocumentationData();
+  }
+
+  return unit->GetDocsForLocationInFile( line,
+                                         column,
+                                         unsaved_files,
+                                         reparse );
+
 }
 
 void ClangCompleter::DeleteCachesForFile( const std::string &filename ) {

@@ -35,7 +35,7 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:.    " show whitespace and tabs
 set shiftround                     " use multiples of shiftwidth when shifting with < and >
 set shiftwidth=4                   " 4 spaces per shift
 set expandtab                      " use spaces instead of tabs
-set softtabstop=4                  " 4 spaces per tab
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 set nobackup                       " git takes care of my backups
 set noswapfile                     " no swap files, use git
@@ -103,3 +103,7 @@ autocmd! BufWritePost * Neomake
 
 " let Eclim play nice with YCM
 let g:EclimCompletionMethod = 'omnifunc'
+au BufNewFile,BufRead *.repy set filetype=python
+
+let g:neomake_javascript_enabled_makers = ['eslint']
+set expandtab                      " use spaces instead of tabs

@@ -1,27 +1,36 @@
-#!/usr/bin/env python
+# Copyright (C) 2013 Google Inc.
 #
-# Copyright (C) 2013  Google Inc.
+# This file is part of ycmd.
 #
-# This file is part of YouCompleteMe.
-#
-# YouCompleteMe is free software: you can redistribute it and/or modify
+# ycmd is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# YouCompleteMe is distributed in the hope that it will be useful,
+# ycmd is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with YouCompleteMe.  If not, see <http://www.gnu.org/licenses/>.
+# along with ycmd.  If not, see <http://www.gnu.org/licenses/>.
+
+from __future__ import unicode_literals
+from __future__ import print_function
+from __future__ import division
+from __future__ import absolute_import
+from future import standard_library
+standard_library.install_aliases()
+from builtins import *  # noqa
 
 import time
-import os
 import copy
-from ycmd import utils
+import logging
 from threading import Thread, Lock
+from ycmd.handlers import ServerShutdown
+
+_logger = logging.getLogger( __name__ )
+
 
 # This class implements the Bottle plugin API:
 # http://bottlepy.org/docs/dev/plugindev.html
@@ -38,10 +47,9 @@ class WatchdogPlugin( object ):
   name = 'watchdog'
   api = 2
 
-
   def __init__( self,
                 idle_suicide_seconds,
-                check_interval_seconds = 60 * 10 ):
+                check_interval_seconds ):
     self._check_interval_seconds = check_interval_seconds
     self._idle_suicide_seconds = idle_suicide_seconds
 
@@ -89,7 +97,8 @@ class WatchdogPlugin( object ):
       # wait interval to contact us before we die.
       if (self._TimeSinceLastRequest() > self._idle_suicide_seconds and
           self._TimeSinceLastWakeup() < 2 * self._check_interval_seconds):
-        utils.TerminateProcess( os.getpid() )
+        _logger.info( 'Shutting down server due to inactivity' )
+        ServerShutdown()
 
       self._UpdateLastWakeupTime()
 
@@ -99,4 +108,3 @@ class WatchdogPlugin( object ):
       self._SetLastRequestTime( time.time() )
       return callback( *args, **kwargs )
     return wrapper
-

@@ -1,29 +1,72 @@
-language: python
-python:
-  - "2.6"
-  - "2.7"
+language: csharp
+os:
+  - linux
+  - osx
+sudo: false
+mono:
+  - 4.2.3
 before_install:
   - git submodule update --init --recursive
 install:
-  - pip install -r test_requirements.txt --use-mirrors
-  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
-  - sudo add-apt-repository -y ppa:ermshiperete/monodevelop
-  - sudo apt-get -qq update
-  - sudo apt-get -qq install monodevelop-current
-  - sudo apt-get -qq install g++-4.8
-  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 90
-  - MONO_PREFIX=/opt/monodevelop
-  - export DYLD_LIBRARY_FALLBACK_PATH=$MONO_PREFIX/lib:$DYLD_LIBRARY_FALLBACK_PATH
-  - export LD_LIBRARY_PATH=$MONO_PREFIX/lib:$LD_LIBRARY_PATH
-  - export C_INCLUDE_PATH=$MONO_PREFIX/include:$C_INCLUDE_PATH
-  - export PKG_CONFIG_PATH=$MONO_PREFIX/lib/pkgconfig:$PKG_CONFIG_PATH
-  - export PATH=$MONO_PREFIX/bin:$PATH
-  # Travis can run out of RAM when compiling if don't prevent parallelization.
-  - export YCM_CORES=1
+  # source because it sets up env vars on some platforms
+  - source ci/travis/travis_install.sh
 compiler:
   - gcc
-  - clang
-script: ./run_tests.sh
+script:
+  - ci/travis/travis_script.sh
+after_success:
+  - codecov
 env:
-  - USE_CLANG_COMPLETER="true"
-  - USE_CLANG_COMPLETER="false"
+  global:
+    - MONO_THREADS_PER_CPU=2000
+    - MONO_MANAGED_WATCHER=disabled
+    # Travis can run out of RAM, so we need to be careful here.
+    - YCM_CORES=3
+    - COVERAGE=true
+  matrix:
+    # Since 3.0.4, Flake8 is not working anymore on Python 2.6.
+    - USE_CLANG_COMPLETER=false YCMD_PYTHON_VERSION=2.6 YCMD_FLAKE8=false
+    - USE_CLANG_COMPLETER=true YCMD_PYTHON_VERSION=2.6 YCMD_FLAKE8=false
+    - USE_CLANG_COMPLETER=true YCMD_PYTHON_VERSION=2.7 YCMD_FLAKE8=true
+    - USE_CLANG_COMPLETER=true YCMD_PYTHON_VERSION=3.3 YCMD_FLAKE8=true
+matrix:
+  exclude:
+    - os: osx
+      env: USE_CLANG_COMPLETER=false YCMD_PYTHON_VERSION=2.6 YCMD_FLAKE8=false
+    - os: osx
+      env: USE_CLANG_COMPLETER=true YCMD_PYTHON_VERSION=2.6 YCMD_FLAKE8=false
+addons:
+  # If this doesn't make much sense to you, see the travis docs:
+  #    https://docs.travis-ci.com/user/migrating-from-legacy/
+  apt:
+    sources:
+     # The Travis apt source whitelist can be found here:
+     #   https://github.com/travis-ci/apt-source-whitelist/blob/master/ubuntu.json
+     - ubuntu-toolchain-r-test  # for new libstdc++
+     - george-edison55-precise-backports # for a more recent version of cmake (3.2.3)
+    packages:
+     - cmake-data
+     - cmake
+     - g++-6
+     - ninja-build
+     # Everything below is a Python build dep (though it depends on Python
+     # version). We need them because pyenv builds Python.
+     - libssl-dev
+     - zlib1g-dev
+     - libbz2-dev
+     - libreadline-dev
+     - libsqlite3-dev
+     - wget
+     - curl
+     - llvm
+     - libncurses5-dev
+     - libncursesw5-dev
+cache:
+  directories:
+    - $HOME/.cache/pip  # Python packages from pip
+    - $HOME/.npm  # Node packages from npm
+    - $HOME/.multirust  # What multirust downloads
+    - $HOME/.cargo  # Cargo package deps
+    - $HOME/.pyenv  # pyenv
+    - $TRAVIS_BUILD_DIR/clang_archives  # Clang downloads
+    - $TRAVIS_BUILD_DIR/third_party/racerd/target  # Racerd compilation

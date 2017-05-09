@@ -1,19 +1,19 @@
-// Copyright (C) 2011, 2012  Google Inc.
+// Copyright (C) 2011, 2012 Google Inc.
 //
-// This file is part of YouCompleteMe.
+// This file is part of ycmd.
 //
-// YouCompleteMe is free software: you can redistribute it and/or modify
+// ycmd is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// YouCompleteMe is distributed in the hope that it will be useful,
+// ycmd is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with YouCompleteMe.  If not, see <http://www.gnu.org/licenses/>.
+// along with ycmd.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifndef COMPLETIONDATA_H_2JCTF1NU
 #define COMPLETIONDATA_H_2JCTF1NU
@@ -57,7 +57,7 @@ struct CompletionData {
   // What should actually be inserted into the buffer. For a function like
   // "int foo(int x)", this is just "foo". Same for a data member like "foo_":
   // we insert just "foo_".
-  std::string TextToInsertInBuffer() {
+  std::string TextToInsertInBuffer() const {
     return original_string_;
   }
 
@@ -66,25 +66,25 @@ struct CompletionData {
   // the completion is, say, a data member. So for a function like "int foo(int
   // x)", this would be "foo(int x)". For a data member like "count_", it would
   // be just "count_".
-  std::string MainCompletionText() {
+  std::string MainCompletionText() const {
     return everything_except_return_type_;
   }
 
   // This is extra info shown in the pop-up completion menu, after the
   // completion text and the kind. Currently we put the return type of the
   // function here, if any.
-  std::string ExtraMenuInfo() {
+  std::string ExtraMenuInfo() const {
     return return_type_;
   }
 
   // This is used to show extra information in vim's preview window. This is the
   // window that vim usually shows at the top of the buffer. This should be used
   // for extra information about the completion.
-  std::string DetailedInfoForPreviewWindow() {
+  std::string DetailedInfoForPreviewWindow() const {
     return detailed_info_;
   }
 
-  std::string DocString() {
+  std::string DocString() const {
     return doc_string_;
   }
 
@@ -118,7 +118,8 @@ private:
   void ExtractDataFromChunk( CXCompletionString completion_string,
                              uint chunk_num,
                              bool &saw_left_paren,
-                             bool &saw_function_params );
+                             bool &saw_function_params,
+                             bool &saw_placeholder );
 };
 
 } // namespace YouCompleteMe

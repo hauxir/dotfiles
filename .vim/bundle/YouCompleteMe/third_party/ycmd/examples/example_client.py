@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Copyright (C) 2014  Google Inc.
+# Copyright (C) 2014 Google Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,6 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import sys
+import platform
+if sys.version_info[ 0 ] < 3:
+  sys.exit( 'example_client.py requires Python 3.3+; detected Python ' +
+            platform.python_version() )
+
 from base64 import b64encode, b64decode
 import collections
 import hashlib
@@ -24,7 +30,7 @@ import socket
 import subprocess
 import sys
 import tempfile
-import urlparse
+import urllib.parse
 import time
 
 import requests
@@ -69,12 +75,12 @@ class YcmdHandle( object ):
   def StartYcmdAndReturnHandle( cls ):
     prepared_options = DefaultSettings()
     hmac_secret = os.urandom( HMAC_SECRET_LENGTH )
-    prepared_options[ 'hmac_secret' ] = b64encode( hmac_secret )
+    prepared_options[ 'hmac_secret' ] = str( b64encode( hmac_secret ), 'utf-8' )
 
     # The temp options file is deleted by ycmd during startup
-    with tempfile.NamedTemporaryFile( delete = False ) as options_file:
+    with tempfile.NamedTemporaryFile( mode = 'w+', delete = False ) \
+        as options_file:
       json.dump( prepared_options, options_file )
-      options_file.flush()
       server_port = GetUnusedLocalhostPort()
       ycmd_args = [ sys.executable,
                     PATH_TO_YCMD,
@@ -83,11 +89,11 @@ class YcmdHandle( object ):
                     '--idle_suicide_seconds={0}'.format(
                       SERVER_IDLE_SUICIDE_SECONDS ) ]
 
-      std_handles = None if INCLUDE_YCMD_OUTPUT else subprocess.PIPE
-      child_handle = subprocess.Popen( ycmd_args,
-                                       stdout = std_handles,
-                                       stderr = std_handles )
-      return cls( child_handle, server_port, hmac_secret )
+    std_handles = None if INCLUDE_YCMD_OUTPUT else subprocess.PIPE
+    child_handle = subprocess.Popen( ycmd_args,
+                                     stdout = std_handles,
+                                     stderr = std_handles )
+    return cls( child_handle, server_port, hmac_secret )
 
 
   def IsAlive( self ):
@@ -107,10 +113,10 @@ class YcmdHandle( object ):
 
   def Shutdown( self ):
     if self.IsAlive():
-      self._popen_handle.terminate()
+      self.PostToHandlerAndLog( 'shutdown' )
 
 
-  def PostToHandlerAndLog( self, handler, data ):
+  def PostToHandlerAndLog( self, handler, data = None ):
     self._CallHttpie( 'post', handler, data )
 
 
@@ -119,8 +125,11 @@ class YcmdHandle( object ):
 
 
   def GetFromHandler( self, handler, params = None ):
-    response = requests.get( self._BuildUri( handler ),
-                             headers = self._ExtraHeaders(),
+    request_uri = self._BuildUri( handler )
+    extra_headers = self._ExtraHeaders(
+        'GET', urllib.parse.urlparse( request_uri ).path, '' )
+    response = requests.get( request_uri,
+                             headers = extra_headers,
                              params = params )
     self._ValidateResponseObject( response )
     return response
@@ -128,7 +137,7 @@ class YcmdHandle( object ):
 
   def SendDefinedSubcommandsRequest( self, completer_target ):
     request_json = BuildRequestData( completer_target = completer_target )
-    print '==== Sending defined subcommands request ===='
+    print( '==== Sending defined subcommands request ====' )
     self.PostToHandlerAndLog( DEFINED_SUBCOMMANDS_HANDLER, request_json )
 
 
@@ -141,7 +150,7 @@ class YcmdHandle( object ):
                                      filetype = filetype,
                                      line_num = line_num,
                                      column_num = column_num )
-    print '==== Sending code-completion request ===='
+    print( '==== Sending code-completion request ====' )
     self.PostToHandlerAndLog( CODE_COMPLETIONS_HANDLER, request_json )
 
 
@@ -155,7 +164,7 @@ class YcmdHandle( object ):
                                      filetype = filetype,
                                      line_num = line_num,
                                      column_num = column_num )
-    print '==== Sending GoTo request ===='
+    print( '==== Sending GoTo request ====' )
     self.PostToHandlerAndLog( COMPLETER_COMMANDS_HANDLER, request_json )
 
 
@@ -173,7 +182,7 @@ class YcmdHandle( object ):
     if extra_data:
       request_json.update( extra_data )
     request_json[ 'event_name' ] = event_enum.name
-    print '==== Sending event notification ===='
+    print( '==== Sending event notification ====' )
     self.PostToHandlerAndLog( EVENT_HANDLER, request_json )
 
 
@@ -202,22 +211,21 @@ class YcmdHandle( object ):
         total_slept += 0.1
 
 
-  def _ExtraHeaders( self, request_body = None ):
-    return { HMAC_HEADER: self._HmacForBody( request_body ) }
+  def _ExtraHeaders( self, method, path, body ):
+    return { HMAC_HEADER: self._HmacForRequest( method, path, body ) }
 
 
-  def _HmacForBody( self, request_body = None ):
-    if not request_body:
-      request_body = ''
-    return b64encode( CreateHexHmac( request_body, self._hmac_secret ) )
+  def _HmacForRequest( self, method, path, body ):
+    return str( b64encode( CreateRequestHmac( method, path, body,
+                                              self._hmac_secret ) ), 'utf8' )
 
 
   def _BuildUri( self, handler ):
-    return urlparse.urljoin( self._server_location, handler )
+    return urllib.parse.urljoin( self._server_location, handler )
 
 
   def _ValidateResponseObject( self, response ):
-    if not ContentHexHmacValid(
+    if not ContentHmacValid(
         response.content,
         b64decode( response.headers[ HMAC_HEADER ] ),
         self._hmac_secret ):
@@ -230,12 +238,16 @@ class YcmdHandle( object ):
   # free
   def _CallHttpie( self, method, handler, data = None ):
     method = method.upper()
-    args = [ 'http', '-v', method, self._BuildUri( handler ) ]
+    request_uri = self._BuildUri( handler )
+    args = [ 'http', '-v', method, request_uri ]
     if isinstance( data, collections.Mapping ):
       args.append( 'content-type:application/json' )
       data = ToUtf8Json( data )
 
-    args.append( HMAC_HEADER + ':' + self._HmacForBody( data ) )
+    hmac = self._HmacForRequest( method,
+                                 urllib.parse.urlparse( request_uri ).path,
+                                 data )
+    args.append( HMAC_HEADER + ':' + hmac )
     if method == 'GET':
       popen = subprocess.Popen( args )
     else:
@@ -244,26 +256,52 @@ class YcmdHandle( object ):
     popen.wait()
 
 
-def ContentHexHmacValid( content, hmac, hmac_secret ):
-  return SecureCompareStrings( CreateHexHmac( content, hmac_secret ), hmac )
+def ToBytes( value ):
+  if isinstance( value, bytes ):
+    return value
+  if isinstance( value, int ):
+    value = str( value )
+  return bytes( value, encoding = 'utf-8' )
 
 
-def CreateHexHmac( content, hmac_secret ):
-  # Must ensure that hmac_secret is str and not unicode
-  return hmac.new( str( hmac_secret ),
-                   msg = content,
-                   digestmod = hashlib.sha256 ).hexdigest()
+def ContentHmacValid( content, hmac, hmac_secret ):
+  return SecureBytesEqual( CreateHmac( content, hmac_secret ), hmac )
 
 
-# This is the compare_digest function from python 3.4, adapted for 2.7:
+def CreateRequestHmac( method, path, body, hmac_secret ):
+  method = ToBytes( method )
+  path = ToBytes( path )
+  body = ToBytes( body )
+  hmac_secret = ToBytes( hmac_secret )
+
+  method_hmac = CreateHmac( method, hmac_secret )
+  path_hmac = CreateHmac( path, hmac_secret )
+  body_hmac = CreateHmac( body, hmac_secret )
+
+  joined_hmac_input = bytes().join( ( method_hmac, path_hmac, body_hmac ) )
+  return CreateHmac( joined_hmac_input, hmac_secret )
+
+
+def CreateHmac( content, hmac_secret ):
+  return bytes( hmac.new( ToBytes( hmac_secret ),
+                          msg = ToBytes( content ),
+                          digestmod = hashlib.sha256 ).digest() )
+
+
+# This is the compare_digest function from python 3.4
 #   http://hg.python.org/cpython/file/460407f35aa9/Lib/hmac.py#l16
-def SecureCompareStrings( a, b ):
+def SecureBytesEqual( a, b ):
   """Returns the equivalent of 'a == b', but avoids content based short
   circuiting to reduce the vulnerability to timing attacks."""
-  if not ( isinstance( a, str ) and isinstance( b, str ) ):
-    raise TypeError( "inputs must be str instances" )
+  # Consistent timing matters more here than data type flexibility
+  # We do NOT want to support py2's str type because iterating over them
+  # (below) produces different results.
+  if type( a ) != bytes or type( b ) != bytes:
+    raise TypeError( "inputs must be bytes instances" )
 
-  # The length of the expected digest is public knowledge.
+  # We assume the length of the expected digest is public knowledge,
+  # thus this early return isn't leaking anything an attacker wouldn't
+  # already know
   if len( a ) != len( b ):
     return False
 
@@ -271,30 +309,28 @@ def SecureCompareStrings( a, b ):
   # thus timing shouldn't vary much due to integer object creation
   result = 0
   for x, y in zip( a, b ):
-    result |= ord( x ) ^ ord( y )
+    result |= x ^ y
   return result == 0
 
 
 # Recurses through the object if it's a dict/iterable and converts all the
-# unicode objects to utf-8 strings.
+# unicode objects to utf-8 encoded bytes.
 def RecursiveEncodeUnicodeToUtf8( value ):
-  if isinstance( value, unicode ):
-    return value.encode( 'utf8' )
   if isinstance( value, str ):
+    return value.encode( 'utf8' )
+  if isinstance( value, bytes ):
     return value
   elif isinstance( value, collections.Mapping ):
-    return dict( map( RecursiveEncodeUnicodeToUtf8, value.iteritems() ) )
+    return dict( list(
+      map( RecursiveEncodeUnicodeToUtf8, iter( value.items() ) ) ) )
   elif isinstance( value, collections.Iterable ):
-    return type( value )( map( RecursiveEncodeUnicodeToUtf8, value ) )
+    return type( value )( list( map( RecursiveEncodeUnicodeToUtf8, value ) ) )
   else:
     return value
 
 
 def ToUtf8Json( data ):
-  return json.dumps( RecursiveEncodeUnicodeToUtf8( data ),
-                     ensure_ascii = False,
-                     # This is the encoding of INPUT str data
-                     encoding = 'utf-8' )
+  return json.dumps( data, ensure_ascii = False ).encode( 'utf8' )
 
 
 def PathToTestFile( filename ):
@@ -365,7 +401,7 @@ def PythonSemanticCompletionResults( server ):
 
   server.SendCodeCompletionRequest( test_filename = 'some_python.py',
                                     filetype = 'python',
-                                    line_num = 27,
+                                    line_num = 25,
                                     column_num = 6 )
 
 
@@ -422,7 +458,7 @@ def CsharpSemanticCompletionResults( server ):
 
   # We have to wait until OmniSharpServer has started and loaded the solution
   # file
-  print 'Waiting for OmniSharpServer to become ready...'
+  print( 'Waiting for OmniSharpServer to become ready...' )
   server.WaitUntilReady( include_subservers = True )
   server.SendCodeCompletionRequest( test_filename = 'some_csharp.cs',
                                     filetype = 'cs',
@@ -431,7 +467,7 @@ def CsharpSemanticCompletionResults( server ):
 
 
 def Main():
-  print 'Trying to start server...'
+  print( 'Trying to start server...' )
   server = YcmdHandle.StartYcmdAndReturnHandle()
   server.WaitUntilReady()
 
@@ -448,7 +484,7 @@ def Main():
   # Python and C# completers also support the GoTo subcommand.
   CppGotoDeclaration( server )
 
-  print 'Shutting down server...'
+  print( 'Shutting down server...' )
   server.Shutdown()
 
 

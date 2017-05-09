@@ -6,7 +6,7 @@ endfunction
 
 function! neomake#makers#ft#rust#rustc()
     return {
-        \ 'args': ['-o', neomake#utils#DevNull()],
+        \ 'args': ['-Z', 'parse-only'],
         \ 'errorformat':
             \ '%-G%f:%s:,' .
             \ '%f:%l:%c: %trror: %m,' .

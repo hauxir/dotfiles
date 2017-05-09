@@ -1,19 +1,19 @@
-// Copyright (C) 2011, 2012  Google Inc.
+// Copyright (C) 2011, 2012 Google Inc.
 //
-// This file is part of YouCompleteMe.
+// This file is part of ycmd.
 //
-// YouCompleteMe is free software: you can redistribute it and/or modify
+// ycmd is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// YouCompleteMe is distributed in the hope that it will be useful,
+// ycmd is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with YouCompleteMe.  If not, see <http://www.gnu.org/licenses/>.
+// along with ycmd.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "TranslationUnit.h"
 #include "exceptions.h"
@@ -70,7 +70,7 @@ TEST_F( TranslationUnitTest, GoToDefinitionWorks ) {
                         clang_index_ );
 
   Location location = unit.GetDefinitionLocation(
-                        15,
+                        17,
                         3,
                         std::vector< UnsavedFile >() );
 
@@ -89,7 +89,7 @@ TEST_F( TranslationUnitTest, GoToDefinitionFails ) {
                         clang_index_ );
 
   Location location = unit.GetDefinitionLocation(
-                        17,
+                        19,
                         3,
                         std::vector< UnsavedFile >() );
 
@@ -106,12 +106,31 @@ TEST_F( TranslationUnitTest, GoToDeclarationWorks ) {
                         clang_index_ );
 
   Location location = unit.GetDeclarationLocation(
-                        17,
+                        19,
                         3,
                         std::vector< UnsavedFile >() );
 
   EXPECT_EQ( 12, location.line_number_ );
   EXPECT_EQ( 8, location.column_number_ );
+  EXPECT_TRUE( !location.filename_.empty() );
+}
+
+TEST_F( TranslationUnitTest, GoToDeclarationWorksOnDefinition ) {
+  fs::path path_to_testdata = fs::current_path() / fs::path( "testdata" );
+  fs::path test_file = path_to_testdata / fs::path( "goto.cpp" );
+
+  TranslationUnit unit( test_file.string(),
+                        std::vector< UnsavedFile >(),
+                        std::vector< std::string >(),
+                        clang_index_ );
+
+  Location location = unit.GetDeclarationLocation(
+                        16,
+                        6,
+                        std::vector< UnsavedFile >() );
+
+  EXPECT_EQ( 14, location.line_number_ );
+  EXPECT_EQ( 6, location.column_number_ );
   EXPECT_TRUE( !location.filename_.empty() );
 }
 

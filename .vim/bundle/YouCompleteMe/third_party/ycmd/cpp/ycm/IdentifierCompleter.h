@@ -1,23 +1,24 @@
-// Copyright (C) 2011, 2012  Google Inc.
+// Copyright (C) 2011, 2012 Google Inc.
 //
-// This file is part of YouCompleteMe.
+// This file is part of ycmd.
 //
-// YouCompleteMe is free software: you can redistribute it and/or modify
+// ycmd is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// YouCompleteMe is distributed in the hope that it will be useful,
+// ycmd is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with YouCompleteMe.  If not, see <http://www.gnu.org/licenses/>.
+// along with ycmd.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifndef COMPLETER_H_7AR4UGXE
 #define COMPLETER_H_7AR4UGXE
 
+#include "DLLDefines.h"
 #include "IdentifierDatabase.h"
 
 #include <boost/utility.hpp>
@@ -36,8 +37,9 @@ class Candidate;
 
 class IdentifierCompleter : boost::noncopyable {
 public:
-  IdentifierCompleter();
-  IdentifierCompleter( const std::vector< std::string > &candidates );
+  YCM_DLL_EXPORT IdentifierCompleter();
+  YCM_DLL_EXPORT IdentifierCompleter(
+    const std::vector< std::string > &candidates );
   IdentifierCompleter( const std::vector< std::string > &candidates,
                        const std::string &filetype,
                        const std::string &filepath );
@@ -54,7 +56,7 @@ public:
     const std::string &filetype,
     const std::string &filepath );
 
-  void AddIdentifiersToDatabaseFromTagFiles(
+  YCM_DLL_EXPORT void AddIdentifiersToDatabaseFromTagFiles(
     const std::vector< std::string > &absolute_paths_to_tag_files );
 
   void AddIdentifiersToDatabaseFromBuffer(
@@ -64,10 +66,10 @@ public:
     bool collect_from_comments_and_strings );
 
   // Only provided for tests!
-  std::vector< std::string > CandidatesForQuery(
+  YCM_DLL_EXPORT std::vector< std::string > CandidatesForQuery(
     const std::string &query ) const;
 
-  std::vector< std::string > CandidatesForQueryAndType(
+  YCM_DLL_EXPORT std::vector< std::string > CandidatesForQueryAndType(
     const std::string &query,
     const std::string &filetype ) const;
 

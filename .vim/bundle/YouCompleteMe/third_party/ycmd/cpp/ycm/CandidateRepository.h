@@ -1,22 +1,24 @@
-// Copyright (C) 2011, 2012  Google Inc.
+// Copyright (C) 2011, 2012 Google Inc.
 //
-// This file is part of YouCompleteMe.
+// This file is part of ycmd.
 //
-// YouCompleteMe is free software: you can redistribute it and/or modify
+// ycmd is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// YouCompleteMe is distributed in the hope that it will be useful,
+// ycmd is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with YouCompleteMe.  If not, see <http://www.gnu.org/licenses/>.
+// along with ycmd.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifndef CANDIDATEREPOSITORY_H_K9OVCMHG
 #define CANDIDATEREPOSITORY_H_K9OVCMHG
+
+#include "DLLDefines.h"
 
 #include <boost/utility.hpp>
 #include <boost/unordered_map.hpp>
@@ -44,11 +46,11 @@ CandidateHolder;
 // This class is thread-safe.
 class CandidateRepository : boost::noncopyable {
 public:
-  static CandidateRepository &Instance();
+  YCM_DLL_EXPORT static CandidateRepository &Instance();
 
   int NumStoredCandidates();
 
-  std::vector< const Candidate * > GetCandidatesForStrings(
+  YCM_DLL_EXPORT std::vector< const Candidate * > GetCandidatesForStrings(
     const std::vector< std::string > &strings );
 
 #ifdef USE_CLANG_COMPLETER
@@ -59,6 +61,8 @@ public:
 private:
   CandidateRepository() {};
   ~CandidateRepository();
+
+  const std::string &ValidatedCandidateText( const std::string &text );
 
   boost::mutex holder_mutex_;
 
