@@ -1,0 +1,25 @@
+{
+  "tslint.enable": true,
+  "tslint.autoFixOnSave": true,
+  "python.analysis.diagnosticEnabled": true,
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.jediEnabled": false,
+  "python.venvFolders": ["envs", ".pyenv", ".direnv", "venv"],
+  "python.formatting.provider": "black",
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "python",
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "javascriptreact",
+    "less"
+  ],
+  "javascript.suggestionActions.enabled": false,
+  "typescript.suggestionActions.enabled": false,
+  "javascript.validate.enable": false,
+  "typescript.validate.enable": false,
+  "python.sortImports.path": "${workspaceFolder}/.venv/bin/isort"
+}

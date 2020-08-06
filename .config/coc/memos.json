@@ -1,0 +1,4206 @@
+{
+  "coc-python|global": {
+    "INTERPRETERS_CACHE_v3_CondaEnvFileService": [],
+    "INTERPRETERS_CACHE_v3_CondaEnvService": [],
+    "/usr/bin/python2.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/usr/bin/python2.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.16-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 16,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.16-final"
+        },
+        "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "e826bd418afd7bd4024eea71390a134517daaa1d7de422665c1d654b099208ee8b35eabafa7f5b02a82c682366b5d631a7ae46e7b54c8b8f6b3ab39f0a4c8228"
+      },
+      "expiry": 1595337714886
+    },
+    "/usr/local/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/usr/local/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7",
+        "fileHash": "9950b8c3669c57e7034f92cc9427bac4bef3322b07a3bcdba52ed108a2059b0e0de87846ab0c7e941b119368ea38897fa28606365be7d9fdec13ab51f9bac522"
+      },
+      "expiry": 1579686598634
+    },
+    "/usr/local/bin/python2.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/usr/local/bin/python2.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.17-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 17,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.17-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python@2/2.7.17_1/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "ecbc327abd07137461d96e96fffce37438e1a1b237ecae593f74c1ac7fd7b210b61f761b13cac3dfff95d64e0a0652534c7923498290a45a60e3c29293a92ae0"
+      },
+      "expiry": 1595337714901
+    },
+    "/usr/local/bin/python2.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/usr/local/bin/python2",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.17-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 17,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.17-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python@2/2.7.17_1/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "26e38c6db3a96f9b812d57093c9d4580bb7ed184d4dd036deb58b925eb7e687995d5e13f54812b9d9eaf4d1f4638a5187972726de88059a8433c7deb1798346d"
+      },
+      "expiry": 1595337714904
+    },
+    "/usr/local/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/usr/local/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.17-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 17,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.17-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python@2/2.7.17_1/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "8c8227cfa5d2a27c5f93fdfc1225f0ef31c43d908153a40ba764cd6bc10b9ad2c0d5663d9963933e648e85eb4f2aceee0616f4755704b8662f5e688353bf4415"
+      },
+      "expiry": 1595337714907
+    },
+    "/Users/haukur/.pyenv/shims/python3.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/shims/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.3-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.3-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.7.3",
+        "fileHash": "e78093a9793347f15e4c3f0e5c41ee76088f09ab25b90980270892cfc75fffa54f5624257491ae34ed244f0842d8520a0bf0b4fa178bc2f247d6c0b3779a9baa"
+      },
+      "expiry": 1579701130515
+    },
+    "/usr/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/usr/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.16-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 16,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.16-final"
+        },
+        "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "e8e247c20a9babc97b5fe1017438314042362a1bbbe33811e049f80915b55a8cdedcaa0c5e350097ad124e8a63b30b12d74e2b316ca56c7e64578b1033bb1b50"
+      },
+      "expiry": 1595337714899
+    },
+    "/usr/local/bin/python3.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/usr/local/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7",
+        "fileHash": "7718c27f9274b074b7523e968ffec4fa23e8cf406c973ab335de8ff8f54973f735db9eabeb7b62ed2863054ea23b51f1e2d668bb116c366f1085e77d3d89a704"
+      },
+      "expiry": 1579686598631
+    },
+    "/Users/haukur/repos/takumi-server/venv/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/venv/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/venv",
+        "fileHash": "8dd88fd0d9ed3adc056c71ba4f58123debfc44eed6308bc14c9802f0b6b9dda2231defd810319d8182b2c2c9c6534a083e657128d9ca821e0cc3a8de8fa64792"
+      },
+      "expiry": 1595337715830
+    },
+    "/Users/haukur/.pyenv/shims/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/shims/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.8.1",
+        "fileHash": "3f83606c2c4e00f59137d0451528b09625c18d1713176f6034109678673ba932e4114e8eb6425975f2704ad03ec439a412e6e0b1da09b509f8784b1ca1162720"
+      },
+      "expiry": 1595337714914
+    },
+    "/Users/haukur/.pyenv/shims/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/shims/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.8.1",
+        "fileHash": "4a38079ab17a2d0eba5c4566ff0b1f879c5145b4279d757bbd3feb4967406bbb8ad83510356115209aa38b1d2f9264dce5c88043135ffb79523c0092c8ae86ff"
+      },
+      "expiry": 1595337714916
+    },
+    "/Users/haukur/repos/takumi-server/venv/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/venv/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/venv",
+        "fileHash": "601f8d3111f32a90bc4b031df723c427f840342e3b177633c923f95d872b041e2cdac19b2a62b44548027ef9d34e72fdd554ca6f5eb768e8955571990944f8ab"
+      },
+      "expiry": 1595337716565
+    },
+    "/Users/haukur/repos/takumi-server/venv/bin/python3.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/venv/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/.venv",
+        "fileHash": "0e2fbd53b21aed8848fcc6c1994118d21768e00a0b3c721d4ff9ec55c0622f3813934ac8f9c980cfa28e75e1b3f9673e346c41df30d98b9cacef77b960c570f4"
+      },
+      "expiry": 1579686599327
+    },
+    "/usr/local/opt/python/bin/python3.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/usr/local/opt/python/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7",
+        "fileHash": "636472827a27b938c76b57903163f469d27735b7923ccc81a8cfeac7b8dfb2fb3c84b197a1915fa961cece3cfcac7c96ffa5b6f07352cdc2bcea289d6c0021ad"
+      },
+      "expiry": 1579686599308
+    },
+    "INTERPRETERS_CACHE_v3_KnownPathsService": [
+      {
+        "architecture": 3,
+        "path": "/usr/local/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.17-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 17,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.17-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python@2/2.7.17_1/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "8c8227cfa5d2a27c5f93fdfc1225f0ef31c43d908153a40ba764cd6bc10b9ad2c0d5663d9963933e648e85eb4f2aceee0616f4755704b8662f5e688353bf4415",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/local/bin/python2",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.17-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 17,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.17-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python@2/2.7.17_1/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "26e38c6db3a96f9b812d57093c9d4580bb7ed184d4dd036deb58b925eb7e687995d5e13f54812b9d9eaf4d1f4638a5187972726de88059a8433c7deb1798346d",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/local/bin/python2.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.17-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 17,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.17-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python@2/2.7.17_1/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "ecbc327abd07137461d96e96fffce37438e1a1b237ecae593f74c1ac7fd7b210b61f761b13cac3dfff95d64e0a0652534c7923498290a45a60e3c29293a92ae0",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.16-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 16,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.16-final"
+        },
+        "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "e8e247c20a9babc97b5fe1017438314042362a1bbbe33811e049f80915b55a8cdedcaa0c5e350097ad124e8a63b30b12d74e2b316ca56c7e64578b1033bb1b50",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/bin/python2",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.16-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 16,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.16-final"
+        },
+        "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "19b8ae2c7a192134bb3e2f4b128b66c15ab7560e7604c2729ded82cd860bf16ae7f9c65bbefbb6d427cc1cad039a88aa321f0106592efc28fb80eea2d3fb4caa",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/bin/python2.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.16-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 16,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.16-final"
+        },
+        "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "e826bd418afd7bd4024eea71390a134517daaa1d7de422665c1d654b099208ee8b35eabafa7f5b02a82c682366b5d631a7ae46e7b54c8b8f6b3ab39f0a4c8228",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.3-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.3-final"
+        },
+        "sysPrefix": "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.7",
+        "fileHash": "e93e15e6a1e3c0c53d3bf34a949f0ef1c863f2576e87ceb970ffaacbba889414dfc64e255852c9813316c9138adda8129192cccaafc4cffb5221df824d9c4807",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/shims/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.8.1",
+        "fileHash": "4a38079ab17a2d0eba5c4566ff0b1f879c5145b4279d757bbd3feb4967406bbb8ad83510356115209aa38b1d2f9264dce5c88043135ffb79523c0092c8ae86ff",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/shims/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.8.1",
+        "fileHash": "3f83606c2c4e00f59137d0451528b09625c18d1713176f6034109678673ba932e4114e8eb6425975f2704ad03ec439a412e6e0b1da09b509f8784b1ca1162720",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/shims/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.8.1",
+        "fileHash": "9fc70b8ea51af3df8839de976de52dc2744b433188e1963d732069ed0a220208c1f2ab0e99a5735efc63eaf4bf83c6876106b9f4c67fe1bccc3b2e49a8e8a3f5",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/local/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.17-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 17,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.17-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python@2/2.7.17_1/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "8c8227cfa5d2a27c5f93fdfc1225f0ef31c43d908153a40ba764cd6bc10b9ad2c0d5663d9963933e648e85eb4f2aceee0616f4755704b8662f5e688353bf4415",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/local/bin/python2",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.17-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 17,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.17-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python@2/2.7.17_1/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "26e38c6db3a96f9b812d57093c9d4580bb7ed184d4dd036deb58b925eb7e687995d5e13f54812b9d9eaf4d1f4638a5187972726de88059a8433c7deb1798346d",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/local/bin/python2.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.17-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 17,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.17-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python@2/2.7.17_1/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "ecbc327abd07137461d96e96fffce37438e1a1b237ecae593f74c1ac7fd7b210b61f761b13cac3dfff95d64e0a0652534c7923498290a45a60e3c29293a92ae0",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.16-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 16,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.16-final"
+        },
+        "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "e8e247c20a9babc97b5fe1017438314042362a1bbbe33811e049f80915b55a8cdedcaa0c5e350097ad124e8a63b30b12d74e2b316ca56c7e64578b1033bb1b50",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/bin/python2",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.16-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 16,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.16-final"
+        },
+        "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "19b8ae2c7a192134bb3e2f4b128b66c15ab7560e7604c2729ded82cd860bf16ae7f9c65bbefbb6d427cc1cad039a88aa321f0106592efc28fb80eea2d3fb4caa",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/bin/python2.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.16-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 16,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.16-final"
+        },
+        "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "e826bd418afd7bd4024eea71390a134517daaa1d7de422665c1d654b099208ee8b35eabafa7f5b02a82c682366b5d631a7ae46e7b54c8b8f6b3ab39f0a4c8228",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.3-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.3-final"
+        },
+        "sysPrefix": "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.7",
+        "fileHash": "e93e15e6a1e3c0c53d3bf34a949f0ef1c863f2576e87ceb970ffaacbba889414dfc64e255852c9813316c9138adda8129192cccaafc4cffb5221df824d9c4807",
+        "type": "Unknown"
+      }
+    ],
+    "/usr/local/opt/python@2/bin/python2.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/usr/local/opt/python@2/bin/python2.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.17-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 17,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.17-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python@2/2.7.17_1/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "f0c4d70f8a23013c23adbf4bdeb9bb3f35eaafde3f60c124c327cdbace5a088c2ca7c8171f5d30cf33f5be335a476c0a129bda6054caf364d3f0e0cd523f19f2"
+      },
+      "expiry": 1595337715812
+    },
+    "/Users/haukur/.pyenv/versions/3.7.2/bin/python3.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.7.2/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.7.2",
+        "fileHash": "276da87dbb456860f6c51531c9f71469f2467dda5685f6fb9f74a06f16f25a91c9932203f0f75a73eb06d23f6a84c819826b10653f7af0fab1c5008f89db7f96"
+      },
+      "expiry": 1595337716504
+    },
+    "/Users/haukur/.pyenv/versions/3.7.3/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.7.3/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.3-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.3-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.7.3",
+        "fileHash": "835a59463a2ec758ac591f90bdb6e3ac771deb5c720d6ba08f800ccbd193cbab5e55239ab85bf4dbe6b3f957ec003eda2eca943821239dfd84c34709d3e97ba7"
+      },
+      "expiry": 1595337716500
+    },
+    "/Users/haukur/.pyenv/versions/3.7.3/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.7.3/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.3-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.3-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.7.3",
+        "fileHash": "5951865dfd0a994a370b1a00138d45a8e560748ca8c1135eac05bad1c2b12a2475d36b2e630885e5704263418440c0d69b30e47216e4e94c250b82f0ef0f7eae"
+      },
+      "expiry": 1595337716502
+    },
+    "/Users/haukur/.pyenv/versions/3.7.2/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.7.2/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.7.2",
+        "fileHash": "600b9504130ea1c89eccbaceb23fde326855bb517438c88b402169007ddbe258ad926e39b027a2602f5fb8fff3d2a56fa53c542ce49f3f6499646f87cd087ffd"
+      },
+      "expiry": 1595337716507
+    },
+    "/Users/haukur/.pyenv/versions/3.7.2/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.7.2/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.7.2",
+        "fileHash": "7baa665a93ca6946beb61ae61bef2eac67cf110dd31408bd3167d5b31c66e5666ef3e7abb9faddac47c9079eafcd3d6b299cea98df2efa789760db8b11cb7af3"
+      },
+      "expiry": 1595337716511
+    },
+    "/Users/haukur/.pyenv/versions/3.7.0/bin/python3.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.7.0/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.7.0",
+        "fileHash": "408e2b23dba76256e55e52fffe2aed5ee6617ff52f7fce77df443dbe236181d693c4ea40ed02260a9495aceba95e973b5d8e437ca487f532bb4a91124034b7d2"
+      },
+      "expiry": 1595337716515
+    },
+    "/Users/haukur/.pyenv/versions/3.7.0/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.7.0/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.7.0",
+        "fileHash": "a6edbc8d5b502c181e04bbfa9640e28bfb2afa624fb05af3023bca77217c108fa1bbeeb8c25c4836a95269d2595d5de82111fdf46af3fbab600c955ea7dd9406"
+      },
+      "expiry": 1595337716518
+    },
+    "/Users/haukur/.pyenv/versions/3.7.0/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.7.0/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.7.0",
+        "fileHash": "5686a5c3e6513d9a05e30c6d34b96f4ccc3cc9e2c0189f70933b9b191de7c059ae7a06c43eb4958a02d8da682c9a322d9d904b737d73236d2dfe963ceca7d4a9"
+      },
+      "expiry": 1595337716527
+    },
+    "/Users/haukur/.pyenv/versions/3.6.5/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.6.5/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.6.5-final",
+          "major": 3,
+          "minor": 6,
+          "patch": 5,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.6.5-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.6.5",
+        "fileHash": "bd32e8b6588679ad3a8033d822b9b03d3192a91ef20c52b22a4edbdbb213141bdb00de00c65ad264552dcb19380f68d8000d59a8d89631e03b402b7d5acb07c7"
+      },
+      "expiry": 1595337716534
+    },
+    "/Users/haukur/.pyenv/versions/3.6.5/bin/python3.6.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.6.5/bin/python3.6",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.6.5-final",
+          "major": 3,
+          "minor": 6,
+          "patch": 5,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.6.5-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.6.5",
+        "fileHash": "323f95621574b5c20d3f523616dfee8b37e547c34fb0a5b5ba4e4bc60092edde06d69df8cc2ccb5206e36785050e04aa45720e39390f2a13da8fd01b9ae6a1b3"
+      },
+      "expiry": 1595337716530
+    },
+    "/Users/haukur/.pyenv/versions/3.6.5/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.6.5/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.6.5-final",
+          "major": 3,
+          "minor": 6,
+          "patch": 5,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.6.5-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.6.5",
+        "fileHash": "51bba29ffac9d17798a3e49a3259aa508ea9631719c9c60fbb099c033c2e1fcfee6166d34ee8439eb88b35ef394a369bc590056fededfc5199566320ffda745e"
+      },
+      "expiry": 1595337716537
+    },
+    "INTERPRETERS_CACHE_v3_CurrentPathService": [
+      {
+        "architecture": 3,
+        "path": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.3-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.3-final"
+        },
+        "sysPrefix": "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.7",
+        "fileHash": "9b19a50406e8c2e3b6e4552106c1c0625c5b9871bb6eabf2cca5c667e08b4107f26c97058cc7cd276d1bea158429508c50ba421ecd9fb891fdf19b90bb48a11e",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/local/opt/python@2/bin/python2.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.17-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 17,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.17-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python@2/2.7.17_1/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "f0c4d70f8a23013c23adbf4bdeb9bb3f35eaafde3f60c124c327cdbace5a088c2ca7c8171f5d30cf33f5be335a476c0a129bda6054caf364d3f0e0cd523f19f2",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/usr/local/opt/python@2/bin/python2.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.17-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 17,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.17-final"
+        },
+        "sysPrefix": "/usr/local/Cellar/python@2/2.7.17_1/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "f0c4d70f8a23013c23adbf4bdeb9bb3f35eaafde3f60c124c327cdbace5a088c2ca7c8171f5d30cf33f5be335a476c0a129bda6054caf364d3f0e0cd523f19f2",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/venv/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/venv",
+        "fileHash": "601f8d3111f32a90bc4b031df723c427f840342e3b177633c923f95d872b041e2cdac19b2a62b44548027ef9d34e72fdd554ca6f5eb768e8955571990944f8ab",
+        "type": "Unknown"
+      }
+    ],
+    "/Users/haukur/.pyenv/versions/3.7.3/bin/python3.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.7.3/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.3-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.3-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.7.3",
+        "fileHash": "630260d8682e76e5c92247984324b38167c45c8b600a8f8c6af4374fd9b0819b2cbb0cbc35ee5cae68c24c2d7fd9db5103e531d60f118ea41d1037b40ac207c1"
+      },
+      "expiry": 1595337716497
+    },
+    "INTERPRETERS_CACHE_v3_VirtualEnvService": [
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.6.5/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.6.5-final",
+          "major": 3,
+          "minor": 6,
+          "patch": 5,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.6.5-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.6.5",
+        "fileHash": "51bba29ffac9d17798a3e49a3259aa508ea9631719c9c60fbb099c033c2e1fcfee6166d34ee8439eb88b35ef394a369bc590056fededfc5199566320ffda745e",
+        "envName": "3.6.5",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.6.5/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.6.5-final",
+          "major": 3,
+          "minor": 6,
+          "patch": 5,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.6.5-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.6.5",
+        "fileHash": "bd32e8b6588679ad3a8033d822b9b03d3192a91ef20c52b22a4edbdbb213141bdb00de00c65ad264552dcb19380f68d8000d59a8d89631e03b402b7d5acb07c7",
+        "envName": "3.6.5",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.6.5/bin/python3.6",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.6.5-final",
+          "major": 3,
+          "minor": 6,
+          "patch": 5,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.6.5-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.6.5",
+        "fileHash": "323f95621574b5c20d3f523616dfee8b37e547c34fb0a5b5ba4e4bc60092edde06d69df8cc2ccb5206e36785050e04aa45720e39390f2a13da8fd01b9ae6a1b3",
+        "envName": "3.6.5",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.7.0/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.7.0",
+        "fileHash": "5686a5c3e6513d9a05e30c6d34b96f4ccc3cc9e2c0189f70933b9b191de7c059ae7a06c43eb4958a02d8da682c9a322d9d904b737d73236d2dfe963ceca7d4a9",
+        "envName": "3.7.0",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.7.0/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.7.0",
+        "fileHash": "a6edbc8d5b502c181e04bbfa9640e28bfb2afa624fb05af3023bca77217c108fa1bbeeb8c25c4836a95269d2595d5de82111fdf46af3fbab600c955ea7dd9406",
+        "envName": "3.7.0",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.7.0/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.0-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 0,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.0-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.7.0",
+        "fileHash": "408e2b23dba76256e55e52fffe2aed5ee6617ff52f7fce77df443dbe236181d693c4ea40ed02260a9495aceba95e973b5d8e437ca487f532bb4a91124034b7d2",
+        "envName": "3.7.0",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.7.2/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.7.2",
+        "fileHash": "7baa665a93ca6946beb61ae61bef2eac67cf110dd31408bd3167d5b31c66e5666ef3e7abb9faddac47c9079eafcd3d6b299cea98df2efa789760db8b11cb7af3",
+        "envName": "3.7.2",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.7.2/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.7.2",
+        "fileHash": "600b9504130ea1c89eccbaceb23fde326855bb517438c88b402169007ddbe258ad926e39b027a2602f5fb8fff3d2a56fa53c542ce49f3f6499646f87cd087ffd",
+        "envName": "3.7.2",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.7.2/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.7.2",
+        "fileHash": "276da87dbb456860f6c51531c9f71469f2467dda5685f6fb9f74a06f16f25a91c9932203f0f75a73eb06d23f6a84c819826b10653f7af0fab1c5008f89db7f96",
+        "envName": "3.7.2",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.7.3/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.3-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.3-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.7.3",
+        "fileHash": "5951865dfd0a994a370b1a00138d45a8e560748ca8c1135eac05bad1c2b12a2475d36b2e630885e5704263418440c0d69b30e47216e4e94c250b82f0ef0f7eae",
+        "envName": "3.7.3",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.7.3/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.3-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.3-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.7.3",
+        "fileHash": "835a59463a2ec758ac591f90bdb6e3ac771deb5c720d6ba08f800ccbd193cbab5e55239ab85bf4dbe6b3f957ec003eda2eca943821239dfd84c34709d3e97ba7",
+        "envName": "3.7.3",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.7.3/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.3-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.3-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.7.3",
+        "fileHash": "630260d8682e76e5c92247984324b38167c45c8b600a8f8c6af4374fd9b0819b2cbb0cbc35ee5cae68c24c2d7fd9db5103e531d60f118ea41d1037b40ac207c1",
+        "envName": "3.7.3",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.8.1/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.8.1",
+        "fileHash": "9f8a5ee4417705aaae703f6e994a165e0c69da9be88387e921879f101ad88705f510ba75f40992d6db232cf1257f30107f853e0542c911ea62975befa78c4359",
+        "envName": "3.8.1",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.8.1/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.8.1",
+        "fileHash": "3010fddc32f31ab2f9e9762129d0c2e960f90ef3f9a2b8360becb873a5646f1313254c296fb1a9de0b685d5aa5630f6a93ae91195f5401b8cc5b91d08adae814",
+        "envName": "3.8.1",
+        "type": "Pyenv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.8.1/bin/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.8.1",
+        "fileHash": "ff5409ee94eda87a55935762f380b7656771503255e116f069c01c248cffe4a0b46e43b6cfef117715b2acdb2f8ef6e54852f6210c42df309dc8d560330340f0",
+        "envName": "3.8.1",
+        "type": "Pyenv"
+      }
+    ],
+    "PipEnvInformation": [],
+    "/usr/local/opt/python/bin/python3.7.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "636472827a27b938c76b57903163f469d27735b7923ccc81a8cfeac7b8dfb2fb3c84b197a1915fa961cece3cfcac7c96ffa5b6f07352cdc2bcea289d6c0021ad",
+        "info": {
+          "architecture": 3,
+          "path": "/usr/local/opt/python/bin/python3.7",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.7.2-final",
+            "major": 3,
+            "minor": 7,
+            "patch": 2,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.7.2-final"
+          },
+          "sysPrefix": "/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7",
+          "fileHash": "636472827a27b938c76b57903163f469d27735b7923ccc81a8cfeac7b8dfb2fb3c84b197a1915fa961cece3cfcac7c96ffa5b6f07352cdc2bcea289d6c0021ad",
+          "type": "Unknown",
+          "displayName": "Python 3.7.2 64-bit"
+        }
+      },
+      "expiry": 1579690057968
+    },
+    "/Users/haukur/.pyenv/versions/3.6.5/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.6.5 64-bit ('3.6.5': pyenv)",
+        "hash": "51bba29ffac9d17798a3e49a3259aa508ea9631719c9c60fbb099c033c2e1fcfee6166d34ee8439eb88b35ef394a369bc590056fededfc5199566320ffda745e-d201b114fb162686160bb3bf1fc4089d"
+      },
+      "expiry": 1594201462091
+    },
+    "/Users/haukur/.pyenv/versions/3.7.0/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.0 64-bit ('3.7.0': pyenv)",
+        "hash": "5686a5c3e6513d9a05e30c6d34b96f4ccc3cc9e2c0189f70933b9b191de7c059ae7a06c43eb4958a02d8da682c9a322d9d904b737d73236d2dfe963ceca7d4a9-b2425af34ae5eb57b106c9fb0c2e1f48"
+      },
+      "expiry": 1594201462087
+    },
+    "/Users/haukur/.pyenv/versions/3.7.2/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.2 64-bit ('3.7.2': pyenv)",
+        "hash": "7baa665a93ca6946beb61ae61bef2eac67cf110dd31408bd3167d5b31c66e5666ef3e7abb9faddac47c9079eafcd3d6b299cea98df2efa789760db8b11cb7af3-0cebe80375e6ff7cf7c0f3afe3f99e3a"
+      },
+      "expiry": 1594201462095
+    },
+    "/Users/haukur/.pyenv/versions/3.7.3/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.3 64-bit ('3.7.3': pyenv)",
+        "hash": "5951865dfd0a994a370b1a00138d45a8e560748ca8c1135eac05bad1c2b12a2475d36b2e630885e5704263418440c0d69b30e47216e4e94c250b82f0ef0f7eae-763cc393fc731a3530d2d5f16c81d9c9"
+      },
+      "expiry": 1594201462101
+    },
+    "/Users/haukur/repos/takumi-server/venv/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.8.1 64-bit ('venv': venv)",
+        "hash": "601f8d3111f32a90bc4b031df723c427f840342e3b177633c923f95d872b041e2cdac19b2a62b44548027ef9d34e72fdd554ca6f5eb768e8955571990944f8ab-8f52e352becab2551dde8f3cb1f2147b"
+      },
+      "expiry": 1595337716588
+    },
+    "/usr/local/bin/python3.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.2 64-bit",
+        "hash": "9950b8c3669c57e7034f92cc9427bac4bef3322b07a3bcdba52ed108a2059b0e0de87846ab0c7e941b119368ea38897fa28606365be7d9fdec13ab51f9bac522-b6b8c1b449fb99130ab7fd98d59c2784"
+      },
+      "expiry": 1579686598892
+    },
+    "/usr/local/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 2.7.17 64-bit",
+        "hash": "8c8227cfa5d2a27c5f93fdfc1225f0ef31c43d908153a40ba764cd6bc10b9ad2c0d5663d9963933e648e85eb4f2aceee0616f4755704b8662f5e688353bf4415-a3e69279ef27d79ad9b0bac1420341c8"
+      },
+      "expiry": 1595416592650
+    },
+    "/Users/haukur/.pyenv/shims/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.8.1 64-bit",
+        "hash": "4a38079ab17a2d0eba5c4566ff0b1f879c5145b4279d757bbd3feb4967406bbb8ad83510356115209aa38b1d2f9264dce5c88043135ffb79523c0092c8ae86ff-4769e5e4f564cf3236b37fe63d65cfaf"
+      },
+      "expiry": 1595416592704
+    },
+    "/usr/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 2.7.16 64-bit",
+        "hash": "e8e247c20a9babc97b5fe1017438314042362a1bbbe33811e049f80915b55a8cdedcaa0c5e350097ad124e8a63b30b12d74e2b316ca56c7e64578b1033bb1b50-94cdc92f8054645dd246b77eb4fbfe58"
+      },
+      "expiry": 1595416592655
+    },
+    "/usr/local/opt/python/bin/python3.7.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.2 64-bit",
+        "hash": "636472827a27b938c76b57903163f469d27735b7923ccc81a8cfeac7b8dfb2fb3c84b197a1915fa961cece3cfcac7c96ffa5b6f07352cdc2bcea289d6c0021ad-539b1fdc55fe6adaa7f326c898032dd4"
+      },
+      "expiry": 1579690057713
+    },
+    "/usr/local/opt/python@2/bin/python2.7.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 2.7.17 64-bit",
+        "hash": "f0c4d70f8a23013c23adbf4bdeb9bb3f35eaafde3f60c124c327cdbace5a088c2ca7c8171f5d30cf33f5be335a476c0a129bda6054caf364d3f0e0cd523f19f2-5edb614dce2b857dc9e9a9bd10622836"
+      },
+      "expiry": 1595346398701
+    },
+    "InterpreterAutoSeletionRule-system": {
+      "architecture": 3,
+      "path": "/Users/haukur/.pyenv/shims/python",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.8.1-final",
+        "major": 3,
+        "minor": 8,
+        "patch": 1,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.8.1-final"
+      },
+      "sysPrefix": "/Users/haukur/.pyenv/versions/3.8.1",
+      "fileHash": "4a38079ab17a2d0eba5c4566ff0b1f879c5145b4279d757bbd3feb4967406bbb8ad83510356115209aa38b1d2f9264dce5c88043135ffb79523c0092c8ae86ff",
+      "type": "Unknown",
+      "displayName": "Python 3.8.1 64-bit"
+    },
+    "/Users/haukur/.pyenv/versions/3.6.5/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "51bba29ffac9d17798a3e49a3259aa508ea9631719c9c60fbb099c033c2e1fcfee6166d34ee8439eb88b35ef394a369bc590056fededfc5199566320ffda745e",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/haukur/.pyenv/versions/3.6.5/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.6.5-final",
+            "major": 3,
+            "minor": 6,
+            "patch": 5,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.6.5-final"
+          },
+          "sysPrefix": "/Users/haukur/.pyenv/versions/3.6.5",
+          "fileHash": "51bba29ffac9d17798a3e49a3259aa508ea9631719c9c60fbb099c033c2e1fcfee6166d34ee8439eb88b35ef394a369bc590056fededfc5199566320ffda745e",
+          "envName": "3.6.5",
+          "type": "Pyenv",
+          "displayName": "Python 3.6.5 64-bit ('3.6.5': pyenv)"
+        }
+      },
+      "expiry": 1594201462281
+    },
+    "/Users/haukur/.pyenv/versions/3.7.0/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "5686a5c3e6513d9a05e30c6d34b96f4ccc3cc9e2c0189f70933b9b191de7c059ae7a06c43eb4958a02d8da682c9a322d9d904b737d73236d2dfe963ceca7d4a9",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/haukur/.pyenv/versions/3.7.0/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.7.0-final",
+            "major": 3,
+            "minor": 7,
+            "patch": 0,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.7.0-final"
+          },
+          "sysPrefix": "/Users/haukur/.pyenv/versions/3.7.0",
+          "fileHash": "5686a5c3e6513d9a05e30c6d34b96f4ccc3cc9e2c0189f70933b9b191de7c059ae7a06c43eb4958a02d8da682c9a322d9d904b737d73236d2dfe963ceca7d4a9",
+          "envName": "3.7.0",
+          "type": "Pyenv",
+          "displayName": "Python 3.7.0 64-bit ('3.7.0': pyenv)"
+        }
+      },
+      "expiry": 1594201462270
+    },
+    "/Users/haukur/.pyenv/versions/3.7.2/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "7baa665a93ca6946beb61ae61bef2eac67cf110dd31408bd3167d5b31c66e5666ef3e7abb9faddac47c9079eafcd3d6b299cea98df2efa789760db8b11cb7af3",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/haukur/.pyenv/versions/3.7.2/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.7.2-final",
+            "major": 3,
+            "minor": 7,
+            "patch": 2,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.7.2-final"
+          },
+          "sysPrefix": "/Users/haukur/.pyenv/versions/3.7.2",
+          "fileHash": "7baa665a93ca6946beb61ae61bef2eac67cf110dd31408bd3167d5b31c66e5666ef3e7abb9faddac47c9079eafcd3d6b299cea98df2efa789760db8b11cb7af3",
+          "envName": "3.7.2",
+          "type": "Pyenv",
+          "displayName": "Python 3.7.2 64-bit ('3.7.2': pyenv)"
+        }
+      },
+      "expiry": 1594201462296
+    },
+    "/Users/haukur/.pyenv/versions/3.7.3/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "5951865dfd0a994a370b1a00138d45a8e560748ca8c1135eac05bad1c2b12a2475d36b2e630885e5704263418440c0d69b30e47216e4e94c250b82f0ef0f7eae",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/haukur/.pyenv/versions/3.7.3/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.7.3-final",
+            "major": 3,
+            "minor": 7,
+            "patch": 3,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.7.3-final"
+          },
+          "sysPrefix": "/Users/haukur/.pyenv/versions/3.7.3",
+          "fileHash": "5951865dfd0a994a370b1a00138d45a8e560748ca8c1135eac05bad1c2b12a2475d36b2e630885e5704263418440c0d69b30e47216e4e94c250b82f0ef0f7eae",
+          "envName": "3.7.3",
+          "type": "Pyenv",
+          "displayName": "Python 3.7.3 64-bit ('3.7.3': pyenv)"
+        }
+      },
+      "expiry": 1594201462307
+    },
+    "/Users/haukur/repos/takumi-server/venv/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "601f8d3111f32a90bc4b031df723c427f840342e3b177633c923f95d872b041e2cdac19b2a62b44548027ef9d34e72fdd554ca6f5eb768e8955571990944f8ab",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/haukur/repos/takumi-server/venv/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.8.1-final",
+            "major": 3,
+            "minor": 8,
+            "patch": 1,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.8.1-final"
+          },
+          "sysPrefix": "/Users/haukur/repos/takumi-server/venv",
+          "fileHash": "601f8d3111f32a90bc4b031df723c427f840342e3b177633c923f95d872b041e2cdac19b2a62b44548027ef9d34e72fdd554ca6f5eb768e8955571990944f8ab",
+          "envName": "venv",
+          "type": "Venv",
+          "cachedEntry": true,
+          "displayName": "Python 3.8.1 64-bit ('venv': venv)",
+          "__store": true
+        }
+      },
+      "expiry": 1595337716429
+    },
+    "/usr/local/bin/python3.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "9950b8c3669c57e7034f92cc9427bac4bef3322b07a3bcdba52ed108a2059b0e0de87846ab0c7e941b119368ea38897fa28606365be7d9fdec13ab51f9bac522",
+        "info": {
+          "architecture": 3,
+          "path": "/usr/local/bin/python3",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.7.2-final",
+            "major": 3,
+            "minor": 7,
+            "patch": 2,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.7.2-final"
+          },
+          "sysPrefix": "/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7",
+          "fileHash": "9950b8c3669c57e7034f92cc9427bac4bef3322b07a3bcdba52ed108a2059b0e0de87846ab0c7e941b119368ea38897fa28606365be7d9fdec13ab51f9bac522",
+          "type": "Unknown",
+          "displayName": "Python 3.7.2 64-bit"
+        }
+      },
+      "expiry": 1579686599368
+    },
+    "/usr/local/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "8c8227cfa5d2a27c5f93fdfc1225f0ef31c43d908153a40ba764cd6bc10b9ad2c0d5663d9963933e648e85eb4f2aceee0616f4755704b8662f5e688353bf4415",
+        "info": {
+          "architecture": 3,
+          "path": "/usr/local/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "2.7.17-final",
+            "major": 2,
+            "minor": 7,
+            "patch": 17,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "2.7.17-final"
+          },
+          "sysPrefix": "/usr/local/Cellar/python@2/2.7.17_1/Frameworks/Python.framework/Versions/2.7",
+          "fileHash": "8c8227cfa5d2a27c5f93fdfc1225f0ef31c43d908153a40ba764cd6bc10b9ad2c0d5663d9963933e648e85eb4f2aceee0616f4755704b8662f5e688353bf4415",
+          "type": "Unknown",
+          "displayName": "Python 2.7.17 64-bit"
+        }
+      },
+      "expiry": 1595416592811
+    },
+    "/Users/haukur/.pyenv/shims/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "4a38079ab17a2d0eba5c4566ff0b1f879c5145b4279d757bbd3feb4967406bbb8ad83510356115209aa38b1d2f9264dce5c88043135ffb79523c0092c8ae86ff",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/haukur/.pyenv/shims/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.8.1-final",
+            "major": 3,
+            "minor": 8,
+            "patch": 1,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.8.1-final"
+          },
+          "sysPrefix": "/Users/haukur/.pyenv/versions/3.8.1",
+          "fileHash": "4a38079ab17a2d0eba5c4566ff0b1f879c5145b4279d757bbd3feb4967406bbb8ad83510356115209aa38b1d2f9264dce5c88043135ffb79523c0092c8ae86ff",
+          "type": "Unknown",
+          "displayName": "Python 3.8.1 64-bit"
+        }
+      },
+      "expiry": 1595416592863
+    },
+    "/usr/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "e8e247c20a9babc97b5fe1017438314042362a1bbbe33811e049f80915b55a8cdedcaa0c5e350097ad124e8a63b30b12d74e2b316ca56c7e64578b1033bb1b50",
+        "info": {
+          "architecture": 3,
+          "path": "/usr/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "2.7.16-final",
+            "major": 2,
+            "minor": 7,
+            "patch": 16,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "2.7.16-final"
+          },
+          "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
+          "fileHash": "e8e247c20a9babc97b5fe1017438314042362a1bbbe33811e049f80915b55a8cdedcaa0c5e350097ad124e8a63b30b12d74e2b316ca56c7e64578b1033bb1b50",
+          "type": "Unknown",
+          "displayName": "Python 2.7.16 64-bit"
+        }
+      },
+      "expiry": 1595416592832
+    },
+    "/usr/local/opt/python@2/bin/python2.7.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "f0c4d70f8a23013c23adbf4bdeb9bb3f35eaafde3f60c124c327cdbace5a088c2ca7c8171f5d30cf33f5be335a476c0a129bda6054caf364d3f0e0cd523f19f2",
+        "info": {
+          "architecture": 3,
+          "path": "/usr/local/opt/python@2/bin/python2.7",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "2.7.17-final",
+            "major": 2,
+            "minor": 7,
+            "patch": 17,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "2.7.17-final"
+          },
+          "sysPrefix": "/usr/local/Cellar/python@2/2.7.17_1/Frameworks/Python.framework/Versions/2.7",
+          "fileHash": "f0c4d70f8a23013c23adbf4bdeb9bb3f35eaafde3f60c124c327cdbace5a088c2ca7c8171f5d30cf33f5be335a476c0a129bda6054caf364d3f0e0cd523f19f2",
+          "type": "Unknown",
+          "displayName": "Python 2.7.17 64-bit"
+        }
+      },
+      "expiry": 1595346398724
+    },
+    "InterpreterAutoSeletionRule-cachedInterpreters": {
+      "architecture": 3,
+      "path": "/Users/haukur/.pyenv/shims/python",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.8.1-final",
+        "major": 3,
+        "minor": 8,
+        "patch": 1,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.8.1-final"
+      },
+      "sysPrefix": "/Users/haukur/.pyenv/versions/3.8.1",
+      "fileHash": "4a38079ab17a2d0eba5c4566ff0b1f879c5145b4279d757bbd3feb4967406bbb8ad83510356115209aa38b1d2f9264dce5c88043135ffb79523c0092c8ae86ff",
+      "type": "Unknown",
+      "cachedEntry": true,
+      "displayName": "Python 3.8.1 64-bit"
+    },
+    "/Users/haukur/repos/takumi-server/venv/bin/python3.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "afa2f533eaaa867ce7650efdee3ce5f9726169bcf5c6fdcd1ff962af881417e3f78c11cd1570d2e684f99e1623e1314f8cc65f0f41c99ef323ccd3b5bc10f8fb"
+      },
+      "expiry": 1578597928432
+    },
+    "/Users/haukur/repos/takumi-server/venv/bin/python3.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.2 64-bit ('venv': virtualenv)",
+        "hash": "afa2f533eaaa867ce7650efdee3ce5f9726169bcf5c6fdcd1ff962af881417e3f78c11cd1570d2e684f99e1623e1314f8cc65f0f41c99ef323ccd3b5bc10f8fb-9c8c5a39167d936cd4f016497d763183"
+      },
+      "expiry": 1578597928610
+    },
+    "ProposeLSBanner": false,
+    "/Users/haukur/repos/takumi-server/.env-master/bin/python3.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/.env-master/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/.env-master/bin/..",
+        "fileHash": "b2fecb82bf2e5a0a36a19ee862f0039dc8f11e9e50a3d1604854851499d4e8661dc6968389ea145b876cf1f9974ba42d170227f24bd4764b963854ef0352063b"
+      },
+      "expiry": 1579686598833
+    },
+    "/Users/haukur/repos/takumi-server/.env-master/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/.env-master/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/.env-master/bin/..",
+        "fileHash": "afa2f533eaaa867ce7650efdee3ce5f9726169bcf5c6fdcd1ff962af881417e3f78c11cd1570d2e684f99e1623e1314f8cc65f0f41c99ef323ccd3b5bc10f8fb"
+      },
+      "expiry": 1579686598836
+    },
+    "/Users/haukur/repos/takumi-server/.env-master/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/.env-master/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/.env-master/bin/..",
+        "fileHash": "4f5e88843131928e0d91e39f694cce2cc56f610cd29d1109ec8df12df31bc64db22c0a980ac5637d667761b4d4aee4411290921d9e790a77d629dab05128465c"
+      },
+      "expiry": 1579686598838
+    },
+    "/Users/haukur/repos/takumi-server/.env-master/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.2 64-bit ('.env-master': virtualenv)",
+        "hash": "4f5e88843131928e0d91e39f694cce2cc56f610cd29d1109ec8df12df31bc64db22c0a980ac5637d667761b4d4aee4411290921d9e790a77d629dab05128465c-4071ebc4c98f671ba798c0c176f3769d"
+      },
+      "expiry": 1579701131223
+    },
+    "/Users/haukur/repos/takumi-server/.env-master/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "4f5e88843131928e0d91e39f694cce2cc56f610cd29d1109ec8df12df31bc64db22c0a980ac5637d667761b4d4aee4411290921d9e790a77d629dab05128465c",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/haukur/repos/takumi-server/.env-master/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.7.2-final",
+            "major": 3,
+            "minor": 7,
+            "patch": 2,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.7.2-final"
+          },
+          "sysPrefix": "/Users/haukur/repos/takumi-server/.env-master/bin/..",
+          "fileHash": "4f5e88843131928e0d91e39f694cce2cc56f610cd29d1109ec8df12df31bc64db22c0a980ac5637d667761b4d4aee4411290921d9e790a77d629dab05128465c",
+          "envName": ".env-master",
+          "type": "VirtualEnv",
+          "displayName": "Python 3.7.2 64-bit ('.env-master': virtualenv)"
+        }
+      },
+      "expiry": 1579701131330
+    },
+    "pylint_DisableLinterInstallPrompt": true,
+    "/Users/haukur/repos/takumi-server/venv/bin/python3.7.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "b2fecb82bf2e5a0a36a19ee862f0039dc8f11e9e50a3d1604854851499d4e8661dc6968389ea145b876cf1f9974ba42d170227f24bd4764b963854ef0352063b"
+      },
+      "expiry": 1576253053949
+    },
+    "/Users/haukur/repos/takumi-server/venv/bin/python3.7.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.2 64-bit ('venv': virtualenv)",
+        "hash": "b2fecb82bf2e5a0a36a19ee862f0039dc8f11e9e50a3d1604854851499d4e8661dc6968389ea145b876cf1f9974ba42d170227f24bd4764b963854ef0352063b-60ed46ca6bc2dbe722d9965d5bc0b196"
+      },
+      "expiry": 1576253054246
+    },
+    "/Users/haukur/repos/takumi-server/.env/bin/python3.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/.env/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/.env/bin/..",
+        "fileHash": "b2fecb82bf2e5a0a36a19ee862f0039dc8f11e9e50a3d1604854851499d4e8661dc6968389ea145b876cf1f9974ba42d170227f24bd4764b963854ef0352063b"
+      },
+      "expiry": 1579686598843
+    },
+    "/Users/haukur/repos/takumi-server/.env/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/.env/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/.env/bin/..",
+        "fileHash": "afa2f533eaaa867ce7650efdee3ce5f9726169bcf5c6fdcd1ff962af881417e3f78c11cd1570d2e684f99e1623e1314f8cc65f0f41c99ef323ccd3b5bc10f8fb"
+      },
+      "expiry": 1579686598840
+    },
+    "/Users/haukur/repos/takumi-server/.env/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/.env/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/.env/bin/..",
+        "fileHash": "4f5e88843131928e0d91e39f694cce2cc56f610cd29d1109ec8df12df31bc64db22c0a980ac5637d667761b4d4aee4411290921d9e790a77d629dab05128465c"
+      },
+      "expiry": 1579686598846
+    },
+    "/Users/haukur/repos/takumi-server/.env/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.2 64-bit ('.env': virtualenv)",
+        "hash": "4f5e88843131928e0d91e39f694cce2cc56f610cd29d1109ec8df12df31bc64db22c0a980ac5637d667761b4d4aee4411290921d9e790a77d629dab05128465c-28091845730359def20ab8da646f79e0"
+      },
+      "expiry": 1579701131218
+    },
+    "/Users/haukur/repos/takumi-server/.env/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "4f5e88843131928e0d91e39f694cce2cc56f610cd29d1109ec8df12df31bc64db22c0a980ac5637d667761b4d4aee4411290921d9e790a77d629dab05128465c",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/haukur/repos/takumi-server/.env/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.7.2-final",
+            "major": 3,
+            "minor": 7,
+            "patch": 2,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.7.2-final"
+          },
+          "sysPrefix": "/Users/haukur/repos/takumi-server/.env/bin/..",
+          "fileHash": "4f5e88843131928e0d91e39f694cce2cc56f610cd29d1109ec8df12df31bc64db22c0a980ac5637d667761b4d4aee4411290921d9e790a77d629dab05128465c",
+          "envName": ".env",
+          "type": "VirtualEnv",
+          "displayName": "Python 3.7.2 64-bit ('.env': virtualenv)"
+        }
+      },
+      "expiry": 1579701131317
+    },
+    "/Users/haukur/repos/takumi-server/.venv/bin/python3.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/.venv/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/.venv",
+        "fileHash": "0e2fbd53b21aed8848fcc6c1994118d21768e00a0b3c721d4ff9ec55c0622f3813934ac8f9c980cfa28e75e1b3f9673e346c41df30d98b9cacef77b960c570f4"
+      },
+      "expiry": 1579686599332
+    },
+    "/Users/haukur/repos/takumi-server/.venv/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/.venv/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/.venv",
+        "fileHash": "8dd88fd0d9ed3adc056c71ba4f58123debfc44eed6308bc14c9802f0b6b9dda2231defd810319d8182b2c2c9c6534a083e657128d9ca821e0cc3a8de8fa64792"
+      },
+      "expiry": 1595337715820
+    },
+    "/Users/haukur/repos/takumi-server/.venv/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/.venv/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/.venv",
+        "fileHash": "601f8d3111f32a90bc4b031df723c427f840342e3b177633c923f95d872b041e2cdac19b2a62b44548027ef9d34e72fdd554ca6f5eb768e8955571990944f8ab"
+      },
+      "expiry": 1595337715802
+    },
+    "/Users/haukur/repos/takumi-server/.venv/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.8.1 64-bit ('.venv': venv)",
+        "hash": "601f8d3111f32a90bc4b031df723c427f840342e3b177633c923f95d872b041e2cdac19b2a62b44548027ef9d34e72fdd554ca6f5eb768e8955571990944f8ab-d03fcce5fe3ff05fdca8ff7577c8b6ce"
+      },
+      "expiry": 1594824674703
+    },
+    "/Users/haukur/repos/takumi-server/.venv/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "601f8d3111f32a90bc4b031df723c427f840342e3b177633c923f95d872b041e2cdac19b2a62b44548027ef9d34e72fdd554ca6f5eb768e8955571990944f8ab",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/haukur/repos/takumi-server/.venv/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.8.1-final",
+            "major": 3,
+            "minor": 8,
+            "patch": 1,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.8.1-final"
+          },
+          "sysPrefix": "/Users/haukur/repos/takumi-server/.venv",
+          "fileHash": "601f8d3111f32a90bc4b031df723c427f840342e3b177633c923f95d872b041e2cdac19b2a62b44548027ef9d34e72fdd554ca6f5eb768e8955571990944f8ab",
+          "envName": ".venv",
+          "type": "Venv",
+          "displayName": "Python 3.8.1 64-bit ('.venv': venv)"
+        }
+      },
+      "expiry": 1594824674974
+    },
+    "preferredGlobalPyInterpreter": {
+      "architecture": 3,
+      "path": "/Users/haukur/repos/takumi-server/.venv/bin/python3",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.8.1-final",
+        "major": 3,
+        "minor": 8,
+        "patch": 1,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.8.1-final"
+      },
+      "sysPrefix": "/Users/haukur/repos/takumi-server/.venv",
+      "fileHash": "8dd88fd0d9ed3adc056c71ba4f58123debfc44eed6308bc14c9802f0b6b9dda2231defd810319d8182b2c2c9c6534a083e657128d9ca821e0cc3a8de8fa64792",
+      "type": "VirtualEnv"
+    },
+    "/Users/haukur/.pyenv/versions/3.8.1/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.8.1/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.8.1",
+        "fileHash": "3010fddc32f31ab2f9e9762129d0c2e960f90ef3f9a2b8360becb873a5646f1313254c296fb1a9de0b685d5aa5630f6a93ae91195f5401b8cc5b91d08adae814"
+      },
+      "expiry": 1595337716492
+    },
+    "/Users/haukur/.pyenv/versions/3.8.1/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.8.1/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.8.1",
+        "fileHash": "9f8a5ee4417705aaae703f6e994a165e0c69da9be88387e921879f101ad88705f510ba75f40992d6db232cf1257f30107f853e0542c911ea62975befa78c4359"
+      },
+      "expiry": 1595337716494
+    },
+    "/Users/haukur/.pyenv/versions/3.8.1/bin/python3.8.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/versions/3.8.1/bin/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.8.1",
+        "fileHash": "ff5409ee94eda87a55935762f380b7656771503255e116f069c01c248cffe4a0b46e43b6cfef117715b2acdb2f8ef6e54852f6210c42df309dc8d560330340f0"
+      },
+      "expiry": 1595337716489
+    },
+    "InterpreterAutoSeletionRule-currentPath": {
+      "architecture": 3,
+      "path": "/Users/haukur/repos/takumi-server/venv/bin/python",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.8.1-final",
+        "major": 3,
+        "minor": 8,
+        "patch": 1,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.8.1-final"
+      },
+      "sysPrefix": "/Users/haukur/repos/takumi-server/venv",
+      "fileHash": "601f8d3111f32a90bc4b031df723c427f840342e3b177633c923f95d872b041e2cdac19b2a62b44548027ef9d34e72fdd554ca6f5eb768e8955571990944f8ab",
+      "type": "Unknown"
+    },
+    "/Users/haukur/.pyenv/versions/3.8.1/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.8.1 64-bit ('3.8.1': pyenv)",
+        "hash": "9f8a5ee4417705aaae703f6e994a165e0c69da9be88387e921879f101ad88705f510ba75f40992d6db232cf1257f30107f853e0542c911ea62975befa78c4359-798c7e4948a1808ed572ddf6b2811990"
+      },
+      "expiry": 1594201462106
+    },
+    "/Users/haukur/.pyenv/versions/3.8.1/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "9f8a5ee4417705aaae703f6e994a165e0c69da9be88387e921879f101ad88705f510ba75f40992d6db232cf1257f30107f853e0542c911ea62975befa78c4359",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/haukur/.pyenv/versions/3.8.1/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.8.1-final",
+            "major": 3,
+            "minor": 8,
+            "patch": 1,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.8.1-final"
+          },
+          "sysPrefix": "/Users/haukur/.pyenv/versions/3.8.1",
+          "fileHash": "9f8a5ee4417705aaae703f6e994a165e0c69da9be88387e921879f101ad88705f510ba75f40992d6db232cf1257f30107f853e0542c911ea62975befa78c4359",
+          "envName": "3.8.1",
+          "type": "Pyenv",
+          "displayName": "Python 3.8.1 64-bit ('3.8.1': pyenv)"
+        }
+      },
+      "expiry": 1594201462322
+    },
+    "/Users/haukur/.pyenv/shims/python3.8.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/.pyenv/shims/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/.pyenv/versions/3.8.1",
+        "fileHash": "9fc70b8ea51af3df8839de976de52dc2744b433188e1963d732069ed0a220208c1f2ab0e99a5735efc63eaf4bf83c6876106b9f4c67fe1bccc3b2e49a8e8a3f5"
+      },
+      "expiry": 1595337714909
+    },
+    "/Users/haukur/repos/takumi-server/venv/bin/python3.8.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/venv/bin/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/venv",
+        "fileHash": "1d5c4142f3db6d4c876dd21a920d887f3677345602ef4fe8ceba7241c673fd6220a0d5dc278de482f5daab58d5f7f51d7cab6ce7d8f8119a2feff229259438c2"
+      },
+      "expiry": 1595337715827
+    },
+    "/Users/haukur/repos/takumi-server/.venv/bin/python3.8.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/.venv/bin/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/.venv",
+        "fileHash": "1d5c4142f3db6d4c876dd21a920d887f3677345602ef4fe8ceba7241c673fd6220a0d5dc278de482f5daab58d5f7f51d7cab6ce7d8f8119a2feff229259438c2"
+      },
+      "expiry": 1595337715059
+    },
+    "InterpreterAutoSeletionRule-environment": {
+      "architecture": 3,
+      "path": "/Users/haukur/repos/takumi-server/.venv/bin/python3",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.8.1-final",
+        "major": 3,
+        "minor": 8,
+        "patch": 1,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.8.1-final"
+      },
+      "sysPrefix": "/Users/haukur/repos/takumi-server/.venv",
+      "fileHash": "8dd88fd0d9ed3adc056c71ba4f58123debfc44eed6308bc14c9802f0b6b9dda2231defd810319d8182b2c2c9c6534a083e657128d9ca821e0cc3a8de8fa64792",
+      "type": "VirtualEnv"
+    },
+    "/Users/haukur/repos/purevid/venv/bin/python2.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/purevid/venv/bin/python2.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.16-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 16,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.16-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/purevid/venv",
+        "fileHash": "ba4ab217f5a47acf8efe70455308b93079eb05c6f9f2a20394a28d23fb880331c5de19c92766f5da3f83142a9edc9e1e0b528a3e9924d32b35de1e34ddb3b6d6"
+      },
+      "expiry": 1583699746340
+    },
+    "/Users/haukur/repos/purevid/venv/bin/python2.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/purevid/venv/bin/python2",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.16-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 16,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.16-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/purevid/venv",
+        "fileHash": "29e6c862ae0784de4fb59f7a7a224fc8901721ec4f761518cd8b8fffcdbb74fc0047a0ac2ed44cb9396c2608ace2a648255b3c8f800da6e8dccd3c6fe8d19865"
+      },
+      "expiry": 1583699746342
+    },
+    "/Users/haukur/repos/purevid/venv/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/purevid/venv/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/purevid/venv",
+        "fileHash": "182d125bc8f467cddee94ce0b1fe520deed337ebfd0c9c84780fc6e82df818e5bf6224b7bd7384731a634b82899c9c54811470dd1ee80c48774f0ceaa447dd72"
+      },
+      "expiry": 1583700124445
+    },
+    "/Users/haukur/repos/purevid/venv/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.8.1 64-bit ('venv': virtualenv)",
+        "hash": "182d125bc8f467cddee94ce0b1fe520deed337ebfd0c9c84780fc6e82df818e5bf6224b7bd7384731a634b82899c9c54811470dd1ee80c48774f0ceaa447dd72-72a30ff1aac861545e2af76c41fdf6ec"
+      },
+      "expiry": 1583700124668
+    },
+    "/Users/haukur/repos/purevid/venv/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "182d125bc8f467cddee94ce0b1fe520deed337ebfd0c9c84780fc6e82df818e5bf6224b7bd7384731a634b82899c9c54811470dd1ee80c48774f0ceaa447dd72",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/haukur/repos/purevid/venv/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "2.7.16-final",
+            "major": 2,
+            "minor": 7,
+            "patch": 16,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "2.7.16-final"
+          },
+          "sysPrefix": "/Users/haukur/repos/purevid/venv",
+          "fileHash": "55283e6c394465bf4e29e7b74b2ed635f18dec8bfc9ed7fd93d0c19c1574ac8f5300bef2cd738524261a478b6432076fb132ba8531578d92b9ff532f9096afd4",
+          "envName": "venv",
+          "type": "VirtualEnv",
+          "cachedEntry": true,
+          "displayName": "Python 2.7.16 64-bit ('venv': virtualenv)",
+          "__store": true
+        }
+      },
+      "expiry": 1583700124644
+    },
+    "/Users/haukur/repos/purevid/venv/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/purevid/venv/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/purevid/venv",
+        "fileHash": "681991402e21ba2438f3dbbcc5aa19284e6669e8c3a8ae0ae8d072164457ccdd32de1f98ebf6b44db15b762f9efeaf226a8c6b2c0b14959689e9138e9b52156c"
+      },
+      "expiry": 1594201462025
+    },
+    "/Users/haukur/repos/purevid/venv/bin/python3.8.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/purevid/venv/bin/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/purevid/venv",
+        "fileHash": "2b9bff9ada782485542644a011920667e94be13361d6a79b8a84746dd77f16d0a50710a7b8649179120c0864f7b327a60b11d4461c7468c03e4d3c1b6c416e91"
+      },
+      "expiry": 1583700124441
+    },
+    "/Users/haukur/repos/purevid/venv/bin/python3.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.8.1 64-bit ('venv': virtualenv)",
+        "hash": "681991402e21ba2438f3dbbcc5aa19284e6669e8c3a8ae0ae8d072164457ccdd32de1f98ebf6b44db15b762f9efeaf226a8c6b2c0b14959689e9138e9b52156c-d7ea49521a840851e11cefd1586996fc"
+      },
+      "expiry": 1594201462260
+    },
+    "/Users/haukur/repos/purevid/venv/bin/python3.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "681991402e21ba2438f3dbbcc5aa19284e6669e8c3a8ae0ae8d072164457ccdd32de1f98ebf6b44db15b762f9efeaf226a8c6b2c0b14959689e9138e9b52156c"
+      },
+      "expiry": 1594201461750
+    },
+    "/Users/haukur/repos/cardrooms-crud/venv/bin/python3.6.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/cardrooms-crud/venv/bin/python3.6",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.6.5-final",
+          "major": 3,
+          "minor": 6,
+          "patch": 5,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.6.5-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/cardrooms-crud/venv",
+        "fileHash": "f12efed2115f6a8c16ad32c49e4b0c0448eb9208827e7613a7fb00ee092cd0148a8e3df2f24002cae4cb2a40ce7f575ab6c24ad1fdc4828dada9c427adb2f455"
+      },
+      "expiry": 1585992710397
+    },
+    "/Users/haukur/repos/cardrooms-crud/venv/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/cardrooms-crud/venv/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.6.5-final",
+          "major": 3,
+          "minor": 6,
+          "patch": 5,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.6.5-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/cardrooms-crud/venv",
+        "fileHash": "6a656b2fc3841646ac3918c707f6001c1072136aeef3294c90af3019438907d4f80f1140e755ca96609d7f4f10de89c79ac8f0a5c5dfca38d42cefdf7fd7164b"
+      },
+      "expiry": 1585992710399
+    },
+    "/Users/haukur/repos/cardrooms-crud/venv/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/cardrooms-crud/venv/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.6.5-final",
+          "major": 3,
+          "minor": 6,
+          "patch": 5,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.6.5-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/cardrooms-crud/venv",
+        "fileHash": "e0aab3ac4328a1a449e1e34affde65fbea62fbffdd28cfa4b67a4776f13d76beaa2d9d5e0084876632f76aacb472b8c151e3b66fff80ed3f426980b1b02d5ffc"
+      },
+      "expiry": 1585992710402
+    },
+    "/Users/haukur/repos/cardrooms-crud/venv/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.6.5 64-bit ('venv': virtualenv)",
+        "hash": "e0aab3ac4328a1a449e1e34affde65fbea62fbffdd28cfa4b67a4776f13d76beaa2d9d5e0084876632f76aacb472b8c151e3b66fff80ed3f426980b1b02d5ffc-e6c39d0a08f8a489e4345d88fca3b178"
+      },
+      "expiry": 1585992710533
+    },
+    "/Users/haukur/repos/cardrooms-crud/venv/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "e0aab3ac4328a1a449e1e34affde65fbea62fbffdd28cfa4b67a4776f13d76beaa2d9d5e0084876632f76aacb472b8c151e3b66fff80ed3f426980b1b02d5ffc",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/haukur/repos/cardrooms-crud/venv/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.6.5-final",
+            "major": 3,
+            "minor": 6,
+            "patch": 5,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.6.5-final"
+          },
+          "sysPrefix": "/Users/haukur/repos/cardrooms-crud/venv",
+          "fileHash": "e0aab3ac4328a1a449e1e34affde65fbea62fbffdd28cfa4b67a4776f13d76beaa2d9d5e0084876632f76aacb472b8c151e3b66fff80ed3f426980b1b02d5ffc",
+          "envName": "venv",
+          "type": "VirtualEnv",
+          "displayName": "Python 3.6.5 64-bit ('venv': virtualenv)"
+        }
+      },
+      "expiry": 1585992710567
+    },
+    "/usr/bin/python2.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/usr/bin/python2",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.16-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 16,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.16-final"
+        },
+        "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "19b8ae2c7a192134bb3e2f4b128b66c15ab7560e7604c2729ded82cd860bf16ae7f9c65bbefbb6d427cc1cad039a88aa321f0106592efc28fb80eea2d3fb4caa"
+      },
+      "expiry": 1595337714896
+    },
+    "/usr/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/usr/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.3-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.3-final"
+        },
+        "sysPrefix": "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.7",
+        "fileHash": "e93e15e6a1e3c0c53d3bf34a949f0ef1c863f2576e87ceb970ffaacbba889414dfc64e255852c9813316c9138adda8129192cccaafc4cffb5221df824d9c4807"
+      },
+      "expiry": 1595337717464
+    },
+    "/Applications/Xcode.app/Contents/Developer/usr/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.3-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 3,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.3-final"
+        },
+        "sysPrefix": "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.7",
+        "fileHash": "9b19a50406e8c2e3b6e4552106c1c0625c5b9871bb6eabf2cca5c667e08b4107f26c97058cc7cd276d1bea158429508c50ba421ecd9fb891fdf19b90bb48a11e"
+      },
+      "expiry": 1595345618244
+    },
+    "/usr/bin/python3.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.3 64-bit",
+        "hash": "e93e15e6a1e3c0c53d3bf34a949f0ef1c863f2576e87ceb970ffaacbba889414dfc64e255852c9813316c9138adda8129192cccaafc4cffb5221df824d9c4807-a8cec6dfc34926c5913b54b7e64c083e"
+      },
+      "expiry": 1595416592700
+    },
+    "/usr/bin/python3.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "e93e15e6a1e3c0c53d3bf34a949f0ef1c863f2576e87ceb970ffaacbba889414dfc64e255852c9813316c9138adda8129192cccaafc4cffb5221df824d9c4807",
+        "info": {
+          "architecture": 3,
+          "path": "/usr/bin/python3",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.7.3-final",
+            "major": 3,
+            "minor": 7,
+            "patch": 3,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.7.3-final"
+          },
+          "sysPrefix": "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.7",
+          "fileHash": "e93e15e6a1e3c0c53d3bf34a949f0ef1c863f2576e87ceb970ffaacbba889414dfc64e255852c9813316c9138adda8129192cccaafc4cffb5221df824d9c4807",
+          "type": "Unknown",
+          "displayName": "Python 3.7.3 64-bit"
+        }
+      },
+      "expiry": 1595416592851
+    },
+    "/Applications/Xcode.app/Contents/Developer/usr/bin/python3.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.3 64-bit",
+        "hash": "9b19a50406e8c2e3b6e4552106c1c0625c5b9871bb6eabf2cca5c667e08b4107f26c97058cc7cd276d1bea158429508c50ba421ecd9fb891fdf19b90bb48a11e-d9d7d1a0f11923ddb8802206ac669fc7"
+      },
+      "expiry": 1595346398694
+    },
+    "/Applications/Xcode.app/Contents/Developer/usr/bin/python3.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "9b19a50406e8c2e3b6e4552106c1c0625c5b9871bb6eabf2cca5c667e08b4107f26c97058cc7cd276d1bea158429508c50ba421ecd9fb891fdf19b90bb48a11e",
+        "info": {
+          "architecture": 3,
+          "path": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.7.3-final",
+            "major": 3,
+            "minor": 7,
+            "patch": 3,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.7.3-final"
+          },
+          "sysPrefix": "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.7",
+          "fileHash": "9b19a50406e8c2e3b6e4552106c1c0625c5b9871bb6eabf2cca5c667e08b4107f26c97058cc7cd276d1bea158429508c50ba421ecd9fb891fdf19b90bb48a11e",
+          "type": "Unknown",
+          "displayName": "Python 3.7.3 64-bit"
+        }
+      },
+      "expiry": 1595346398716
+    },
+    "/Users/haukur/repos/analytics-python-reporting/venv/bin/python3.8.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/analytics-python-reporting/venv/bin/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/analytics-python-reporting/venv",
+        "fileHash": "df923071726f38381c91471bafd5cad30e9f6b94f90b94942d01193a3202da58f9836ec4a2eb5d713768724414ee9e50089c391c72019b0e3bfecc721efb3dce"
+      },
+      "expiry": 1590745261571
+    },
+    "/Users/haukur/repos/analytics-python-reporting/venv/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/analytics-python-reporting/venv/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/analytics-python-reporting/venv",
+        "fileHash": "88844ce4bd70d035a40272362c83d096f43e9e60423c6971912ae8c13eb2b2e1685263d0abbe1147d9974522658989993443f8edf25910614c41af3dce281de3"
+      },
+      "expiry": 1590745261574
+    },
+    "/Users/haukur/repos/analytics-python-reporting/venv/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/analytics-python-reporting/venv/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.16-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 16,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.16-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/analytics-python-reporting/venv",
+        "fileHash": "488cceb737d37d1dbb173d186b71843b662e6de36494b90b9cf132f5208926a0f38fa81f83359067e6b32b158c507a84c401c587eeaa64829fb5fe013b20f6e9"
+      },
+      "expiry": 1590745483943
+    },
+    "/Users/haukur/repos/analytics-python-reporting/venv/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 2.7.16 64-bit",
+        "hash": "488cceb737d37d1dbb173d186b71843b662e6de36494b90b9cf132f5208926a0f38fa81f83359067e6b32b158c507a84c401c587eeaa64829fb5fe013b20f6e9-1571668c1ea5d75e687a7ffdc6db94c0"
+      },
+      "expiry": 1590745484203
+    },
+    "/Users/haukur/repos/analytics-python-reporting/venv/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "488cceb737d37d1dbb173d186b71843b662e6de36494b90b9cf132f5208926a0f38fa81f83359067e6b32b158c507a84c401c587eeaa64829fb5fe013b20f6e9",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/haukur/repos/analytics-python-reporting/venv/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "2.7.16-final",
+            "major": 2,
+            "minor": 7,
+            "patch": 16,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "2.7.16-final"
+          },
+          "sysPrefix": "/Users/haukur/repos/analytics-python-reporting/venv",
+          "fileHash": "488cceb737d37d1dbb173d186b71843b662e6de36494b90b9cf132f5208926a0f38fa81f83359067e6b32b158c507a84c401c587eeaa64829fb5fe013b20f6e9",
+          "type": "Unknown",
+          "displayName": "Python 2.7.16 64-bit"
+        }
+      },
+      "expiry": 1590745484248
+    },
+    "/Users/haukur/repos/analytics-python-reporting/venv/bin/python2.7.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/analytics-python-reporting/venv/bin/python2.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.16-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 16,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.16-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/analytics-python-reporting/venv",
+        "fileHash": "9dee74b29648e728e7209a5cabd4c6a4dfa1639b6b34a88fed55ed43c1c01a10bb8126fd253bd5e0f3f674339ea0f4eea80c059ed64bb948af8094cc958a9da0"
+      },
+      "expiry": 1590745483932
+    },
+    "/Users/haukur/repos/analytics-python-reporting/venv/bin/python2.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/analytics-python-reporting/venv/bin/python2",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.16-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 16,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.16-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/analytics-python-reporting/venv",
+        "fileHash": "8ec0cc7814746c12c625b6d29fe07fa4427142bceddf15acb7eef30d757f9baa77f72cee1dce82113c3e2a8801afdda89dd8dd102fc59797067515596d3deb1f"
+      },
+      "expiry": 1590745483937
+    }
+  },
+  "coc-python|/Users/haukur/repos/takumi-server": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:5c3de3432f9df324e0741fb32b005610": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:5c3de3432f9df324e0741fb32b005610": [
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/.venv/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/.venv",
+        "fileHash": "601f8d3111f32a90bc4b031df723c427f840342e3b177633c923f95d872b041e2cdac19b2a62b44548027ef9d34e72fdd554ca6f5eb768e8955571990944f8ab",
+        "envName": ".venv",
+        "type": "Venv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/.venv/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/.venv",
+        "fileHash": "8dd88fd0d9ed3adc056c71ba4f58123debfc44eed6308bc14c9802f0b6b9dda2231defd810319d8182b2c2c9c6534a083e657128d9ca821e0cc3a8de8fa64792",
+        "envName": ".venv",
+        "type": "Venv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/.venv/bin/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/.venv",
+        "fileHash": "1d5c4142f3db6d4c876dd21a920d887f3677345602ef4fe8ceba7241c673fd6220a0d5dc278de482f5daab58d5f7f51d7cab6ce7d8f8119a2feff229259438c2",
+        "envName": ".venv",
+        "type": "Venv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/venv/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/venv",
+        "fileHash": "601f8d3111f32a90bc4b031df723c427f840342e3b177633c923f95d872b041e2cdac19b2a62b44548027ef9d34e72fdd554ca6f5eb768e8955571990944f8ab",
+        "envName": "venv",
+        "type": "Venv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/venv/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/venv",
+        "fileHash": "8dd88fd0d9ed3adc056c71ba4f58123debfc44eed6308bc14c9802f0b6b9dda2231defd810319d8182b2c2c9c6534a083e657128d9ca821e0cc3a8de8fa64792",
+        "envName": "venv",
+        "type": "Venv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/venv/bin/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/venv",
+        "fileHash": "1d5c4142f3db6d4c876dd21a920d887f3677345602ef4fe8ceba7241c673fd6220a0d5dc278de482f5daab58d5f7f51d7cab6ce7d8f8119a2feff229259438c2",
+        "envName": "venv",
+        "type": "Venv"
+      }
+    ],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/.venv/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/.venv",
+        "fileHash": "601f8d3111f32a90bc4b031df723c427f840342e3b177633c923f95d872b041e2cdac19b2a62b44548027ef9d34e72fdd554ca6f5eb768e8955571990944f8ab",
+        "envName": ".venv",
+        "type": "Venv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/.venv/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/.venv",
+        "fileHash": "8dd88fd0d9ed3adc056c71ba4f58123debfc44eed6308bc14c9802f0b6b9dda2231defd810319d8182b2c2c9c6534a083e657128d9ca821e0cc3a8de8fa64792",
+        "envName": ".venv",
+        "type": "Venv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/.venv/bin/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/.venv",
+        "fileHash": "1d5c4142f3db6d4c876dd21a920d887f3677345602ef4fe8ceba7241c673fd6220a0d5dc278de482f5daab58d5f7f51d7cab6ce7d8f8119a2feff229259438c2",
+        "envName": ".venv",
+        "type": "Venv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/venv/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/venv",
+        "fileHash": "601f8d3111f32a90bc4b031df723c427f840342e3b177633c923f95d872b041e2cdac19b2a62b44548027ef9d34e72fdd554ca6f5eb768e8955571990944f8ab",
+        "envName": "venv",
+        "type": "Venv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/venv/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/venv",
+        "fileHash": "8dd88fd0d9ed3adc056c71ba4f58123debfc44eed6308bc14c9802f0b6b9dda2231defd810319d8182b2c2c9c6534a083e657128d9ca821e0cc3a8de8fa64792",
+        "envName": "venv",
+        "type": "Venv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/venv/bin/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/venv",
+        "fileHash": "1d5c4142f3db6d4c876dd21a920d887f3677345602ef4fe8ceba7241c673fd6220a0d5dc278de482f5daab58d5f7f51d7cab6ce7d8f8119a2feff229259438c2",
+        "envName": "venv",
+        "type": "Venv"
+      }
+    ],
+    "SelectedPythonPath": "/Users/haukur/repos/takumi-server/venv/bin/python"
+  },
+  "coc-python|/Users/haukur/repos/takumi-server/src/python": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:cece3eb760710ea0b8f4a05d0d98f5cb": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:cece3eb760710ea0b8f4a05d0d98f5cb": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService:5c3de3432f9df324e0741fb32b005610": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:5c3de3432f9df324e0741fb32b005610": [
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/.env-master/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/.env-master/bin/..",
+        "fileHash": "4f5e88843131928e0d91e39f694cce2cc56f610cd29d1109ec8df12df31bc64db22c0a980ac5637d667761b4d4aee4411290921d9e790a77d629dab05128465c",
+        "envName": ".env-master",
+        "type": "VirtualEnv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/.env-master/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/.env-master/bin/..",
+        "fileHash": "afa2f533eaaa867ce7650efdee3ce5f9726169bcf5c6fdcd1ff962af881417e3f78c11cd1570d2e684f99e1623e1314f8cc65f0f41c99ef323ccd3b5bc10f8fb",
+        "envName": ".env-master",
+        "type": "VirtualEnv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/.env-master/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/.env-master/bin/..",
+        "fileHash": "b2fecb82bf2e5a0a36a19ee862f0039dc8f11e9e50a3d1604854851499d4e8661dc6968389ea145b876cf1f9974ba42d170227f24bd4764b963854ef0352063b",
+        "envName": ".env-master",
+        "type": "VirtualEnv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/venv/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/venv/bin/..",
+        "fileHash": "4f5e88843131928e0d91e39f694cce2cc56f610cd29d1109ec8df12df31bc64db22c0a980ac5637d667761b4d4aee4411290921d9e790a77d629dab05128465c",
+        "envName": "venv",
+        "type": "VirtualEnv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/venv/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/venv/bin/..",
+        "fileHash": "afa2f533eaaa867ce7650efdee3ce5f9726169bcf5c6fdcd1ff962af881417e3f78c11cd1570d2e684f99e1623e1314f8cc65f0f41c99ef323ccd3b5bc10f8fb",
+        "envName": "venv",
+        "type": "VirtualEnv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/venv/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/venv/bin/..",
+        "fileHash": "b2fecb82bf2e5a0a36a19ee862f0039dc8f11e9e50a3d1604854851499d4e8661dc6968389ea145b876cf1f9974ba42d170227f24bd4764b963854ef0352063b",
+        "envName": "venv",
+        "type": "VirtualEnv"
+      }
+    ],
+    "SelectedPythonPath": "/Users/haukur/repos/takumi-server/venv/bin/python3.7",
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": []
+  },
+  "coc-python|/Users/haukur/repos/takumi-server/src/python/": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:df15aa43f7a373b9caa3198f3201ce32": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:df15aa43f7a373b9caa3198f3201ce32": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService:5c3de3432f9df324e0741fb32b005610": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:5c3de3432f9df324e0741fb32b005610": [
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/.env-master/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/.env-master/bin/..",
+        "fileHash": "4f5e88843131928e0d91e39f694cce2cc56f610cd29d1109ec8df12df31bc64db22c0a980ac5637d667761b4d4aee4411290921d9e790a77d629dab05128465c",
+        "envName": ".env-master",
+        "type": "VirtualEnv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/.env-master/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/.env-master/bin/..",
+        "fileHash": "afa2f533eaaa867ce7650efdee3ce5f9726169bcf5c6fdcd1ff962af881417e3f78c11cd1570d2e684f99e1623e1314f8cc65f0f41c99ef323ccd3b5bc10f8fb",
+        "envName": ".env-master",
+        "type": "VirtualEnv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/.env-master/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/.env-master/bin/..",
+        "fileHash": "b2fecb82bf2e5a0a36a19ee862f0039dc8f11e9e50a3d1604854851499d4e8661dc6968389ea145b876cf1f9974ba42d170227f24bd4764b963854ef0352063b",
+        "envName": ".env-master",
+        "type": "VirtualEnv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/venv/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/venv/bin/..",
+        "fileHash": "4f5e88843131928e0d91e39f694cce2cc56f610cd29d1109ec8df12df31bc64db22c0a980ac5637d667761b4d4aee4411290921d9e790a77d629dab05128465c",
+        "envName": "venv",
+        "type": "VirtualEnv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/venv/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/venv/bin/..",
+        "fileHash": "afa2f533eaaa867ce7650efdee3ce5f9726169bcf5c6fdcd1ff962af881417e3f78c11cd1570d2e684f99e1623e1314f8cc65f0f41c99ef323ccd3b5bc10f8fb",
+        "envName": "venv",
+        "type": "VirtualEnv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/takumi-server/venv/bin/python3.7",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.2-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 2,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.2-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/takumi-server/venv/bin/..",
+        "fileHash": "b2fecb82bf2e5a0a36a19ee862f0039dc8f11e9e50a3d1604854851499d4e8661dc6968389ea145b876cf1f9974ba42d170227f24bd4764b963854ef0352063b",
+        "envName": "venv",
+        "type": "VirtualEnv"
+      }
+    ],
+    "SelectedPythonPath": "/Users/haukur/repos/takumi-server/venv/bin/python3.7",
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": []
+  },
+  "coc-python|/Users/haukur/repos/rapidbay": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:ba63657109cf7777e6171ba56999c532": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:ba63657109cf7777e6171ba56999c532": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
+  },
+  "coc-python|/Users/haukur/repos/engpen/app": {
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": []
+  },
+  "coc-python|/Users/haukur/repos/openarena-assets": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:a10632bef83b5681a2c0d8d9e91d63bc": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:a10632bef83b5681a2c0d8d9e91d63bc": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
+  },
+  "coc-python|/Users/haukur/repos/crazygames-load-heuristic/experiment1": {
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": []
+  },
+  "coc-python|/Users/haukur/repos/romerlaserver": {
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
+  },
+  "coc-python|/Users/haukur/Desktop": {
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": []
+  },
+  "coc-python|/Users/haukur/repos/purevid/app": {
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService:e65c53135b22af080aaa8bc43ef41a94": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:e65c53135b22af080aaa8bc43ef41a94": []
+  },
+  "coc-python|/Users/haukur/repos/imgpush": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:5c0356a26ec267ea458695142737f28a": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:5c0356a26ec267ea458695142737f28a": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
+  },
+  "coc-python|/Users/haukur/repos/purevid": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:3c55171f0e1125dfe938a755c3529165": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:3c55171f0e1125dfe938a755c3529165": [
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/purevid/venv/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/purevid/venv",
+        "fileHash": "182d125bc8f467cddee94ce0b1fe520deed337ebfd0c9c84780fc6e82df818e5bf6224b7bd7384731a634b82899c9c54811470dd1ee80c48774f0ceaa447dd72",
+        "envName": "venv",
+        "type": "VirtualEnv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/purevid/venv/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/purevid/venv",
+        "fileHash": "681991402e21ba2438f3dbbcc5aa19284e6669e8c3a8ae0ae8d072164457ccdd32de1f98ebf6b44db15b762f9efeaf226a8c6b2c0b14959689e9138e9b52156c",
+        "envName": "venv",
+        "type": "VirtualEnv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/purevid/venv/bin/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/purevid/venv",
+        "fileHash": "2b9bff9ada782485542644a011920667e94be13361d6a79b8a84746dd77f16d0a50710a7b8649179120c0864f7b327a60b11d4461c7468c03e4d3c1b6c416e91",
+        "envName": "venv",
+        "type": "VirtualEnv"
+      }
+    ],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/purevid/venv/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/purevid/venv",
+        "fileHash": "182d125bc8f467cddee94ce0b1fe520deed337ebfd0c9c84780fc6e82df818e5bf6224b7bd7384731a634b82899c9c54811470dd1ee80c48774f0ceaa447dd72",
+        "envName": "venv",
+        "type": "VirtualEnv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/purevid/venv/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/purevid/venv",
+        "fileHash": "681991402e21ba2438f3dbbcc5aa19284e6669e8c3a8ae0ae8d072164457ccdd32de1f98ebf6b44db15b762f9efeaf226a8c6b2c0b14959689e9138e9b52156c",
+        "envName": "venv",
+        "type": "VirtualEnv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/purevid/venv/bin/python3.8",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.1-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 1,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.1-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/purevid/venv",
+        "fileHash": "2b9bff9ada782485542644a011920667e94be13361d6a79b8a84746dd77f16d0a50710a7b8649179120c0864f7b327a60b11d4461c7468c03e4d3c1b6c416e91",
+        "envName": "venv",
+        "type": "VirtualEnv"
+      }
+    ],
+    "SelectedPythonPath": "/Users/haukur/repos/purevid/venv/bin/python"
+  },
+  "coc-python|/Users/haukur/repos/kosmi-server": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:d2678810de71e72db8bab2a04bfd96d0": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:d2678810de71e72db8bab2a04bfd96d0": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
+  },
+  "coc-python|/Users/haukur/repos/cardrooms-crud": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:f8e5631b679d884835f98a049aa3bd1b": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:f8e5631b679d884835f98a049aa3bd1b": [
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/cardrooms-crud/venv/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.6.5-final",
+          "major": 3,
+          "minor": 6,
+          "patch": 5,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.6.5-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/cardrooms-crud/venv",
+        "fileHash": "e0aab3ac4328a1a449e1e34affde65fbea62fbffdd28cfa4b67a4776f13d76beaa2d9d5e0084876632f76aacb472b8c151e3b66fff80ed3f426980b1b02d5ffc",
+        "envName": "venv",
+        "type": "VirtualEnv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/cardrooms-crud/venv/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.6.5-final",
+          "major": 3,
+          "minor": 6,
+          "patch": 5,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.6.5-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/cardrooms-crud/venv",
+        "fileHash": "6a656b2fc3841646ac3918c707f6001c1072136aeef3294c90af3019438907d4f80f1140e755ca96609d7f4f10de89c79ac8f0a5c5dfca38d42cefdf7fd7164b",
+        "envName": "venv",
+        "type": "VirtualEnv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/cardrooms-crud/venv/bin/python3.6",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.6.5-final",
+          "major": 3,
+          "minor": 6,
+          "patch": 5,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.6.5-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/cardrooms-crud/venv",
+        "fileHash": "f12efed2115f6a8c16ad32c49e4b0c0448eb9208827e7613a7fb00ee092cd0148a8e3df2f24002cae4cb2a40ce7f575ab6c24ad1fdc4828dada9c427adb2f455",
+        "envName": "venv",
+        "type": "VirtualEnv"
+      }
+    ],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/cardrooms-crud/venv/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.6.5-final",
+          "major": 3,
+          "minor": 6,
+          "patch": 5,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.6.5-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/cardrooms-crud/venv",
+        "fileHash": "e0aab3ac4328a1a449e1e34affde65fbea62fbffdd28cfa4b67a4776f13d76beaa2d9d5e0084876632f76aacb472b8c151e3b66fff80ed3f426980b1b02d5ffc",
+        "envName": "venv",
+        "type": "VirtualEnv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/cardrooms-crud/venv/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.6.5-final",
+          "major": 3,
+          "minor": 6,
+          "patch": 5,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.6.5-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/cardrooms-crud/venv",
+        "fileHash": "6a656b2fc3841646ac3918c707f6001c1072136aeef3294c90af3019438907d4f80f1140e755ca96609d7f4f10de89c79ac8f0a5c5dfca38d42cefdf7fd7164b",
+        "envName": "venv",
+        "type": "VirtualEnv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/haukur/repos/cardrooms-crud/venv/bin/python3.6",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.6.5-final",
+          "major": 3,
+          "minor": 6,
+          "patch": 5,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.6.5-final"
+        },
+        "sysPrefix": "/Users/haukur/repos/cardrooms-crud/venv",
+        "fileHash": "f12efed2115f6a8c16ad32c49e4b0c0448eb9208827e7613a7fb00ee092cd0148a8e3df2f24002cae4cb2a40ce7f575ab6c24ad1fdc4828dada9c427adb2f455",
+        "envName": "venv",
+        "type": "VirtualEnv"
+      }
+    ]
+  },
+  "coc-python|/Users/haukur/repos/instascrape": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:0813e8a6bdb513dcb2e7a25e9f230803": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:0813e8a6bdb513dcb2e7a25e9f230803": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
+  },
+  "coc-python|/Users/haukur/repos/urlheaderproxy/app": {
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": []
+  },
+  "coc-python|/Users/haukur/repos/urlheaderproxy": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:5c6d655461c92bc55e52139d1ddedcca": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:5c6d655461c92bc55e52139d1ddedcca": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
+  },
+  "coc-python|/Users/haukur/repos/url-header-proxy": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:685baa8fc25786b04a6070a78a75c5a7": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:685baa8fc25786b04a6070a78a75c5a7": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
+  },
+  "coc-python|/Users/haukur/repos/analytics-python-reporting": {
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": []
+  },
+  "coc-python|/Users/haukur": {
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
+    "INTERPRETERS_CACHE_v3_PipEnvService": []
+  }
+}

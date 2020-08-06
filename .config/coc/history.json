@@ -1,0 +1,47 @@
+{
+  "services": {
+    "%2FUsers%2Fhaukur%2Frepos%2Ftakumi-server": [
+      "jjk"
+    ]
+  },
+  "lists": {
+    "%2FUsers%2Fhaukur%2Frepos%2Ftakumi-server": [
+      "extensions"
+    ]
+  },
+  "commands": {
+    "%2FUsers%2Fhaukur%2Frepos%2Ftakumi-server": [
+      "python.setLi",
+      "python.star",
+      "python.upgrade",
+      "python.view",
+      "python.setInterpreter",
+      "python.execin",
+      "upgradela",
+      "python lint",
+      "pyuthon",
+      "python",
+      "python upgrade",
+      "python sort",
+      "sortimport",
+      "setint",
+      "setlinter",
+      "path",
+      "output",
+      "python.sortim"
+    ]
+  },
+  "folders": {
+    "%2FUsers%2Fhaukur%2Frepos%2Ftakumi-server": [
+      "/users/haukur/repos/takumi-server",
+      "/Users/haukur/repos/takumi-server/src/python"
+    ]
+  },
+  "outline": {
+    "%2FUsers%2Fhaukur%2Frepos%2Fkosmi-web": [
+      "jkjj",
+      "consuujk",
+      "kkkkkkkkkkk"
+    ]
+  }
+}
