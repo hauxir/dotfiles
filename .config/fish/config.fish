@@ -14,9 +14,5 @@ set fish_plugins django gi ndenv emoji-clock node pyenv extract percol python tm
 # Load oh-my-fish configuration.
 . $fish_path/oh-my-fish.fish
 
-if test -f ~/.autojump/etc/profile.d/autojump.fish; . ~/.autojump/etc/profile.d/autojump.fish; end
 eval sh $HOME/.config/base16-shell/base16-tomorrow.dark.sh
-export ANDROID_HOME=/Users/haukur/Library/Android/sdk/
-status --is-interactive; and source (pyenv init -|psub)
-eval (direnv hook fish)
 alias vim=nvim
