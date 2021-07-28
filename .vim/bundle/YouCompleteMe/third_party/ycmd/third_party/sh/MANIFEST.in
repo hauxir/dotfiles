@@ -1,3 +1,0 @@
-include AUTHORS.md CHANGELOG.md LICENSE.txt README.md test.py
-
-global-exclude *.pyc
