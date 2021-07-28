@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "flow-bin": "0.35",
-    "react-native-cli": "^2.0.1"
-  }
-}

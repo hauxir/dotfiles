@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
-  <Relationship Type="http://schemas.microsoft.com/packaging/2010/07/manifest" Target="/Python-Language-Server-osx-x64.nuspec" Id="R992e9051974f4a09" />
-  <Relationship Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="/package/services/metadata/core-properties/dd4e8ff74f844ea1ba82bb5455df785d.psmdcp" Id="R0d81a77e0f0f4db2" />
-</Relationships>
