@@ -1,5 +1,3 @@
-local nvim = require 'nvim'
-local base16 = require 'base16'
 local opt = vim.opt
 local g = vim.g
 local cmd = vim.cmd
@@ -29,11 +27,11 @@ opt.incsearch = true              -- Incremental search while typing
 
 opt.hidden = true
 opt.cursorline = true
+opt.termguicolors = true
 
 
 -- Theme
 cmd 'syntax enable'
-base16(base16.themes["tomorrow-night"], true)
 
 -- IndentLine
 g.indent_blankline_use_treesitter = true

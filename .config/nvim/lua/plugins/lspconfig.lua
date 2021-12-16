@@ -21,8 +21,9 @@ require('lspconfig').cssls.setup({})
 require('lspconfig').html.setup({})
 require('lspconfig').jsonls.setup({})
 require('lspconfig').tsserver.setup({})
+require('lspconfig').elixirls.setup({})
 require('lspconfig').elixirls.setup({
-  cmd = {'/usr/share/elixir/elixir-ls/language_server.sh'};
+  cmd = {'elixir-ls'};
 })
 
 local eslint = {
@@ -32,23 +33,37 @@ local eslint = {
   lintIgnoreExitCode = true,
   formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
   formatStdin = true
-}
 
-lspconfig.tsserver.setup {
-  on_attach = function(client)
-    if client.config.flags then
-      client.config.flags.allow_incremental_sync = true
-    end
-    client.resolved_capabilities.document_formatting = false
-    set_lsp_config(client)
-  end
 }
+local buf_map = function(bufnr, mode, lhs, rhs, opts)
+    vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts or {
+        silent = true,
+    })
+end
 
-lspconfig.efm.setup {
+lspconfig.tsserver.setup({
+    on_attach = function(client, bufnr)
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
+        local ts_utils = require("nvim-lsp-ts-utils")
+        ts_utils.setup({
+            eslint_bin = "eslint_d",
+            eslint_enable_diagnostics = true,
+            eslint_enable_code_actions = true,
+            enable_formatting = true,
+            formatter = "prettier",
+        })
+        ts_utils.setup_client(client)
+        buf_map(bufnr, "n", "gs", ":TSLspOrganize<CR>")
+        buf_map(bufnr, "n", "gi", ":TSLspRenameFile<CR>")
+        buf_map(bufnr, "n", "go", ":TSLspImportAll<CR>")
+    end,
+})
+
+require('lspconfig').efm.setup {
   on_attach = function(client)
     client.resolved_capabilities.document_formatting = true
     client.resolved_capabilities.goto_definition = false
-    set_lsp_config(client)
   end,
   root_dir = function()
     if not eslint_config_exists() then

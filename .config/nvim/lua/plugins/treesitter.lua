@@ -29,17 +29,8 @@ require('nvim-treesitter.configs').setup({
         ['if'] = '@function.inner',
         ['ac'] = '@class.outer',
         ['ic'] = '@class.inner',
-        ['aP'] = '@parameter.outer',
-        ['iP'] = '@parameter.inner',
+        ['aP'] = '@parameter.outer', ['iP'] = '@parameter.inner',
       },
     },
   },
 })
-
-require("nvim-treesitter.parsers").elixir = {
-  install_info = {
-    url = "$HOME/repos/tree-sitter-elixir/",
-    files = "grammar.js"
-  },
-  used_by = {'elixir'}
-}

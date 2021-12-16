@@ -2,19 +2,19 @@ local cmd = vim.cmd
 
 cmd 'packadd paq-nvim'
 require('paq-nvim')({
-  {'savq/paq-nvim', opt = true};
+  'airblade/vim-rooter';
+  'ananthakumaran/tree-sitter-elixir';
+  'hrsh7th/nvim-compe';
+  'jose-elias-alvarez/nvim-lsp-ts-utils',
+  'kabouzeid/nvim-lspinstall',
+  'lewis6991/gitsigns.nvim';
+  'mhartington/formatter.nvim';
+  'neovim/nvim-lspconfig',
+  'norcalli/nvim-base16.lua';
   'nvim-lua/plenary.nvim';
   'nvim-lua/popup.nvim';
-  'neovim/nvim-lspconfig',
-  'kabouzeid/nvim-lspinstall',
-  'ananthakumaran/tree-sitter-elixir';
-  {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'};
   'nvim-telescope/telescope.nvim';
-  'hrsh7th/nvim-compe';
   'nvim-treesitter/highlight.lua';
-  'neovim/nvim-lspconfig';
-  'norcalli/nvim-base16.lua';
-  'lewis6991/gitsigns.nvim';
-  'airblade/vim-rooter';
-  'mhartington/formatter.nvim';
+  {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'};
+  {'savq/paq-nvim', opt = true};
 })
