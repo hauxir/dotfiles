@@ -14,6 +14,7 @@ require('paq')({
   'nvim-lua/plenary.nvim';
   'nvim-lua/popup.nvim';
   'nvim-telescope/telescope.nvim';
+  'nvim-telescope/telescope-fzf-native.nvim';
   'nvim-treesitter/highlight.lua';
   {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'};
   {'savq/paq-nvim', opt = true};
