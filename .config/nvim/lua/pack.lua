@@ -1,7 +1,7 @@
 local cmd = vim.cmd
 
 cmd 'packadd paq-nvim'
-require('paq-nvim')({
+require('paq')({
   'airblade/vim-rooter';
   'ananthakumaran/tree-sitter-elixir';
   'hrsh7th/nvim-compe';
