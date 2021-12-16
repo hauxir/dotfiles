@@ -12,7 +12,7 @@ require('telescope').setup{
       '--smart-case'
     },
     layout_strategy = "vertical",
-    file_ignore_patterns = {"node_modules", "dist"},
+    file_ignore_patterns = {"node_modules", "dist", "public"},
     mappings = {
       i = {
         ["<C-n>"] = false,
