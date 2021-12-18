@@ -13,7 +13,7 @@ let
     nixpkgs.neovim
     nixpkgs.nodePackages.eslint_d
     nixpkgs.nodePackages.typescript-language-server
-    nixpkgs.nodejs
+    nixpkgs.nodejs-17_x
     nixpkgs.python3
     nixpkgs.tmux
   ];
