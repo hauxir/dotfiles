@@ -7,7 +7,6 @@ require('paq')({
   'hrsh7th/nvim-compe';
   'jose-elias-alvarez/nvim-lsp-ts-utils',
   'kabouzeid/nvim-lspinstall',
-  'lewis6991/gitsigns.nvim';
   'mhartington/formatter.nvim';
   'neovim/nvim-lspconfig',
   'norcalli/nvim-base16.lua';
