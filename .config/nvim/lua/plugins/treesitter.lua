@@ -2,7 +2,7 @@ require('nvim-treesitter.configs').setup({
   highlight = {
     enable = true,
   },
-  ensure_installed = { "javascript", "typescript", "elixir", "python" },
+  ensure_installed = { "javascript", "typescript", "elixir", "python", "lua" },
   indent = {
     enable = true,
   },
