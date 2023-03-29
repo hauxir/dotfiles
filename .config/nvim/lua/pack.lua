@@ -4,7 +4,17 @@ cmd 'packadd paq-nvim'
 require('paq')({
   'airblade/vim-rooter';
   'ananthakumaran/tree-sitter-elixir';
-  'hrsh7th/nvim-compe';
+
+   -- Completion
+  'hrsh7th/nvim-cmp';
+  'hrsh7th/cmp-nvim-lsp';
+  'hrsh7th/cmp-buffer';
+  'hrsh7th/cmp-path';
+  'hrsh7th/cmp-cmdline';
+  'hrsh7th/cmp-calc';
+  'hrsh7th/cmp-emoji';
+  'onsails/lspkind-nvim';
+  
   'jose-elias-alvarez/nvim-lsp-ts-utils',
   'kabouzeid/nvim-lspinstall',
   'mhartington/formatter.nvim';
