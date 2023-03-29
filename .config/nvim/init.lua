@@ -2,7 +2,7 @@ require('options')
 
 require('pack')
 
-require('plugins.compe')
+require('plugins.cmp')
 require('plugins.lspconfig')
 require('plugins.telescope')
 require('plugins.treesitter')
