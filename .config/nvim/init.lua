@@ -8,4 +8,4 @@ require('plugins.telescope')
 require('plugins.treesitter')
 require('plugins.formatter')
 require('plugins.base16')
-require('plugins.copilot'
+require('plugins.copilot')
