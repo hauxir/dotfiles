@@ -103,6 +103,9 @@ RUN asdf install erlang 25.3
 RUN asdf global elixir 1.14.3
 RUN asdf global erlang 25.3
 
+RUN mkdir /home/build/
+RUN ln -s /root/.asdf/installs/elixir/1.14.3/ /home/build/elixir
+
 RUN mix local.rebar --force
 RUN mix local.hex --force
 
@@ -130,6 +133,7 @@ then
     --platform linux/amd64 \
     -v "$HOME/.local/share/fish/fish_history:/root/.local/share/fish/fish_history" \
     -v "$HOME/.ssh":/root/.ssh \
+    -v "$HOME/.config/github-copilot":/root/.config/github-copilot/ \
     -v "$LOCATION:/root/work/" \
     -v /var/run/docker.sock:/var/run/docker.sock \
     --network host \
