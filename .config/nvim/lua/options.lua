@@ -28,6 +28,7 @@ opt.incsearch = true              -- Incremental search while typing
 opt.hidden = true
 opt.cursorline = true
 opt.termguicolors = true
+opt.mouse = "a"
 
 
 -- Theme
