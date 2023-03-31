@@ -111,6 +111,7 @@ RUN mix local.rebar --force
 RUN mix local.hex --force
 
 RUN pip install pyright
+RUN pip install shell-gpt
 WORKDIR /root/work
 
 CMD ["tmux", "-u", "new-session"]
