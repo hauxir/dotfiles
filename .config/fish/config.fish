@@ -3,5 +3,5 @@ if status is-interactive
 end
 
 if test -e ~/.config/.env
-	sourceenv ~/.config/.env
+	envsource ~/.config/.env
 end
