@@ -118,6 +118,7 @@ EOF
 
 mkdir -p $HOME/.local/share/fish/
 touch $HOME/.local/share/fish/fish_history
+touch $HOME/.config/.env
 
 if [ -n "$NOCACHE" ]
 then
@@ -134,6 +135,7 @@ then
     -v "$HOME/.local/share/fish/fish_history:/root/.local/share/fish/fish_history" \
     -v "$HOME/.ssh":/root/.ssh \
     -v "$HOME/.config/github-copilot":/root/.config/github-copilot/ \
+    -v "$HOME/.config/.env":/root/.config/.env \
     -v "$LOCATION:/root/work/" \
     -v /var/run/docker.sock:/var/run/docker.sock \
     --network host \
