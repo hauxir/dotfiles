@@ -4,7 +4,7 @@ LOCATION="${LOCATION:=$(pwd)}"
 ACTIVE_CONTAINER_ID=$(docker ps -aqf "name=devenv")
 NOCACHE=""
 
-if [ "$1" == "rebuild" ] && [[ "$ACTIVE_CONTAINER_ID" != "" ]] ; then 
+if [ "$1" == "rebuild" ] ; then
     NOCACHE="--no-cache"
 fi
 
