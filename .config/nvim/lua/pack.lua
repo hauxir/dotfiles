@@ -29,4 +29,8 @@ require('paq')({
   {'savq/paq-nvim', opt = true};  
   'zbirenbaum/copilot.lua';
   'zbirenbaum/copilot-cmp';
+
+  "jackMort/ChatGPT.nvim";
+  "MunifTanjim/nui.nvim";
+  "nvim-lua/plenary.nvim";
 })
