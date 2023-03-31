@@ -87,6 +87,7 @@ RUN ln -s /tools/elixir-ls/language_server.sh /usr/bin/elixir-ls
 RUN git clone --depth=1 https://github.com/asdf-vm/asdf.git /root/.asdf --branch v0.8.1
 RUN echo -e '\n. /root/.asdf/asdf.sh' >> /root/.profile
 RUN echo -e '\n. /root/.asdf/completions/asdf.bash' >> /root/.bashrc
+RUN echo 'source ~/.config/.env' >> /root/.profile
 
 RUN curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 
