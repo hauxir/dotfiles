@@ -92,4 +92,4 @@ require('lspconfig').efm.setup {
 }
 
 local set_keymap = require('../utils').set_keymap
-set_keymap('n', '<leader>z', "lua vim.diagnostic.open_float(0, {scope='line')<CR>")
+set_keymap('n', '<leader>z', '<cmd> lua vim.diagnostic.open_float(0, {scope="line"})<cr>')
