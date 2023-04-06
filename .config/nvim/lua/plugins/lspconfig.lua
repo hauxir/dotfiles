@@ -57,7 +57,6 @@ lspconfig.tsserver.setup({
         buf_map(bufnr, "n", "gs", ":TSLspOrganize<CR>")
         buf_map(bufnr, "n", "gi", ":TSLspRenameFile<CR>")
         buf_map(bufnr, "n", "go", ":TSLspImportAll<CR>")
-        buf_map(bufnr, "n", "<leader>e", "lua vim.diagnostic.open_float(0, {scope='line')<CR>")
     end,
 })
 
@@ -91,3 +90,6 @@ require('lspconfig').efm.setup {
     "typescriptreact"
   },
 }
+
+local set_keymap = require('../utils').set_keymap
+set_keymap('n', '<leader>z', "lua vim.diagnostic.open_float(0, {scope='line')<CR>")
