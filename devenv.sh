@@ -74,6 +74,7 @@ RUN cd /root/.local/share/nvim/site/pack/paqs/start/telescope-fzf-native.nvim &&
 RUN nvim --headless +PaqInstall +TSInstall +10sleep +qall
 RUN git config --global --add safe.directory '*'
 RUN npm install -g typescript-language-server typescript
+RUN npm install -g vscode-json-language-server
 RUN npm install -g bash-language-server
 RUN npm install -g eslint_d
 
