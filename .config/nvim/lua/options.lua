@@ -14,7 +14,7 @@ opt.backspace = {'indent','eol','start'}  -- Make backspace work as expected
 opt.sidescroll = 1                -- Scroll one char horizontally instead of half page
 opt.sidescrolloff = 20            -- How many chars away from the edge should start scroll
 opt.linebreak = true
-
+opt.noswapfile = true
 opt.expandtab = true
 opt.autoindent = true
 opt.tabstop = 2
