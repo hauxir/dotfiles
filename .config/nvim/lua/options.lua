@@ -29,7 +29,7 @@ opt.cursorline = true
 opt.termguicolors = true
 opt.mouse = "r"
 
-g.noswapfile = true
+opt.swapfile = false
 
 -- Theme
 cmd 'syntax enable'
