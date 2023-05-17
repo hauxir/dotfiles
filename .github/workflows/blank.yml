@@ -32,5 +32,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          LABELS=$('${{ toJson(github.event.pull_request.labels.*.name) }}' | jq)
-          echo $LABELS
+          LABELS='${{ toJson(github.event.pull_request.labels.*.name) }}' | jq
+          for i in "${LABELS[@]}"
+          do
+             echo "$i"
+          done
