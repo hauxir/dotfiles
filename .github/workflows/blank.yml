@@ -35,4 +35,4 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           LABELS="${{ toJson(github.event.pull_request.labels.*.name) }}"
-          echo $LABELS
+          echo $LABELS | jq
