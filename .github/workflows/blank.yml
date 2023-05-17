@@ -33,4 +33,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           LABELS=$(echo '${{ toJson(github.event.pull_request.labels.*.name) }}' | jq)
-          for i in $(echo "${LABELS}" | jq -r '.[]'); do echo $i done
+          
+          for i in $(echo "${LABELS}" | jq -r '.[]'); do
+              echo $i
+          done
