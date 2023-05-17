@@ -34,4 +34,5 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          echo "TITLE: ${{ toJson(github.event.pull_request.labels.*.name) }}"
+          LABELS=${{ toJson(github.event.pull_request.labels.*.name) }}
+          echo $LABELS
