@@ -60,7 +60,7 @@ RUN mv tree-sitter-linux-x64 /usr/bin/tree-sitter
 RUN chmod +x /usr/bin/tree-sitter
 
 RUN wget https://github.com/neovim/neovim/releases/download/v0.9.1/nvim.appimage -O /usr/bin/nvim
-chmod +x /usr/bin/nvim
+RUN chmod +x /usr/bin/nvim
 
 RUN git clone --depth=1 https://github.com/savq/paq-nvim.git /root/.local/share/nvim/site/pack/paqs/start/paq-nvim --branch v1.1.0
 RUN git clone --depth=1 https://github.com/hauxir/dotfiles.git /root/dotfiles
