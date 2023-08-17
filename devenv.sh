@@ -27,7 +27,7 @@ RUN apt-get install -y \
     xsltproc \
     fop \
     libxml2-utils \
-    fuse \
+    libfuse \
     wget
 
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
