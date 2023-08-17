@@ -60,7 +60,9 @@ RUN gunzip tree-sitter-linux-x64.gz
 RUN mv tree-sitter-linux-x64 /usr/bin/tree-sitter
 RUN chmod +x /usr/bin/tree-sitter
 
-RUN wget https://github.com/neovim/neovim/releases/download/v0.9.1/nvim.appimage -O /usr/bin/nvim
+RUN wget https://github.com/neovim/neovim/releases/download/v0.9.1/nvim-linux64.tar.gz
+RUN tar -xvf nvim-linux64.tar.gz
+RUN cp -R nvim-linux64/* /usr/
 RUN chmod +x /usr/bin/nvim
 
 RUN git clone --depth=1 https://github.com/savq/paq-nvim.git /root/.local/share/nvim/site/pack/paqs/start/paq-nvim --branch v1.1.0
