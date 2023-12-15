@@ -79,6 +79,7 @@ RUN npm install -g typescript-language-server typescript
 RUN npm install -g vscode-json-languageserver
 RUN npm install -g bash-language-server
 RUN npm install -g eslint_d
+RUN npm install -g vscode-langservers-extracted
 
 RUN mkdir -p /tools/
 
