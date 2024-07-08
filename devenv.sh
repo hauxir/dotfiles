@@ -39,7 +39,6 @@ RUN apt-get install -y \
     docker-compose \
     docker.io \
     efm-langserver \
-    awscli \
     fish \
     fzf \
     g++ \
@@ -117,6 +116,7 @@ RUN mix local.hex --force
 
 RUN pip install pyright
 RUN pip install shell-gpt
+RUN pip install awscli --break-system-packages
 WORKDIR /root/work
 
 CMD ["tmux", "-u", "new-session"]
