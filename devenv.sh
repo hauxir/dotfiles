@@ -39,6 +39,7 @@ RUN apt-get install -y \
     docker-compose \
     docker.io \
     efm-langserver \
+    awscli \
     fish \
     fzf \
     g++ \
@@ -140,6 +141,7 @@ then
     --platform linux/amd64 \
     -v "$HOME/.local/share/fish/fish_history:/root/.local/share/fish/fish_history" \
     -v "$HOME/.ssh":/root/.ssh \
+    -v "$HOME/.ssh":/root/.aws \
     -v "$HOME/.config/github-copilot":/root/.config/github-copilot/ \
     -v "$HOME/.config/.env":/root/.config/.env \
     -v "$LOCATION:/root/work/" \
