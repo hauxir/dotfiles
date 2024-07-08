@@ -114,8 +114,8 @@ RUN ln -s /root/.asdf/installs/elixir/1.14.3/ /home/build/elixir
 RUN mix local.rebar --force
 RUN mix local.hex --force
 
-RUN pip install pyright
-RUN pip install shell-gpt
+RUN pip install pyright --break-system-packages
+RUN pip install shell-gpt --break-system-packages
 RUN pip install awscli --break-system-packages
 WORKDIR /root/work
 
