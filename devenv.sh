@@ -9,7 +9,7 @@ if [ "$1" == "rebuild" ] ; then
 fi
 
 docker build $NOCACHE --platform linux/amd64 -t devenv - <<EOF
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
