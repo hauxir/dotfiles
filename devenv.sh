@@ -83,7 +83,7 @@ RUN npm install -g vscode-langservers-extracted
 
 RUN mkdir -p /tools/
 
-RUN curl -fLO https://github.com/elixir-lsp/elixir-ls/releases/download/v0.22.1/elixir-ls.zip
+RUN curl -fLO https://github.com/elixir-lsp/elixir-ls/releases/download/v0.22.1/elixir-ls-v0.22.1.zip
 RUN unzip elixir-ls.zip -d /tools/elixir-ls
 RUN chmod +x /tools/elixir-ls/language_server.sh
 RUN ln -s /tools/elixir-ls/language_server.sh /usr/bin/elixir-ls
