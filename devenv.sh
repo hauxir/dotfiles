@@ -103,14 +103,14 @@ ENV KERL_BUILD_DOCS=yes
 
 RUN asdf plugin add elixir
 RUN asdf plugin add erlang
-RUN asdf install elixir 1.14.3
-RUN asdf install erlang 25.3
+RUN asdf install elixir 1.17.2
+RUN asdf install erlang 27.0.1
 
-RUN asdf global elixir 1.14.3
-RUN asdf global erlang 25.3
+RUN asdf global elixir 1.17.2
+RUN asdf global erlang 27.0.1
 
 RUN mkdir /home/build/
-RUN ln -s /root/.asdf/installs/elixir/1.14.3/ /home/build/elixir
+RUN ln -s /root/.asdf/installs/elixir/1.17.2/ /home/build/elixir
 
 RUN mix local.rebar --force
 RUN mix local.hex --force
