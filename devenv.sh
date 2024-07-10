@@ -54,7 +54,7 @@ RUN apt-get install -y \
 
 SHELL ["/bin/fish", "-lc"]
 
-RUN wget https://github.com/tree-sitter/tree-sitter/releases/download/v0.20.7/tree-sitter-linux-x64.gz
+RUN wget https://github.com/tree-sitter/tree-sitter/releases/download/v0.22.6/tree-sitter-linux-x64.gz
 RUN gunzip tree-sitter-linux-x64.gz
 RUN mv tree-sitter-linux-x64 /usr/bin/tree-sitter
 RUN chmod +x /usr/bin/tree-sitter
@@ -83,7 +83,7 @@ RUN npm install -g vscode-langservers-extracted
 
 RUN mkdir -p /tools/
 
-RUN curl -fLO https://github.com/elixir-lsp/elixir-ls/releases/download/v0.13.0/elixir-ls.zip
+RUN curl -fLO https://github.com/elixir-lsp/elixir-ls/releases/download/v0.22.1/elixir-ls.zip
 RUN unzip elixir-ls.zip -d /tools/elixir-ls
 RUN chmod +x /tools/elixir-ls/language_server.sh
 RUN ln -s /tools/elixir-ls/language_server.sh /usr/bin/elixir-ls
