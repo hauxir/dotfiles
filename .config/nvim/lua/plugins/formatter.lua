@@ -1,6 +1,6 @@
 local prettier = function()
     return {
-        exe = "npm run --silent prettier --",
+        exe = "prettier",
         args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
         stdin = true
     }
@@ -8,7 +8,7 @@ end
 
 local eslint = function()
   return {
-      exe = "npm run --silent eslint --",
+      exe = "eslint",
       args = { '--stdin', '--stdin-filename', vim.api.nvim_buf_get_name(0), '--fix-dry-run' },
       stdin = true
     }
