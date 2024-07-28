@@ -1,16 +1,28 @@
+local util = require "formatter.util"
+
 local prettier = function()
     return {
         exe = "prettier",
-        args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
-        stdin = true
+        args = {
+             "--stdin-filepath",
+             util.escape_path(util.get_current_buffer_file_path()),
+        },
+        stdin = true,
+        try_node_modules = true
     }
 end
 
 local eslint = function()
   return {
       exe = "eslint",
-      args = { '--stdin', '--stdin-filename', vim.api.nvim_buf_get_name(0), '--fix-dry-run' },
-      stdin = true
+      args = {
+          "--stdin",
+          "--stdin-filename",
+          util.escape_path(util.get_current_buffer_file_path()),
+          "--fix-to-stdout",
+      },
+      stdin = true,
+      try_node_modules = true
     }
 end
 
