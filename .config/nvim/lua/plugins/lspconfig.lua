@@ -41,7 +41,7 @@ local buf_map = function(bufnr, mode, lhs, rhs, opts)
     })
 end
 
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
     on_attach = function(client, bufnr)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
