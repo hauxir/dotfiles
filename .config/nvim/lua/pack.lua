@@ -3,7 +3,7 @@ local cmd = vim.cmd
 cmd 'packadd paq-nvim'
 require('paq')({
   'airblade/vim-rooter';
-  'ananthakumaran/tree-sitter-elixir';
+  'elixir-lang/tree-sitter-elixir';
 
    -- Completion
   'hrsh7th/nvim-cmp';
@@ -14,9 +14,7 @@ require('paq')({
   'hrsh7th/cmp-calc';
   'hrsh7th/cmp-emoji';
   'onsails/lspkind-nvim';
-  
-  'jose-elias-alvarez/nvim-lsp-ts-utils',
-  'kabouzeid/nvim-lspinstall',
+
   'mhartington/formatter.nvim';
   'neovim/nvim-lspconfig',
   'norcalli/nvim-base16.lua';
@@ -24,9 +22,8 @@ require('paq')({
   'nvim-lua/popup.nvim';
   'nvim-telescope/telescope.nvim';
   'nvim-telescope/telescope-fzf-native.nvim';
-  'nvim-treesitter/highlight.lua';
   {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'};
-  {'savq/paq-nvim', opt = true};  
+  {'savq/paq-nvim', opt = true};
   'zbirenbaum/copilot.lua';
   'zbirenbaum/copilot-cmp';
 
