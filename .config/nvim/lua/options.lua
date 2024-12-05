@@ -19,6 +19,7 @@ opt.autoindent = true
 opt.tabstop = 2
 opt.softtabstop = 2
 opt.shiftwidth = 2
+opt.signcolumn = 'number'
 
 opt.hlsearch = true               -- Highlight when searching
 opt.ignorecase = true             -- Ignore casing while searching
@@ -39,5 +40,4 @@ g.indent_blankline_use_treesitter = true
 g.indent_blankline_show_current_context = true
 g.indent_blankline_buftype_exclude = {'terminal'}
 
--- Rooter
 g.rooter_patterns = {'.git'}
