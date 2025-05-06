@@ -93,3 +93,28 @@ require('lspconfig').efm.setup {
 
 local set_keymap = require('../utils').set_keymap
 set_keymap('n', '<leader>z', '<cmd> lua vim.diagnostic.open_float(0, {scope="line"})<cr>')
+
+local function goto_definition_in_tab()
+  local params = vim.lsp.util.make_position_params()                                         vim.lsp.buf_request(0, 'textDocument/definition', params, function(err, result, ctx, _)      if err or not result then return end                                                       local function jump_to_location(location)
+      local uri = location.uri or location.targetUri
+      local bufnr = vim.uri_to_bufnr(uri)
+      local current_buf = vim.api.nvim_get_current_buf()
+
+      if bufnr == current_buf then
+        -- Same file: just jump
+        vim.lsp.util.jump_to_location(location, 'utf-8')
+      else
+        -- Different file: open in new tab
+        vim.cmd('tabnew')
+        vim.lsp.util.jump_to_location(location, 'utf-8')
+      end
+    end
+
+    if vim.tbl_islist(result) then
+      jump_to_location(result[1])
+    else
+      jump_to_location(result)
+    end
+  end)
+end
+vim.keymap.set('n', 'gd', goto_definition_in_tab, { noremap = true, silent = true })
