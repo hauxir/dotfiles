@@ -118,8 +118,8 @@ RUN ln -s /root/.asdf/installs/elixir/1.17.2/ /home/build/elixir
 RUN mix local.rebar --force
 RUN mix local.hex --force
 
-RUN pip install pyright
-RUN pip install shell-gpt
+RUN pip install pyright --break-system-packages
+RUN pip install shell-gpt --break-system-packages
 
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
     unzip awscliv2.zip && \
