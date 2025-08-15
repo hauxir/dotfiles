@@ -31,6 +31,9 @@ opt.cursorline = true
 opt.termguicolors = true
 opt.mouse = "r"
 
+-- Use system clipboard
+opt.clipboard = "unnamedplus"
+
 opt.swapfile = false
 
 -- Better scrolling - keep context visible

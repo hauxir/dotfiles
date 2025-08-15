@@ -1,17 +1,37 @@
 local alpha = require('alpha')
 local dashboard = require('alpha.themes.dashboard')
 
+-- Get the current directory name (repo name)
+local function get_repo_name()
+  local cwd = vim.fn.getcwd()
+  local repo_name = vim.fn.fnamemodify(cwd, ':t')
+  return repo_name:upper()
+end
+
+-- Create simple ASCII text for repo name
+local function create_header()
+  local repo_name = get_repo_name()
+  local box_width = 42  -- Fixed inner width of the box (matching the border width)
+  local padding_total = box_width - #repo_name
+  local padding_left = math.floor(padding_total / 2)
+  local padding_right = padding_total - padding_left
+  
+  local header_line = '  ║' .. string.rep(' ', padding_left) .. repo_name .. string.rep(' ', padding_right) .. '║   '
+  local empty_line = '  ║' .. string.rep(' ', box_width) .. '║   '
+  
+  return {
+    '                                                  ',
+    '  ╔══════════════════════════════════════════╗   ',
+    empty_line,
+    header_line,
+    empty_line,
+    '  ╚══════════════════════════════════════════╝   ',
+    '                                                  ',
+  }
+end
+
 -- Set header
-dashboard.section.header.val = {
-  '                                                     ',
-  '  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗',
-  '  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║',
-  '  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║',
-  '  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║',
-  '  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║',
-  '  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝',
-  '                                                     ',
-}
+dashboard.section.header.val = create_header()
 
 -- Set menu
 dashboard.section.buttons.val = {
