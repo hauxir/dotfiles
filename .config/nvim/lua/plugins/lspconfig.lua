@@ -45,18 +45,10 @@ lspconfig.ts_ls.setup({
     on_attach = function(client, bufnr)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
-        local ts_utils = require("nvim-lsp-ts-utils")
-        ts_utils.setup({
-            eslint_bin = "eslint_d",
-            eslint_enable_diagnostics = true,
-            eslint_enable_code_actions = true,
-            enable_formatting = true,
-            formatter = "prettier",
-        })
-        ts_utils.setup_client(client)
-        buf_map(bufnr, "n", "gs", ":TSLspOrganize<CR>")
-        buf_map(bufnr, "n", "gi", ":TSLspRenameFile<CR>")
-        buf_map(bufnr, "n", "go", ":TSLspImportAll<CR>")
+        -- TypeScript specific keymaps
+        buf_map(bufnr, "n", "gs", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+        buf_map(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
+        buf_map(bufnr, "n", "go", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
     end,
 })
 

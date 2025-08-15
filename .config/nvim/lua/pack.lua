@@ -37,4 +37,8 @@ require('paq')({
   
   -- Auto pairs
   'windwp/nvim-autopairs';
+  
+  -- Dashboard
+  'goolord/alpha-nvim';
+  'nvim-tree/nvim-web-devicons';
 })
