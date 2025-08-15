@@ -23,6 +23,7 @@ opt.signcolumn = 'number'
 
 opt.hlsearch = true               -- Highlight when searching
 opt.ignorecase = true             -- Ignore casing while searching
+opt.smartcase = true              -- Case-sensitive when using uppercase
 opt.incsearch = true              -- Incremental search while typing
 
 opt.hidden = true
@@ -31,6 +32,17 @@ opt.termguicolors = true
 opt.mouse = "r"
 
 opt.swapfile = false
+
+-- Better scrolling - keep context visible
+opt.scrolloff = 8
+
+-- Show whitespace characters
+opt.list = true
+opt.listchars = {trail = '·', tab = '» '}
+
+-- Persistent undo history
+opt.undofile = true
+opt.undodir = vim.fn.expand('~/.config/nvim/undo')
 
 -- Theme
 cmd 'syntax enable'

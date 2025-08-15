@@ -9,7 +9,7 @@ if [ "$1" == "rebuild" ] ; then
 fi
 
 docker build $NOCACHE --platform linux/amd64 -t devenv - <<EOF
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
@@ -44,6 +44,7 @@ RUN apt-get install -y \
     g++ \
     gcc \
     git \
+    jq \
     libncurses5-dev \
     nodejs \
     ripgrep \
@@ -80,6 +81,7 @@ RUN npm install -g vscode-json-languageserver
 RUN npm install -g bash-language-server
 RUN npm install -g eslint_d
 RUN npm install -g vscode-langservers-extracted
+RUN npm install -g @anthropic/claude-code
 
 RUN mkdir -p /tools/
 
@@ -92,7 +94,8 @@ RUN git clone --depth=1 https://github.com/asdf-vm/asdf.git /root/.asdf --branch
 RUN echo -e '\n. /root/.asdf/asdf.sh' >> /root/.profile
 RUN echo -e '\n. /root/.asdf/completions/asdf.bash' >> /root/.bashrc
 RUN echo 'export PATH="./node_modules/.bin:$PATH"' >> ~/.bashrc
-RUN echo 'source ~/.config/.°bha' >> /root/.profile
+RUN echo 'export EDITOR=nvim' >> ~/.bashrc
+RUN echo 'source ~/.config/.env' >> /root/.profile
 
 RUN curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 
@@ -117,7 +120,17 @@ RUN mix local.hex --force
 
 RUN pip install pyright
 RUN pip install shell-gpt
-RUN pip install awscli
+
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    ./aws/install && \
+    rm -rf awscliv2.zip aws/
+
+RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg && \
+    chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg && \
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null && \
+    apt update && \
+    apt install gh -y
 WORKDIR /root/work
 
 CMD ["tmux", "-u", "new-session"]

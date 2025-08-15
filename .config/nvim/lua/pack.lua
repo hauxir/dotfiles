@@ -31,4 +31,10 @@ require('paq')({
   "MunifTanjim/nui.nvim";
   "nvim-lua/plenary.nvim";
   'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons', opt = true };
+  
+  -- Git signs in gutter
+  'lewis6991/gitsigns.nvim';
+  
+  -- Auto pairs
+  'windwp/nvim-autopairs';
 })

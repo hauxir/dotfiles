@@ -28,7 +28,32 @@ require('telescope').setup{
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous
       }
-    }
+    },
+    -- Close empty buffer when opening a file from Telescope
+    attach_mappings = function(_, map)
+      actions.select_default:replace(function(prompt_bufnr)
+        local state = require("telescope.actions.state")
+        local selected = state.get_selected_entry()
+        local current_buf = vim.api.nvim_get_current_buf()
+        
+        -- Close telescope
+        actions.close(prompt_bufnr)
+        
+        -- Check if current buffer is empty and unnamed
+        if vim.fn.buflisted(current_buf) == 1 and 
+           vim.api.nvim_buf_get_name(current_buf) == "" and 
+           vim.api.nvim_buf_line_count(current_buf) == 1 and
+           vim.api.nvim_buf_get_lines(current_buf, 0, -1, false)[1] == "" then
+          vim.api.nvim_buf_delete(current_buf, {force = true})
+        end
+        
+        -- Open the selected file
+        if selected then
+          vim.cmd("edit " .. selected.path or selected.value)
+        end
+      end)
+      return true
+    end
   }
 }
 
