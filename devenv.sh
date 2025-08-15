@@ -81,7 +81,7 @@ RUN npm install -g vscode-json-languageserver
 RUN npm install -g bash-language-server
 RUN npm install -g eslint_d
 RUN npm install -g vscode-langservers-extracted
-RUN npm install -g @anthropic/claude-code
+RUN npm install -g @anthropic-ai/claude-code
 
 RUN mkdir -p /tools/
 
