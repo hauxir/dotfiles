@@ -169,4 +169,4 @@ then
 fi
 
 docker start $ACTIVE_CONTAINER_ID
-docker attach $ACTIVE_CONTAINER_ID
+docker exec -it $ACTIVE_CONTAINER_ID tmux attach-session || docker exec -it $ACTIVE_CONTAINER_ID tmux new-session
