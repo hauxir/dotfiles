@@ -62,7 +62,7 @@ RUN chmod +x /usr/bin/tree-sitter
 
 RUN wget https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-linux-x86_64.tar.gz
 RUN tar -xvf nvim-linux-x86_64.tar.gz
-RUN cp -R nvim-linux64/* /usr/
+RUN cp -R nvim-linux-x86_64/* /usr/
 RUN chmod +x /usr/bin/nvim
 
 RUN git clone --depth=1 https://github.com/savq/paq-nvim.git /root/.local/share/nvim/site/pack/paqs/start/paq-nvim --branch v1.1.0
