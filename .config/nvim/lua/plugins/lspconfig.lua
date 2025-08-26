@@ -20,7 +20,6 @@ require('lspconfig').bashls.setup({})
 require('lspconfig').cssls.setup({})
 require('lspconfig').html.setup({})
 require('lspconfig').jsonls.setup({})
-require('lspconfig').ts_ls.setup({})
 require('lspconfig').elixirls.setup({})
 require('lspconfig').elixirls.setup({
   cmd = {'elixir-ls'};
