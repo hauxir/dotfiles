@@ -3,3 +3,6 @@
 .config/fish/fishd.*
 .config/configstore/
 .config/gtk-2.0/
+.config/.env
+.config/capacitor/
+.config/github-copilot/

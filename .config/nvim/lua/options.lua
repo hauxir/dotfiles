@@ -29,10 +29,18 @@ opt.incsearch = true              -- Incremental search while typing
 opt.hidden = true
 opt.cursorline = true
 opt.termguicolors = true
-opt.mouse = "r"
+opt.mouse = "a"
 
 -- Use system clipboard
 opt.clipboard = "unnamedplus"
+
+-- For SSH sessions, map the sequence that Ghostty sends for Cmd+C
+-- Configure Ghostty to send this sequence: keybind = cmd+c=text:\x1b[99;9u
+vim.api.nvim_set_keymap('v', '<Esc>[99;9u', '"+y', { desc = 'Copy to clipboard (Cmd+C)', noremap = true, silent = true })
+
+-- Fallback mappings
+vim.keymap.set('v', '<leader>c', '"+y', { desc = 'Copy to clipboard' })
+vim.keymap.set('v', '<leader>C', '"+Y', { desc = 'Copy line to clipboard' })
 
 opt.swapfile = false
 
