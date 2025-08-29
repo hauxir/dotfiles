@@ -133,7 +133,7 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | d
     apt install gh -y
 WORKDIR /root/work
 
-CMD ["tmux", "-u", "new-session"]
+CMD tmux -u new-session
 EOF
 
 
