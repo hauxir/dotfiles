@@ -84,6 +84,23 @@ require('lspconfig').efm.setup {
 
 local set_keymap = require('../utils').set_keymap
 set_keymap('n', '<leader>z', '<cmd> lua vim.diagnostic.open_float(0, {scope="line"})<cr>')
+set_keymap('n', '<leader>n', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+set_keymap('n', '<leader>p', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
+
+-- Show diagnostics automatically when cursor holds on a line
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    local opts = {
+      focusable = false,
+      close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+      border = 'rounded',
+      source = 'always',
+      prefix = ' ',
+      scope = 'cursor',
+    }
+    vim.diagnostic.open_float(nil, opts)
+  end
+})
 
 local function goto_definition_in_tab()
   local params = vim.lsp.util.make_position_params()

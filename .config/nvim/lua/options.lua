@@ -30,6 +30,7 @@ opt.hidden = true
 opt.cursorline = true
 opt.termguicolors = true
 opt.mouse = "a"
+opt.updatetime = 0 -- Faster CursorHold events for diagnostics
 
 -- Use system clipboard
 opt.clipboard = "unnamedplus"
