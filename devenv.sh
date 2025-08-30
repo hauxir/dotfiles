@@ -121,8 +121,14 @@ RUN ln -s /root/.asdf/installs/elixir/1.18.0-otp-27/ /home/build/elixir
 RUN mix local.rebar --force
 RUN mix local.hex --force
 
-RUN pip install pyright --break-system-packages
-RUN pip install shell-gpt --break-system-packages
+# Create a virtual environment for Python packages
+RUN python3 -m venv /opt/python-venv
+ENV PATH="/opt/python-venv/bin:$PATH"
+
+# Install Python packages using pip in virtual environment
+RUN pip install --upgrade pip
+RUN pip install pyright
+RUN pip install shell-gpt
 
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
     unzip awscliv2.zip && \
