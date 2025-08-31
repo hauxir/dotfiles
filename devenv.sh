@@ -54,7 +54,8 @@ RUN apt-get install -y \
     tmux \
     unzip \
     python3 \
-    python3-pip
+    python3-pip \
+    pipx
 
 SHELL ["/bin/fish", "-lc"]
 
@@ -96,8 +97,10 @@ RUN ln -s /tools/elixir-ls/language_server.sh /usr/bin/elixir-ls
 RUN git clone --depth=1 https://github.com/asdf-vm/asdf.git /root/.asdf --branch v0.8.1
 RUN echo -e '\n. /root/.asdf/asdf.sh' >> /root/.profile
 RUN echo -e '\n. /root/.asdf/completions/asdf.bash' >> /root/.bashrc
-RUN echo 'export PATH="./node_modules/.bin:$PATH"' >> ~/.bashrc
-RUN echo 'export EDITOR=nvim' >> ~/.bashrc
+# Set environment variables for all shells
+ENV PATH="/root/.asdf/shims:/root/.asdf/bin:/root/.local/bin:./node_modules/.bin:${PATH}"
+ENV EDITOR=nvim
+
 RUN echo 'source ~/.config/.env' >> /root/.profile
 
 RUN curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
@@ -110,25 +113,23 @@ ENV KERL_BUILD_DOCS=yes
 RUN asdf plugin add elixir
 RUN asdf plugin add erlang
 RUN asdf install erlang 27.2
-RUN asdf install elixir 1.18.0-otp-27
+RUN asdf install elixir 1.18.4-otp-27
 
 RUN asdf global erlang 27.2
-RUN asdf global elixir 1.18.0-otp-27
+RUN asdf global elixir 1.18.4-otp-27
 
 RUN mkdir /home/build/
-RUN ln -s /root/.asdf/installs/elixir/1.18.0-otp-27/ /home/build/elixir
+RUN ln -s /root/.asdf/installs/elixir/1.18.4-otp-27/ /home/build/elixir
 
 RUN mix local.rebar --force
 RUN mix local.hex --force
 
-# Create a virtual environment for Python packages
-RUN python3 -m venv /opt/python-venv
-ENV PATH="/opt/python-venv/bin:$PATH"
-
-# Install Python packages using pip in virtual environment
-RUN pip install --upgrade pip
-RUN pip install pyright
-RUN pip install shell-gpt
+RUN pipx install pyright
+RUN pipx install shell-gpt
+RUN pipx install ruff
+RUN pipx install mypy
+RUN pipx install virtualenv
+RUN pipx install basedpyright
 
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
     unzip awscliv2.zip && \

@@ -24,6 +24,8 @@ require('lspconfig').elixirls.setup({})
 require('lspconfig').elixirls.setup({
   cmd = {'elixir-ls'};
 })
+require('lspconfig').ruff.setup({})
+require('lspconfig').basedpyright.setup({})
 
 local eslint = {
   lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
