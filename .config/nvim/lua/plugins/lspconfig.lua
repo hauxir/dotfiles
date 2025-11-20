@@ -58,9 +58,19 @@ lspconfig.ts_ls.setup({
 })
 
 require('lspconfig').efm.setup {
-  on_attach = function(client)
+  on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = true
     client.server_capabilities.gotoDefinitionProvider = false
+
+    -- Auto-format on save (this will run eslint --fix and sort imports)
+    if client.supports_method("textDocument/formatting") then
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.buf.format({ bufnr = bufnr })
+        end,
+      })
+    end
   end,
   root_dir = function()
     if not eslint_config_exists() then
