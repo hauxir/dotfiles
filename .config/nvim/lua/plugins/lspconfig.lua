@@ -7,9 +7,13 @@ local function eslint_config_exists()
     return true
   end
 
-  if vim.fn.filereadable("package.json") then
-    if vim.fn.json_decode(vim.fn.readfile("package.json"))["eslintConfig"] then
-      return true
+  if vim.fn.filereadable("package.json") == 1 then
+    local package_content = vim.fn.readfile("package.json")
+    if #package_content > 0 then
+      local package_data = vim.fn.json_decode(table.concat(package_content, "\n"))
+      if package_data and package_data["eslintConfig"] then
+        return true
+      end
     end
   end
 
@@ -105,7 +109,7 @@ vim.api.nvim_create_autocmd("CursorHold", {
 })
 
 local function goto_definition_in_tab()
-  local params = vim.lsp.util.make_position_params()
+  local params = vim.lsp.util.make_position_params(0, 'utf-8')
   vim.lsp.buf_request(0, 'textDocument/definition', params, function(err, result, ctx, _)
     if err or not result then return end
     local function jump_to_location(location)
@@ -123,7 +127,7 @@ local function goto_definition_in_tab()
       end
     end
 
-    if vim.tbl_islist(result) then
+    if vim.islist(result) then
       jump_to_location(result[1])
     else
       jump_to_location(result)
