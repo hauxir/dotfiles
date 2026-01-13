@@ -131,6 +131,7 @@ RUN pipx install mypy
 RUN pipx install virtualenv
 RUN pipx install basedpyright
 RUN pipx install git+https://github.com/hauxir/planka-cli.git
+RUN pipx install git+https://github.com/hauxir/metabase-cli.git
 
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
     unzip awscliv2.zip && \
