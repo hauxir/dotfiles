@@ -173,8 +173,7 @@ then
     -v "$HOME/.local/share/fish/fish_history:/root/.local/share/fish/fish_history" \
     -v "$HOME/.ssh":/root/.ssh \
     -v "$HOME/.aws":/root/.aws \
-    -v "$HOME/.config/github-copilot":/root/.config/github-copilot/ \
-    -v "$HOME/.config/.env":/root/.config/.env \
+    -v "$HOME/.config":/root/.config \
     -v "$LOCATION:/root/work/" \
     -v /var/run/docker.sock:/var/run/docker.sock \
     --network host \
