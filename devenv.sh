@@ -132,6 +132,7 @@ RUN pipx install virtualenv
 RUN pipx install basedpyright
 RUN pipx install git+https://github.com/hauxir/planka-cli.git
 RUN pipx install git+https://github.com/hauxir/metabase-cli.git
+RUN pipx install git+https://github.com/hauxir/freescout-cli.git
 
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
     unzip awscliv2.zip && \
@@ -174,6 +175,7 @@ then
     -v "$HOME/.ssh":/root/.ssh \
     -v "$HOME/.aws":/root/.aws \
     -v "$HOME/.config":/root/.config \
+    -v "$HOME/.claude":/root/.claude \
     -v "$LOCATION:/root/work/" \
     -v /var/run/docker.sock:/var/run/docker.sock \
     --network host \
