@@ -133,6 +133,9 @@ RUN pipx install basedpyright
 RUN pipx install git+https://github.com/hauxir/planka-cli.git
 RUN pipx install git+https://github.com/hauxir/metabase-cli.git
 RUN pipx install git+https://github.com/hauxir/freescout-cli.git
+RUN curl -sSLO https://github.com/hetznercloud/cli/releases/latest/download/hcloud-linux-amd64.tar.gz && \
+    tar -C /usr/local/bin --no-same-owner -xzf hcloud-linux-amd64.tar.gz hcloud && \
+    rm hcloud-linux-amd64.tar.gz
 
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
     unzip awscliv2.zip && \
