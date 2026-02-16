@@ -32,4 +32,4 @@ jobs:
           platforms: linux/amd64
           tags: ${{ env.IMAGE_NAME }}:latest
           build-args: |
-            FROM=ghcr.io/hauxir/brock_samson:latest
+            FROM=ghcr.io/hauxir/brock_samson:60b7a3

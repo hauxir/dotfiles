@@ -1,4 +1,4 @@
-ARG FROM=ghcr.io/hauxir/brock_samson:latest
+ARG FROM=ghcr.io/hauxir/brock_samson:60b7a3
 FROM ${FROM}
 
 RUN apt-get update && apt-get install -y \
