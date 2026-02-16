@@ -1,5 +1,6 @@
 ARG FROM=ghcr.io/hauxir/brock_samson:60b7a3
 FROM ${FROM}
+USER root
 
 RUN apt-get update && apt-get install -y \
     fish \
