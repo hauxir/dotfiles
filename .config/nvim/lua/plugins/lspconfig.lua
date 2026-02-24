@@ -1,5 +1,3 @@
-local lspconfig = require"lspconfig"
-
 local function eslint_config_exists()
   local eslintrc = vim.fn.glob(".eslintrc*", 0, 1)
 
@@ -20,17 +18,6 @@ local function eslint_config_exists()
   return false
 end
 
-require('lspconfig').bashls.setup({})
-require('lspconfig').cssls.setup({})
-require('lspconfig').html.setup({})
-require('lspconfig').jsonls.setup({})
-require('lspconfig').elixirls.setup({})
-require('lspconfig').elixirls.setup({
-  cmd = {'elixir-ls'};
-})
-require('lspconfig').ruff.setup({})
-require('lspconfig').basedpyright.setup({})
-
 local eslint = {
   lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
   lintStdin = true,
@@ -38,45 +25,19 @@ local eslint = {
   lintIgnoreExitCode = true,
   formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
   formatStdin = true
-
 }
-local buf_map = function(bufnr, mode, lhs, rhs, opts)
-    vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts or {
-        silent = true,
-    })
-end
 
-lspconfig.ts_ls.setup({
-    on_attach = function(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentRangeFormattingProvider = false
-        -- TypeScript specific keymaps
-        buf_map(bufnr, "n", "gs", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-        buf_map(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
-        buf_map(bufnr, "n", "go", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
-    end,
+-- Configure servers with overrides (defaults come from nvim-lspconfig lsp/ files)
+vim.lsp.config('elixirls', {
+  cmd = { 'elixir-ls' },
 })
 
-require('lspconfig').efm.setup {
-  on_attach = function(client, bufnr)
-    client.server_capabilities.documentFormattingProvider = true
-    client.server_capabilities.gotoDefinitionProvider = false
-
-    -- Auto-format on save (this will run eslint --fix and sort imports)
-    if client.supports_method("textDocument/formatting") then
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        buffer = bufnr,
-        callback = function()
-          vim.lsp.buf.format({ bufnr = bufnr })
-        end,
-      })
-    end
-  end,
-  root_dir = function()
+vim.lsp.config('efm', {
+  root_dir = function(bufnr, on_dir)
     if not eslint_config_exists() then
-      return nil
+      return
     end
-    return vim.fn.getcwd()
+    on_dir(vim.fn.getcwd())
   end,
   settings = {
     languages = {
@@ -96,8 +57,49 @@ require('lspconfig').efm.setup {
     "typescript.tsx",
     "typescriptreact"
   },
-}
+})
 
+-- Enable all servers
+vim.lsp.enable({
+  'bashls',
+  'cssls',
+  'html',
+  'jsonls',
+  'elixirls',
+  'ruff',
+  'basedpyright',
+  'ts_ls',
+  'efm',
+})
+
+-- Server-specific on_attach logic via LspAttach autocmd
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if not client then return end
+
+    if client.name == 'ts_ls' then
+      client.server_capabilities.documentFormattingProvider = false
+      client.server_capabilities.documentRangeFormattingProvider = false
+    end
+
+    if client.name == 'efm' then
+      client.server_capabilities.documentFormattingProvider = true
+      client.server_capabilities.gotoDefinitionProvider = false
+
+      if client:supports_method("textDocument/formatting") then
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          buffer = args.buf,
+          callback = function()
+            vim.lsp.buf.format({ bufnr = args.buf })
+          end,
+        })
+      end
+    end
+  end,
+})
+
+-- Diagnostic keymaps
 local set_keymap = require('../utils').set_keymap
 set_keymap('n', '<leader>z', '<cmd> lua vim.diagnostic.open_float(0, {scope="line"})<cr>')
 set_keymap('n', '<leader>n', '<cmd>lua vim.diagnostic.goto_next()<cr>')
