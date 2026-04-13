@@ -24,6 +24,7 @@ RUN wget https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-linux-x
     rm -rf nvim-linux-x86_64*
 
 ENV EDITOR=nvim
+ENV ERL_AFLAGS="-kernel shell_history enabled"
 
 # Fish plugin manager + asdf integration
 RUN curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
