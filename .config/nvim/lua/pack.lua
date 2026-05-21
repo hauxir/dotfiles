@@ -22,7 +22,7 @@ require('paq')({
   'nvim-lua/popup.nvim';
   'nvim-telescope/telescope.nvim';
   'nvim-telescope/telescope-fzf-native.nvim';
-  {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'};
+  {'nvim-treesitter/nvim-treesitter', branch = 'master', run = ':TSUpdate'};
   {'savq/paq-nvim', opt = true};
   'zbirenbaum/copilot.lua';
   'zbirenbaum/copilot-cmp';
