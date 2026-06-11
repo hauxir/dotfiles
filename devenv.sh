@@ -15,9 +15,17 @@ TOTAL_CPUS=$(nproc --all)
 DEVENV_CPUSET="0-$(( TOTAL_CPUS - 2 > 0 ? TOTAL_CPUS - 2 : 0 ))"
 DEVENV_CPUS=$(( TOTAL_CPUS - 1 > 1 ? TOTAL_CPUS - 1 : 1 ))
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 mkdir -p $HOME/.local/share/fish/
 touch $HOME/.local/share/fish/fish_history
 touch $HOME/.config/.env
+
+# Deploy tracked Claude global config to the host before it's bind-mounted in.
+# Repo is the source of truth; runtime edits to ~/.claude/settings.json are
+# overwritten on each launch.
+mkdir -p $HOME/.claude
+cp "$SCRIPT_DIR/.claude/settings.json" "$HOME/.claude/settings.json"
 
 if [ -z "$ACTIVE_CONTAINER_ID" ]
 then
