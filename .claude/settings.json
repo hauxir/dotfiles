@@ -15,7 +15,7 @@
           {
             "type": "command",
             "async": true,
-            "command": "[ -z \"$TMUX\" ] && exit 0; p=$(jq -r '.prompt // empty'); [ -z \"$p\" ] && exit 0; w=$(printf '%s' \"$p\" | head -c 2000 | claude -p --model haiku 'Output ONE short lowercase word (max 12 chars, letters only, no punctuation) naming what this users request is about. Reply with only the word.' 2>/dev/null | tr -dc 'a-z' | head -c 14); [ -n \"$w\" ] && tmux rename-window \"$w\""
+            "command": "[ -z \"$TMUX\" ] && exit 0; p=$(jq -r '.prompt // empty'); [ -z \"$p\" ] && exit 0; w=$(printf '%s' \"$p\" | head -c 2000 | claude -p --model haiku 'Output ONE short lowercase word (max 12 chars, letters only, no punctuation) naming what this users request is about. Reply with only the word.' 2>/dev/null | tr -dc 'a-z' | head -c 14); [ -n \"$w\" ] && tmux rename-window -t \"$TMUX_PANE\" \"$w\""
           }
         ]
       }
@@ -25,7 +25,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "[ -n \"$TMUX\" ] && tmux set-window-option automatic-rename on >/dev/null 2>&1; true"
+            "command": "[ -n \"$TMUX\" ] && tmux set-window-option -t \"$TMUX_PANE\" automatic-rename on >/dev/null 2>&1; true"
           }
         ]
       }
