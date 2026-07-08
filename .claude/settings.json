@@ -7,28 +7,5 @@
     "pyright-lsp@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true
   },
-  "skipAutoPermissionPrompt": true,
-  "hooks": {
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "async": true,
-            "command": "bash ~/.claude/tmux-tabname.sh"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "[ -n \"$TMUX\" ] && tmux set-window-option -t \"$TMUX_PANE\" automatic-rename on >/dev/null 2>&1; true"
-          }
-        ]
-      }
-    ]
-  }
+  "skipAutoPermissionPrompt": true
 }

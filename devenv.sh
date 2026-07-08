@@ -52,4 +52,7 @@ fi
 docker start $ACTIVE_CONTAINER_ID
 # Keep an existing container's limits in sync with the detected core count.
 docker update --cpus="$DEVENV_CPUS" --cpuset-cpus="$DEVENV_CPUSET" $ACTIVE_CONTAINER_ID >/dev/null
-docker exec -it $ACTIVE_CONTAINER_ID tmux attach-session || docker exec -it $ACTIVE_CONTAINER_ID tmux -u new-session
+# attach -d detaches any other client from the session first, so repeated
+# `devenv.sh` runs (or terminals that died without detaching) can't pile up as
+# stale clients — at most one live client per session.
+docker exec -it $ACTIVE_CONTAINER_ID tmux attach-session -d || docker exec -it $ACTIVE_CONTAINER_ID tmux -u new-session
