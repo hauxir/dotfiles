@@ -47,4 +47,8 @@ RUN nvim --headless +PaqInstall +TSInstall +10sleep +qall
 
 ENTRYPOINT []
 WORKDIR /root/work
-CMD tmux -u new-session
+# Keep-alive must NOT be a tmux client: devenv.sh (and the client-attached
+# hook) detach "other" clients on attach, which would kill PID 1 if it were a
+# client and stop the container. Start the session detached and idle on tail so
+# only real exec clients are ever culled.
+CMD tmux -u new-session -d -s work; exec tail -f /dev/null

@@ -45,7 +45,8 @@ then
     --name devenv \
     -d \
     -it \
-    ghcr.io/hauxir/devenv:latest
+    ghcr.io/hauxir/devenv:latest \
+    fish -lc 'tmux -u new-session -d -s work; exec tail -f /dev/null'
   )
 fi
 
