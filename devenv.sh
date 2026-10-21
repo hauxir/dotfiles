@@ -32,7 +32,10 @@ if nvidia-smi >/dev/null 2>&1; then
   # provides the loaders (libegl1, libgl1, libvulkan1); the runtime drops in the
   # driver's libraries at the host's version, so nothing is apt-installed inside.
   GPU_ARGS+=(-e NVIDIA_DRIVER_CAPABILITIES=all)
-  for d in /dev/nvidia0 /dev/nvidiactl /dev/nvidia-uvm /dev/nvidia-uvm-tools /dev/nvidia-modeset; do
+  # /dev/dri (the DRM render node, there when nvidia-drm is loaded) lets Chromium
+  # share a WebGPU canvas with its compositor via dma-buf; without it the page
+  # renders but the canvas stays blank in screenshots (headless Chromium, 2026-10-21).
+  for d in /dev/nvidia0 /dev/nvidiactl /dev/nvidia-uvm /dev/nvidia-uvm-tools /dev/nvidia-modeset /dev/dri; do
     [ -e "$d" ] && GPU_ARGS+=(--device "$d")
   done
 fi
