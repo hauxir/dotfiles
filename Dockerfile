@@ -9,6 +9,13 @@ RUN apt-get update && apt-get install -y \
     tmux \
     && rm -rf /var/lib/apt/lists/*
 
+# Headless Chromium for the streetsim screenshots and smoke checks. The Playwright
+# version pins the Chromium build it downloads; a script that runs
+# `uv run --with playwright==<version>` must name the same version.
+RUN uv pip install --system --break-system-packages playwright==1.58.0 \
+    && playwright install --with-deps chromium \
+    && rm -rf /var/lib/apt/lists/*
+
 SHELL ["/bin/fish", "-lc"]
 
 # Install tree-sitter
