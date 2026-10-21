@@ -33,6 +33,7 @@ then
     docker run \
     --platform linux/amd64 \
     --cpus="$DEVENV_CPUS" \
+    --gpus all \
     --cpuset-cpus="$DEVENV_CPUSET" \
     -v "$HOME/.local/share/fish/fish_history:/root/.local/share/fish/fish_history" \
     -v "$HOME/.ssh":/root/.ssh \
