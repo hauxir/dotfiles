@@ -11,7 +11,7 @@ docker pull ghcr.io/hauxir/devenv:latest
 # Scales to whatever core count this machine has.
 # nproc --all (not plain nproc) so a cpuset-limited container can't make this
 # ratchet down on each run — we always want the true host core count.
-TOTAL_CPUS=$(nproc --all)
+TOTAL_CPUS=$(docker info --format '{{.NCPU}}')
 DEVENV_CPUSET="0-$(( TOTAL_CPUS - 2 > 0 ? TOTAL_CPUS - 2 : 0 ))"
 DEVENV_CPUS=$(( TOTAL_CPUS - 1 > 1 ? TOTAL_CPUS - 1 : 1 ))
 
