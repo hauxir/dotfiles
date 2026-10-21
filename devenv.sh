@@ -25,6 +25,13 @@ if nvidia-smi >/dev/null 2>&1; then
   # Make sure /dev/nvidia-uvm exists; it's only created on first CUDA use.
   nvidia-modprobe -u -c=0 >/dev/null 2>&1 || true
   GPU_ARGS=(--gpus all)
+  # The NVIDIA container runtime injects only the compute libraries by default.
+  # "all" adds the graphics ones too (libEGL_nvidia, libGLX_nvidia, the Vulkan
+  # ICD), which headless Chromium needs to render on the GPU instead of
+  # SwiftShader (e.g. the streetsim screenshots and smoke checks). The image
+  # provides the loaders (libegl1, libgl1, libvulkan1); the runtime drops in the
+  # driver's libraries at the host's version, so nothing is apt-installed inside.
+  GPU_ARGS+=(-e NVIDIA_DRIVER_CAPABILITIES=all)
   for d in /dev/nvidia0 /dev/nvidiactl /dev/nvidia-uvm /dev/nvidia-uvm-tools /dev/nvidia-modeset; do
     [ -e "$d" ] && GPU_ARGS+=(--device "$d")
   done
@@ -54,6 +61,16 @@ if [ -f "$SCRIPT_DIR/.claude/settings.json" ]; then
   cp "$SCRIPT_DIR/.claude/settings.json" "$HOME/.claude/settings.json"
 else
   echo "warning: $SCRIPT_DIR/.claude/settings.json not found; run this script from a clone of the repo. Keeping existing ~/.claude/settings.json." >&2
+fi
+
+# Deploy tracked tmux helper scripts (branch.sh, stat.sh) to the host too.
+# ~/.config is bind-mounted over /root/.config, which hides the copies baked
+# into the image; without them the window tabs and CPU/mem status render empty.
+mkdir -p "$HOME/.config/tmux"
+if ls "$SCRIPT_DIR"/.config/tmux/*.sh >/dev/null 2>&1; then
+  cp "$SCRIPT_DIR"/.config/tmux/*.sh "$HOME/.config/tmux/"
+else
+  echo "warning: $SCRIPT_DIR/.config/tmux/*.sh not found; tmux tab names and status will be empty." >&2
 fi
 
 if [ -z "$ACTIVE_CONTAINER_ID" ]

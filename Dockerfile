@@ -4,6 +4,7 @@ USER root
 RUN apt-get update && apt-get install -y \
     fish \
     fzf \
+    libegl1 libgl1 libvulkan1 \
     ripgrep \
     tmux \
     && rm -rf /var/lib/apt/lists/*
