@@ -32,6 +32,16 @@ fi
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# The container mounts $LOCATION at /root/work.  Tools inside the container
+# (e.g. docker compose via kh) pass /root/work/… paths to the Docker daemon,
+# which resolves them on the HOST filesystem.  A symlink on the host lets the
+# daemon follow /root/work → $LOCATION so nested bind-mounts work.
+if [ "$(readlink /root/work 2>/dev/null)" != "$LOCATION" ]; then
+  ln -sfn "$LOCATION" /root/work 2>/dev/null \
+    || sudo ln -sfn "$LOCATION" /root/work 2>/dev/null \
+    || true
+fi
+
 mkdir -p "$HOME/.local/share/fish/" "$HOME/.config"
 touch "$HOME/.local/share/fish/fish_history"
 touch "$HOME/.config/.env"
