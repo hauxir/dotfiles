@@ -1,6 +1,16 @@
 FROM ghcr.io/hauxir/brock_samson:60b7a3
 USER root
 
+# The base image's GitHub CLI apt keyring expired (2026-09-05; the repo is now
+# signed with key 5612B36462313325), which fails `apt-get update` and with it
+# every image build. Fetch the current keyring first.
+RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+      -o /usr/share/keyrings/githubcli-archive-keyring.gpg
+
+# libegl1 + libgl1 (glvnd): the NVIDIA Vulkan ICD that CDI injects
+# (libGLX_nvidia) loads libEGL.so.1 and fails without it ("Could not get
+# 'vkCreateInstance' via 'vk_icdGetInstanceProcAddr'"), and Chromium's WebGPU
+# then falls back to SwiftShader.
 RUN apt-get update && apt-get install -y \
     fish \
     fzf \
